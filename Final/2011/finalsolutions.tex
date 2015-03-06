@@ -1,0 +1,66 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Final Exam \\ Classical Mechanics \\ Physics 601 (Fall 2011)}
+\date{Wednesday December 7, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Solve the following two problems.}
+\begin{enumerate}
+ \item A point mass $m_1$ slides frictionlessly along a curve $y = f(x)$.  Assume $f(-x) = f(x)$ is an even function with a single minimum at $x = 0$, and that $f''(x) > 0$.  Affixed to the mass is a rigid rod of length $\ell$ with at the other end a second point mass $m_2$.  The entire system moves under the influence of gravity.  Choose as a set of generalized coordinates the set ${x,y,\theta}$, where $(x,y)$ are the Cartesian coordinates of the mass $m_1$, and $\theta$ is the angle between the rod and the downward vertical. [40 points]
+ \begin{enumerate}
+  \item Treat the condition $y = f(x)$ as a constraint.  Find four equations for the four unknowns $x$, $y$, $\theta$, and $\lambda$, where $\lambda$ is the Lagrange multiplier.  Without solving these equations, describe how you would determine the force of constraint normal to the wire. [10 points]
+
+  With $x_1 = x$, $y_1 = y$ and $x_2 = x + \ell\sin\theta$, $y_2 = y - \ell\cos\theta$ we find $\dot{x}_1 = \dot{x}$, $\dot{y}_1 = \dot{y}$ and $\dot{x}_2 = \dot{x} + \ell\dot{\theta}\cos\theta$, $\dot{y}_2 = \dot{y} + \ell\dot{\theta}\sin\theta$.  The Lagrangian becomes then
+   \begin{eqnarray*}
+    L & = & \frac{1}{2} m_1 (\dot{x}_1^2 + \dot{y}_1^2) + \frac{1}{2} m_2 (\dot{x}_2^2 + \dot{y}_2^2) - m_1 g y_1 - m_2 g y_2 \\
+      & = & \frac{1}{2} (m_1 + m_2) (\dot{x}^2 + \dot{y}^2) + \frac{1}{2} m_2 \ell^2\dot{\theta}^2 + m_2 \ell\dot{\theta} (\dot{x}\cos\theta + \dot{y}\sin\theta) \\
+      &   & - (m_1 + m_2) g y + m_2 g \ell\cos\theta.
+   \end{eqnarray*}
+  Lagrange's equations become then
+   \begin{eqnarray*}
+    y - f(x) = 0 \\
+    (m_1 + m_2) \ddot{x} + m_2\ell\ddot{\theta}\cos\theta - m_2\ell\dot{\theta}^2\sin\theta = -\lambda f'(x) \\
+    (m_1 + m_2) \ddot{y} + m_2\ell\ddot{\theta}\sin\theta + m_2\ell\dot{\theta}^2\cos\theta = \lambda \\
+
+   \end{eqnarray*}
+
+  \item Treat the system without the constraint formalism, using the generalized coordinates $x$ and $\theta$ only.  Find the Lagrangian $L(x,\theta,\dot{x},\dot{\theta},t)$.  Find the equilibrium values $(x^*,\theta^*)$ and determine the $M$ and $V$ matrices (remember that $f(x)$ is an even function). [10 points]
+  \item Consider the case $f(x) = x^2/2b$.  Define $\Omega_0 = \sqrt{g/b}$ and $\Omega_1 = \sqrt{g/\ell}$.  Find a general expression for the normal mode frequencies $\omega_\pm$.  Find the eigenvectors $z^\pm$ (you do not need to normalize them). [15 points]
+  \item Find and interpret the limits of the frequencies $\omega_\pm$ for small $m_1$, and small $m_2$. [5 points]
+ \end{enumerate}
+ \item \label{prob:pendulum} Consider one simple pendulum of mass $m$ and length $\ell$ with $\theta$ the angle from the vertical. [30 points]
+ \begin{enumerate}
+  \item Find the Lagrangian $L(\theta,\dot{\theta},t)$ and the Hamiltonian $H(p_\theta,\theta,t)$. [5 points]
+  \item Assume small angle motion.  In Hamilton-Jacobi theory we find a canonical transformation such that the new momentum $P = \alpha$ becomes the total energy.  What is the transformation for the coordinate $Q(\theta,\alpha)$ which is conjugate to $P$? [15 points]
+  \item Calculate the action variable $J = \frac{1}{2\pi} \oint p_\theta d\theta$ by splitting the integral in four identical quadrants.  Determine the frequency $\omega = \frac{\partial H}{\partial J}$. [10 points]
+ \end{enumerate}
+ You might be able to use the following integrals:
+ \begin{equation*}
+  \int \frac{dx}{\sqrt{a^2 - x^2}} = \sin^{-1}(x/a) + C \qquad \qquad \int_0^a \sqrt{a^2 - x^2} dx = \frac{\pi}{4}a^2
+ \end{equation*}
+\end{enumerate}
+
+\paragraph{Solve \emph{two} of the following problems.}
+\begin{enumerate}[resume]
+ \item Consider an asymmetric top.  For small variations $\delta\vec\omega$ of $\vec\omega$ around one of the principal axes (\textit{e.g.} $\hat{e}_3$), use Euler's equations to derive the frequency $\Omega^2$ of the harmonic oscillations around that principal axis.  Discuss the stability of rotations around the three principal axes of a rigid body. [15 points]
+ \item Calculate the dispersion relation $\omega(k)$ for small longitudinal one-dimensional waves in a system of identical, spring-coupled pendulums separated at rest by a distance $a$.  Define $\Omega = \sqrt{g/l}$ and $\omega_0 = \sqrt{k/m}$, and start with the equation of motion for $\theta_i$. [15 points]
+ \item Consider two identical simple pendulums with a small interaction between them, $V_{int} = -\lambda mg\ell\theta_1\theta_2$.  What are the normal mode frequencies and normalized eigenvectors of this system? [15 points]
+\end{enumerate}
+
+
+\end{document}

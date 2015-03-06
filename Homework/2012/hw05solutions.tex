@@ -1,0 +1,171 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2012) \\ Homework Assignment 5: Solutions}
+\date{Due: Thursday October 5, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Fetter \& Walecka, Problem 6.2}
+Using the Hamiltonian for a free particle in spherical coordinates (previous homework assignment), but with $r$ removed as degree of freedom, the Hamiltonian here is $H = \frac{1}{2 m \ell^2} \left( p_\theta^2 + \frac{p_\phi^2}{\sin^2\theta} \right) - m g \ell \cos\theta$.  This leads to the following Hamilton's equations:
+\begin{eqnarray*}
+ \dot{\phi} & =  & \frac{1}{m\ell^2} \frac{p_\phi}{\sin^2\theta}, \\
+ \dot{p}_\phi & = & 0, \\
+ \dot{\theta} & = & \frac{1}{m\ell^2} p_\theta \\
+ \dot{p}_\theta & = & \frac{p_\phi^2}{2m\ell^2} \frac{\cos\theta}{\sin^3\theta} - mg\ell\sin\theta.
+\end{eqnarray*}
+We can eliminate $p_\theta$ from the last two equations and obtain
+\begin{equation*}
+ m\ell^2\ddot{\theta} = \frac{p_\phi^2}{2m\ell^2} \frac{\cos\theta}{\sin^3\theta} - mg\ell\sin\theta.
+\end{equation*}
+For uniform circular motion $\dot\phi = \omega$, $\theta = \theta_0$ and $\ddot\theta = \dot\theta = 0$, so
+\begin{eqnarray*}
+ \omega_0 & = & \frac{1}{m\ell^2} \frac{p_\phi}{\sin^2\theta}, \\
+ p_\phi^2 & = & \left(m\ell^2\sin^2\theta_0\right)^2 \frac{g}{\ell\cos\theta_0}.
+\end{eqnarray*}
+We introduce small deviation from this circular motion, $\theta = \theta_0 + \Delta\theta$ and $\dot\theta = \Delta\dot\theta$, and use
+\begin{eqnarray*}
+ \frac{1}{\sin^2\theta} & = & \left( \sin\theta_0 \cos\Delta\theta + \cos\theta_0 \sin\Delta\theta \right)^{-2} \\
+ & = & \left( \sin\theta_0 \left(1 - \frac{\Delta\theta^2}{2}\right) + \cos\theta_0 \Delta\theta \right)^{-2} + \mathcal{O}(\Delta\theta^3) \\
+ & = & \frac{1}{\sin^2\theta_0} \left( 1 + \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta - \frac{\Delta\theta^2}{2} \right)^{-2}  + \mathcal{O}(\Delta\theta^3) \\
+ & = & \frac{1}{\sin^2\theta_0} \left( 1 - 2 \left( \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta - \frac{\Delta\theta^2}{2} \right) + 3 \left( \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta \right)^2 \right) + \mathcal{O}(\Delta\theta^3) \\
+ & = & \frac{1}{\sin^2\theta_0} \left( 1 - 2 \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta + \left(1 + 3 \frac{\cos^2\theta_0}{\sin^2\theta_0} \right) \Delta\theta^2 \right) + \mathcal{O}(\Delta\theta^3),
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+ \cos\theta & = & \cos\theta_0\cos\Delta\theta - \sin\theta_0\sin\Delta\theta \\
+ & = & \cos\theta_0 \left( \left(1 - \frac{\Delta\theta^2}{2} \right) - \frac{\sin\theta_0}{\cos\theta_0} \Delta\theta \right) + \mathcal{O}(\Delta\theta^3) \\
+ & = & \cos\theta_0 \left( 1 - \frac{\sin\theta_0}{\cos\theta_0} \Delta\theta - \frac{\Delta\theta^2}{2} \right) + \mathcal{O}(\Delta\theta^3).
+\end{eqnarray*}
+The Hamiltonian becomes now
+\begin{eqnarray*}
+ H & = & \frac{1}{2m\ell^2} \left( p_{\Delta\theta}^2 + \frac{p_\phi^2}{\sin^2\theta_0} \left( 1 - 2 \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta + \left(1 + 3 \frac{\cos^2\theta_0}{\sin^2\theta_0} \right) \Delta\theta^2 \right) \right) \\
+ & & - mg\ell\cos\theta_0 \left( 1 - \frac{\sin\theta_0}{\cos\theta_0} \Delta\theta - \frac{\Delta\theta^2}{2} \right) + \mathcal{O}(\Delta\theta^3) \\
+ & = & \frac{1}{2m\ell^2} p_{\Delta\theta}^2 \\
+ & & + \frac{1}{2m\ell^2} \left(m\ell^2\sin^2\theta_0\right)^2 \frac{g}{\ell\cos\theta_0} \left( 1 - 2 \frac{\cos\theta_0}{\sin\theta_0} \Delta\theta + \left(1 + 3 \frac{\cos^2\theta_0}{\sin^2\theta_0} \right) \Delta\theta^2 \right) \\
+ & & - mg\ell\cos\theta_0 \left( 1 - \frac{\sin\theta_0}{\cos\theta_0} \Delta\theta - \frac{\Delta\theta^2}{2} \right) + \mathcal{O}(\Delta\theta^3) + constant \\
+ & = & \frac{1}{2m\ell^2} p_{\Delta\theta}^2 + \frac{1}{2} m\ell^2 \frac{g}{\ell\cos\theta_0} \left( 1 + 3 \cos^2\theta_0 \right) \Delta\theta^2 + \mathcal{O}(\Delta\theta^3) + constant.
+\end{eqnarray*}
+This is the Hamiltonian for a harmonic oscillator with $\omega^2 = \frac{g}{\ell\cos\theta_0} \left( 1 + 3 \cos^2\theta_0 \right)$.
+
+\paragraph{Fetter \& Walecka, Problem 6.6}
+The kinetic energy $T = \frac{1}{2} m \dot{q}^2$ and potential energy $V = \frac{1}{2} k q^2$, so the Lagrangian is $L = \frac{1}{2} m \dot{q}^2 - \frac{1}{2} k q^2$.  The generalized moment is $p = m \dot{q}$, so the Hamiltonian is $H = \frac{p^2}{2m} + \frac{1}{2} k q^2$.
+
+The transformation is canonical if it maintains the Poisson bracket in
+\begin{eqnarray*}
+ [P,Q] & = & C^2 [p,p] + 2 im\omega C^2 [p,q] + m^2\omega^2 [q,q] \\
+ & = & 2 im\omega C^2 [p,q],
+\end{eqnarray*}
+so $C^2 = \frac{1}{2 im\omega}$.
+
+The generating function $S(q,P)$ satisfies two differential expressions:
+\begin{eqnarray*}
+ p & = & \frac{\partial S}{\partial q} = \frac{P}{C} + im\omega q \\
+ Q & = & \frac{\partial S}{\partial P} = P + 2 C im\omega q,
+\end{eqnarray*}
+which can be integrated:
+\begin{eqnarray*}
+ S(q,P) & = & \frac{q P}{C} + \frac{1}{2}im\omega q^2 + g(P) \\
+ S(q,P) & = & \frac{1}{2} P^2 + 2 C im\omega q P + h(q),
+\end{eqnarray*}
+with $g(P)$ and $h(q)$ arbitrary functions.  Using the expression for $C$ we find that the $q P$ term is indeed identical, and thus $S(q,P) = \frac{1}{2} P^2 + \frac{qP}{C} + \frac{1}{2}im\omega q^2$.
+
+The new Hamiltonian is $H(P,Q) = \frac{1}{2 m C^2} Q P = i\omega Q P$.  Hamilton's equations are now decoupled:
+\begin{eqnarray*}
+ \dot{Q} & = & i\omega Q \\
+ \dot{P} & = & -i\omega P,
+\end{eqnarray*}
+and easily solved to $Q(t) = \exp i\omega t$ and $P(t) = \exp -i\omega t$.  The original coordinates are then $p(t) = \frac{Q + P}{2 C} \propto \cos\omega t$ and $q(t) = \frac{Q - P}{2 im\omega} \propto \sin\omega t$.
+
+\paragraph{Fetter \& Walecka, Problem 6.9}
+We immediately write the Lagrangian $L = \frac{1}{2} (\dot{q}_1^2 + \dot{q}_2^2) (q_1^2 + q_2^2) - (q_1^2 + q_2^2)^{-1}$.  The generalized momentum is now $p_i = \frac{\partial L}{\partial q_i} = \dot{q}_i (q_1^2 + q_2^2)$, or $\dot{q}_i = \frac{p_i}{q_1^2 + q_2^2}$.  The Hamiltonian then becomes
+\begin{equation*}
+ H = \frac{1}{2} \frac{p_1^2 + p_2^2}{q_1^2 + q_2^2} + \frac{1}{q_1^2 + q_2^2}.
+\end{equation*}
+We separate the principal function $S(q_1,q_2,P_1,P_2,t)$ into $W_1(q_1,P_1) + W_2(q_2,P_2) - \alpha t$.  The Hamilton-Jacobi equation becomes now
+\begin{equation*}
+ \frac{1}{2} \frac{1}{q_1^2 + q_2^2} \left[ \left(\frac{\partial W_1}{\partial q_1}\right)^2 + \left(\frac{\partial W_2}{\partial q_2}\right)^2 + 2 \right] = \alpha,
+\end{equation*}
+or separately
+\begin{equation*}
+ \left(\frac{\partial W_i}{\partial q_i}\right)^2 - 2\alpha q_i^2 = \alpha_i,
+\end{equation*}
+with $\alpha_1 + \alpha_2 = -2$.  The expressions for $W_i(q_i,\alpha_i)$ are then
+\begin{eqnarray*}
+ W_1(q_1,\alpha,\alpha_1) & = & \pm \int \sqrt{\alpha_1 + 2\alpha q_1^2} dq_1, \\
+ W_2(q_2,\alpha,\alpha_2) & = & \pm \int \sqrt{\alpha_2 + 2\alpha q_2^2} dq_2.
+\end{eqnarray*}
+The principal function is now
+\begin{equation*}
+ S(q_1,q_2,\alpha,\alpha_1) = \pm \int \sqrt{\alpha_1 + 2\alpha q_1^2} dq_1 \pm \int \sqrt{-2 -\alpha_1 + 2\alpha q_2^2} dq_2 - \alpha t
+\end{equation*}
+which gives for the constants $\beta$ and $\beta_1$ the expressions
+\begin{eqnarray*}
+ \beta & = & \pm \int \frac{q_1^2 dq_1}{\sqrt{\alpha_1 + 2\alpha q_1^2}} \pm \int \frac{q_2^2 dq_2}{\sqrt{-2 -\alpha_1 + 2\alpha q_2^2}} - t, \\
+ \beta_1 & = & \pm \int \frac{dq_1}{2\sqrt{\alpha_1 + 2\alpha q_1^2}} \pm \int \frac{dq_2}{2\sqrt{-2 -\alpha_1 + 2\alpha q_2^2}} dq_2.
+\end{eqnarray*}
+These expressions can now (theoretically) be solved and inverted to get $q_1$ and $q_2$ as a function of time $t$ and the integration constants $\alpha$, $\alpha_1$, $\beta$ and $\beta_1$.
+
+\paragraph{Jacobi's identity for Poisson brackets}
+With $\partial_i = \frac{\partial}{\partial x_i}$ and $\partial^i = \frac{\partial}{\partial p_i}$ we write
+\begin{eqnarray*}
+ [A,[B,C]] & = & \sum_i [A,\partial_i B \partial^i C - \partial^i B \partial_i C] \\
+ & = & \sum_i [A,\partial_i B \partial^i C] - \sum_i [A,\partial^i B \partial_i C] \\
+ & = & \sum_{i,j} \partial_j A \partial_i^j B \partial^i C + \sum_{i,j} \partial_j A \partial_i B \partial^{ij} C - \sum_{i,j} \partial^j A \partial_{ij} B \partial^i C - \sum_{i,j} \partial^j A \partial_i B \partial^i_j C \\
+ & & - \sum_{i,j} \partial_j A \partial^{ij} B \partial_i C - \sum_{i,j} \partial_j A \partial^i B \partial_i^j C + \sum_{i,j} \partial^j A \partial^i_j B \partial_i C + \sum_{i,j} \partial^j A \partial^i B \partial_{ij} C.
+\end{eqnarray*}
+We find similar expressions for $[B,[C,A]]$ and $[C,[A,B]]$.  Inspection shows that all terms will cancel out.
+
+\paragraph{Fetter \& Walecka, Problem 6.18}
+Using the Levi-Civita symbol $e_{ijk}$, and with $[r_i,p_k] = \delta_{ik}$, we find
+\begin{eqnarray*}
+ [L_m,L_n] & = & \left[ \sum_{ij} e_{ijm} r_i p_j, \sum_{kl} e_{kln} r_k p_l \right] = \sum_{ij} e_{ijm} \sum_{kl} e_{kln} [r_i p_j, r_k p_l] \\
+ & = & \sum_{ij} e_{ijm} \sum_{kl} e_{kln} \left( r_k r_i [p_j, p_l] + r_k [r_i, p_l] p_j + r_i [p_j,r_k] p_l + [r_i, r_k] p_j p_l \right) \\
+ & = & \sum_{ij} e_{ijm} \sum_{kl} e_{kln} \left( r_k \delta_{il} p_j - r_i \delta_{jk} p_l \right) \\
+ & = & \sum_j \sum_{kl} e_{ljm} e_{kln} r_k p_j - \sum_i \sum_{kl} e_{ikm} e_{kln} r_i p_l \\
+ & = & \sum_{jk} (\delta_{jn} \delta_{km} - \delta_{jk} \delta_{nm}) r_k p_j - \sum_{il} (\delta_{lm} \delta_{in} - \delta_{li} \delta_{nm}) r_i p_l \\
+ & = & \sum_{ji} (\delta_{jn} \delta_{im} - \delta_{ji} \delta_{nm}) r_i p_j - \sum_{ij} (\delta_{jm} \delta_{in} - \delta_{ji} \delta_{nm}) r_i p_j \\
+ & = & \sum_{ij} (\delta_{jn} \delta_{im} - \delta_{jm} \delta_{in}) r_i p_j \\
+ & = & \sum_{ij} \sum_{k} e_{mnk} e_{ijk} r_i p_j \\
+ & = & \sum_{k} e_{mnk} \sum_{ij} e_{ijk} r_i p_j \\
+ & = & \sum_k e_{mnk} L_k,
+\end{eqnarray*}
+or you could of course just do this for $m = 1$ and $n = 2$ and find $k = 3$ explicitly.  For the magnitude we find
+\begin{equation*}
+ [L^2,L_n] = [\sum_m L_m L_m,L_n] = 2 \sum_m L_m [L_m,L_n] = 2 \sum_m e_{mnk} L_m L_k = 0.
+\end{equation*}
+Because the Poisson brackets of the set $L_i$ are different than those of $p_i$ we cannot form a canonical transformation from $p$ to $L$.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

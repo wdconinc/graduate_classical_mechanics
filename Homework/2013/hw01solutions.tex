@@ -1,0 +1,120 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 1: Solutions}
+\date{Due: Thursday September 5, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Generalized Coordinates and the Lagrange's Equations}
+\begin{enumerate}
+ \item Determine the kinetic and potential energy, the Lagrangian, and the equations of motion of a double planar pendulum where both masses are equal to $m$ and both lengths equal to $\ell$.
+\end{enumerate}
+Using the positions
+\begin{eqnarray*}
+ x_1 & = & \ell\sin\theta_1, \\
+ y_1 & = & - \ell\cos\theta_1, \\
+ x_2 & = & \ell\sin\theta_1 + \ell\sin\theta_2, \\
+ y_2 & = & - \ell\cos\theta_1 - \ell\cos\theta_2,
+\end{eqnarray*}
+we find the potential energy $V = mgy_1 + mgy_2 = -mg(2\ell\cos\theta_1 + \ell\cos\theta_2)$.  Using the velocities
+\begin{eqnarray*}
+ \dot{x}_1 & = & \ell\dot{\theta}_1\cos\theta_1, \\
+ \dot{y}_1 & = & \ell\dot{\theta}_1\sin\theta_1, \\
+ \dot{x}_2 & = & \ell\dot{\theta}_1\cos\theta_1 + \ell\dot{\theta}_2\cos\theta_2, \\
+ \dot{y}_2 & = & \ell\dot{\theta}_1\sin\theta_1 - \ell\dot{\theta}_2\sin\theta_2,
+\end{eqnarray*}
+we find the kinetic energy $T = \frac{1}{2}m\left(\dot{x}_1^2 + \dot{y}_1^2 + \dot{x}_2^2 + \dot{y}_2^2\right) = \frac{1}{2}m\ell^2\left(2\dot{\theta}_1^2 + \dot{\theta}_2^2 + 2 \dot{\theta}_1 \dot{\theta}_2 \cos(\theta_1 - \theta_2)\right)$.  The Lagrangian is then
+\begin{equation*}
+ L = T - V = \frac{1}{2}m\ell^2\left(2\dot{\theta}_1^2 + \dot{\theta}_2^2 + 2 \dot{\theta}_1 \dot{\theta}_2 \cos(\theta_1 - \theta_2)\right) + mg(2\ell\cos\theta_1 + \ell\cos\theta_2).
+\end{equation*}
+The equations of motion are now
+\begin{eqnarray*}
+ 2m\ell^2\ddot{\theta}_1 + m\ell^2\ddot{\theta}_2\cos(\theta_1 - \theta_2) - m\ell^2\dot{\theta}_2^2\sin(\theta_1 - \theta_2) + 2mg\ell\sin\theta_1 & = & 0, \\
+ m\ell^2\ddot{\theta}_2 + m\ell^2\ddot{\theta}_1\cos(\theta_1 - \theta_2) - m\ell^2\dot{\theta}_1^2\sin(\theta_1 - \theta_2) + mg\ell\sin\theta_2 & = & 0.
+\end{eqnarray*}
+
+\begin{enumerate}[resume]
+ \item A vertical disk of radius $R$ and mass $M$ is rolling without slipping on a horizontal plane.  Determine the constraints in the form $\sum_i^n A_i \dot{q}_i + B = 0$ and determine whether they are holonomic or non-holonomic by explicit calculation.  (Note: you can use $x,y$ for the position of the disk, $\theta$ for the angle of the normal with the $x$ axis, and $\phi$ for the rotation in the plane of the disk.)
+\end{enumerate}
+The angular velocity of the disk at the contact point should be equal to the linear velocity of the center of the disk.  This means that $a\dot\phi = v$ in magnitude, but also in orientation:
+\begin{eqnarray*}
+ \dot{x} & = & v \sin\theta = a \dot\phi \sin\theta, \\
+ \dot{y} & = & - v \cos\theta = - a \dot\phi \cos\theta.
+\end{eqnarray*}
+For the first constraint, we get $A_x = 1$, $A_\phi = -a \sin\theta$, and $A_y = A_\theta = B = 0$.  Because $\frac{\partial A_\phi}{\partial \theta} \neq \frac{\partial A_\theta}{\partial \phi}$ this constraint is non-holonomic.  Also the second constraint can be shown to be non-holonomic.
+
+\begin{enumerate}[resume]
+ \item Two vertical disks of radius $a$ are mounted on the ends of a common axle of length $b$ such that the wheels can rotate independently.  The whole combination rolls without slipping on a horizontal plane.  Show that there are two non-holonomic equations of constraint, $\cos\theta dx + \sin\theta dy = 0$ and $\sin\theta dx - \cos\theta dy = \frac{1}{2} a (d\phi+d\phi^\prime)$, and one holonomic equation of constraint, $\theta = C - \frac{a}{b}(\phi-\phi^\prime)$, with a similar notation as in the previous problem.
+\end{enumerate}
+Both disks are constrained similar to the previous problem: $a\dot\phi = v$ and $a\dot\phi' = v'$.  The speed of the center of mass follows then as $\frac{v + v'}{2}$.
+
+The rotation in $\theta$ of the two disks imposes the constraint $v - v' = a\dot\phi - a\dot\phi' = -b\dot\theta$ or $\dot\theta = -\frac{a}{b} (\dot\phi - \dot\phi')$.
+
+The constraint on the components of $v$ are then
+\begin{eqnarray*}
+ \dot{x} & = & \frac{v + v'}{2} \sin\theta = \frac{a}{2} (\dot\phi + \dot\phi') \sin\theta, \\
+ \dot{y} & = & - \frac{v + v'}{2} \cos\theta = - \frac{a}{2} (\dot\phi + \dot\phi') \cos\theta.
+\end{eqnarray*}
+We can combine these two constraints as
+\begin{eqnarray*}
+ \sin\theta \dot{x} - \cos\theta \dot{y} & = & \frac{a}{2} (\dot\phi + \dot\phi'), \\
+ \cos\theta \dot{x} + \sin\theta \dot{y} & = & 0.
+\end{eqnarray*}
+If we multiply both of these equations by $dt$ we get the given expression.
+
+We can immediately integrate $\dot\theta = -\frac{a}{b} (\dot\phi - \dot\phi')$ into $\theta = C - \frac{a}{b} (\phi - \phi')$ so it is holonomic.  For the other constraints we have for example $A_x = \sin\theta$, $A_y = -\cos\theta$, $A_\phi = -\frac{a}{2}$, $A_{\phi'} = -\frac{a}{2}$, $A_\theta = B = 0$.  Because $\frac{\partial A_x}{\partial \theta} \neq \frac{\partial A_\theta}{\partial x}$ these constraints are non-holonomic.
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Chapter 3, Problem 3.3
+\end{enumerate}
+The coordinates of the two masses are
+\begin{eqnarray*}
+ x_1 & = & x, \\
+ x_2 & = & x + \ell\sin\theta, \\
+ y_2 & = & -\ell\cos\theta,
+\end{eqnarray*}
+and the corresponding velocities are
+\begin{eqnarray*}
+ \dot{x}_1 & = & \dot{x}, \\
+ \dot{x}_2 & = & \dot{x} + \ell\dot\theta\cos\theta, \\
+ \dot{y}_2 & = & \ell\dot\theta\sin\theta.
+\end{eqnarray*}
+The Lagrangian is now
+\begin{eqnarray*}
+ L = T - V & = & \frac{1}{2} m_1 \dot{x}_1^2 + \frac{1}{2} m_2 (\dot{x}_2^2 + \dot{y}_2^2) \\
+ & = & \frac{1}{2} m_1 \dot{x}^2 + \frac{1}{2} m_2 (\dot{x}^2 + \ell^2\dot\theta^2 + 2\ell\dot\theta\dot{x}\cos\theta) + m_2 g \ell\cos\theta.
+\end{eqnarray*}
+The equations of motion are then
+\begin{eqnarray*}
+ (m_1 + m_2) \ddot{x} + m_2 \ell\ddot\theta\cos\theta - m_2 \ell\dot\theta^2\sin\theta & = & 0, \\
+ m_2 \ell^2 \ddot\theta + m_2 \ell\ddot{x} \cos\theta + m_2 g\ell\sin\theta & = & 0.
+\end{eqnarray*}
+For small oscillations, $\theta \ll 1$, we can approximate this with $\sin\theta \approx \theta$ and $\cos\theta \approx 1$ as
+\begin{eqnarray*}
+ (m_1 + m_2) \ddot{x} + m_2 \ell\ddot\theta - m_2 \ell\dot\theta^2\theta & = & 0, \\
+ m_2 \ell^2 \ddot\theta + m_2 \ell\ddot{x} + m_2 g\ell\theta & = & 0,
+\end{eqnarray*}
+or
+\begin{eqnarray*}
+ \ddot{x} & = & - \ell\ddot\theta - g\theta, \\
+ m_1 \ell\ddot\theta & = & - (m_1 + m_2) g \theta.
+\end{eqnarray*}
+This last equation describes harmonic motion with frequency
+\begin{equation*}
+ \omega^2 = \frac{m_1 + m_2}{m_1} \frac{g}{\ell}.
+\end{equation*}
+
+
+\end{document}

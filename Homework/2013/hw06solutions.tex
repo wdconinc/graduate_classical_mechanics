@@ -1,0 +1,306 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 6: Solutions}
+\date{Due: Thursday October 10, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Canonical Transformations}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 6.6.
+\end{enumerate}
+
+The kinetic energy $T = \frac{1}{2} m \dot{q}^2$ and potential energy $V = \frac{1}{2} k q^2$, so the Lagrangian is $L = \frac{1}{2} m \dot{q}^2 - \frac{1}{2} k q^2$.  The generalized moment is $p = m \dot{q}$, so the Hamiltonian is $H = \frac{p^2}{2m} + \frac{1}{2} k q^2$.
+
+The transformation is canonical if it maintains the Poisson bracket in
+\begin{eqnarray*}
+ [P,Q] & = & C^2 [p,p] + 2 im\omega C^2 [p,q] + m^2\omega^2 [q,q] \\
+ & = & 2 im\omega C^2 [p,q],
+\end{eqnarray*}
+so $C^2 = \frac{1}{2 im\omega}$.
+
+The generating function $S(q,P)$ satisfies two differential expressions:
+\begin{eqnarray*}
+ p & = & \frac{\partial S}{\partial q} = \frac{P}{C} + im\omega q \\
+ Q & = & \frac{\partial S}{\partial P} = P + 2 C im\omega q,
+\end{eqnarray*}
+which can be integrated:
+\begin{eqnarray*}
+ S(q,P) & = & \frac{q P}{C} + \frac{1}{2}im\omega q^2 + g(P) \\
+ S(q,P) & = & \frac{1}{2} P^2 + 2 C im\omega q P + h(q),
+\end{eqnarray*}
+with $g(P)$ and $h(q)$ arbitrary functions.  Using the expression for $C$ we find that the $q P$ term is indeed identical, and thus $S(q,P) = \frac{1}{2} P^2 + \frac{qP}{C} + \frac{1}{2}im\omega q^2$.
+
+The new Hamiltonian is $H(P,Q) = \frac{1}{2 m C^2} Q P = i\omega Q P$.  Hamilton's equations are now decoupled:
+\begin{eqnarray*}
+ \dot{Q} & = & i\omega Q \\
+ \dot{P} & = & -i\omega P,
+\end{eqnarray*}
+and easily solved to $Q(t) = \exp i\omega t$ and $P(t) = \exp -i\omega t$.  The original coordinates are then $p(t) = \frac{Q + P}{2 C} \propto \cos\omega t$ and $q(t) = \frac{Q - P}{2 im\omega} \propto \sin\omega t$.
+
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 6.9.
+\end{enumerate}
+
+We immediately write the Lagrangian $L = \frac{1}{2} (\dot{q}_1^2 + \dot{q}_2^2) (q_1^2 + q_2^2) - (q_1^2 + q_2^2)^{-1}$.  The generalized momentum is now $p_i = \frac{\partial L}{\partial q_i} = \dot{q}_i (q_1^2 + q_2^2)$, or $\dot{q}_i = \frac{p_i}{q_1^2 + q_2^2}$.  The Hamiltonian then becomes
+\begin{equation*}
+ H = \frac{1}{2} \frac{p_1^2 + p_2^2}{q_1^2 + q_2^2} + \frac{1}{q_1^2 + q_2^2}.
+\end{equation*}
+We separate the principal function $S(q_1,q_2,P_1,P_2,t)$ into $W_1(q_1,P_1) + W_2(q_2,P_2) - \alpha t$.  The Hamilton-Jacobi equation becomes now
+\begin{equation*}
+ \frac{1}{2} \frac{1}{q_1^2 + q_2^2} \left[ \left(\frac{\partial W_1}{\partial q_1}\right)^2 + \left(\frac{\partial W_2}{\partial q_2}\right)^2 + 2 \right] = \alpha,
+\end{equation*}
+or separately
+\begin{equation*}
+ \left(\frac{\partial W_i}{\partial q_i}\right)^2 - 2\alpha q_i^2 = \alpha_i,
+\end{equation*}
+with $\alpha_1 + \alpha_2 = -2$.  The expressions for $W_i(q_i,\alpha_i)$ are then
+\begin{eqnarray*}
+ W_1(q_1,\alpha,\alpha_1) & = & \pm \int \sqrt{\alpha_1 + 2\alpha q_1^2} dq_1, \\
+ W_2(q_2,\alpha,\alpha_2) & = & \pm \int \sqrt{\alpha_2 + 2\alpha q_2^2} dq_2.
+\end{eqnarray*}
+The principal function is now
+\begin{equation*}
+ S(q_1,q_2,\alpha,\alpha_1) = \pm \int \sqrt{\alpha_1 + 2\alpha q_1^2} dq_1 \pm \int \sqrt{-2 -\alpha_1 + 2\alpha q_2^2} dq_2 - \alpha t
+\end{equation*}
+which gives for the constants $\beta$ and $\beta_1$ the expressions
+\begin{eqnarray*}
+ \beta & = & \pm \int \frac{q_1^2 dq_1}{\sqrt{\alpha_1 + 2\alpha q_1^2}} \pm \int \frac{q_2^2 dq_2}{\sqrt{-2 -\alpha_1 + 2\alpha q_2^2}} - t, \\
+ \beta_1 & = & \pm \int \frac{dq_1}{2\sqrt{\alpha_1 + 2\alpha q_1^2}} \pm \int \frac{dq_2}{2\sqrt{-2 -\alpha_1 + 2\alpha q_2^2}} dq_2.
+\end{eqnarray*}
+These expressions can now (theoretically) be solved and inverted to get $q_1$ and $q_2$ as a function of time $t$ and the integration constants $\alpha$, $\alpha_1$, $\beta$ and $\beta_1$.
+
+
+\begin{enumerate}[resume]
+ \item The Hamiltonian for a system has the form
+ \begin{equation*}
+  H = \frac{1}{2} \Bigl( \frac{1}{q^2} + p^2 q^4 \Bigr).
+ \end{equation*}
+ Find the equation of motion for $q$.  Find a canonical transformation that reduces $H$ to the form of a simple harmonic oscillator.  Show that the solution for the transformed variables is such that the equation of motion found for $q$ is satisfied.
+\end{enumerate}
+
+From the Hamiltonian $H = \frac{1}{2} (q^{-2} + p^2 q^4)$ we find the equations of motion
+\begin{eqnarray*}
+ \dot{q} & = & \frac{\partial H}{\partial p} = p q^4, \\
+ \dot{p} & = & - \frac{\partial H}{\partial q} = q^{-3} - 2 p^2 q^3.
+\end{eqnarray*}
+Using the first equation of motion we find $p = \dot{q} q^{-4}$ and therefore $\dot{p} = \ddot{q} q^{-4} - 4\dot{q}^2 q^{-5}$.  We can substitute this in the second equation of motion, and we get $\ddot{q} q^{-4} - 4\dot{q}^2 q^{-5} = q^{-3} - 2 \dot{q}^2 q^{-5}$ or $\ddot{q} - 2 \dot{q}^2 q^{-1} - q = 0$.
+
+We would like to write the Hamiltonian as $H(P,Q) = \frac{1}{2}(P^2 + Q^2)$.  Let us take for example $Q = \frac{1}{q}$ and determine the generating function $S(p,Q)$ and the expression for $P$.  We integrate $q = \frac{\partial S}{\partial p} = \frac{1}{Q}$ and find $S(p,Q) = \frac{p}{Q} + g(Q)$ with an arbitrary function $g(Q)$.  The other transformation is then $P = \frac{\partial S}{\partial Q} = -\frac{p}{Q^2} + g'(Q)$.  The new Hamiltonian $H(P,Q) = \frac{1}{2}(P^2 + Q^2) = \frac{1}{2} (q^{-2} + p^2 q^4 - 2 p q^2 g'(Q) + g'(Q)^2)$.  This will be equal to the original Hamiltonian for the choice $g(Q) \equiv 0$, or $P = -p q^2$.
+
+The solution for the transformed system is $Q = A \cos (t + \phi)$ and $P = A \sin (t + \phi)$ with the constants $A$ and $\phi$ determined by the initial conditions.  Using the transformation $q = \frac{1}{Q}$, the solution for $q$ is $$q = \frac{1}{A} \frac{1}{\cos (t + \phi)}.$$  If we plug this in the equation of motion for $q$ found earlier, we find
+\begin{eqnarray*}
+ \dot{q} & = & \frac{1}{A} \frac{\sin (t+\phi)}{\cos^2 (t+\phi)}, \\
+ \ddot{q} & = & 2 \frac{1}{A} \frac{\sin^2 (t+\phi)}{\cos^3 (t+\phi)} + \frac{1}{A} \frac{1}{\cos (t+\phi)}, \\
+ -2\dot{q}^2 q^{-1} & = & -2 \frac{1}{A} \frac{\sin^2 (t+\phi)}{\cos^3 (t+\phi)}.
+\end{eqnarray*}
+From these expressions it is clear that indeed $\ddot{q} - 2 \dot{q}^2 q^{-1} - q = 0$.
+
+\paragraph*{Fetter \& Walecka, Problem 6.10}
+a) The Lagrangian of the system is given by equation (20.26) $L = \frac{1}{2} ma^2 [\omega^2 + (\omega + \dot\theta)^2 + 2\omega(\omega + \dot\theta)\cos\theta]$, and the generalized momentum by equation (20.27) $p = ma^2 [\omega(1 + \cos\theta) + \dot\theta]$, which we can invert to $\dot\theta = \frac{p}{ma^2} - \omega (1+\cos\theta)$.  The Hamiltonian in equation (20.28) then becomes
+\begin{eqnarray*}
+ H & = & ma^2 \left[\frac{1}{2}\dot\theta^2 - \omega^2(1+\cos\theta)\right] \\
+   & = & ma^2 \left[\frac{1}{2} \left(\frac{p}{ma^2} - \omega (1+\cos\theta)\right)^2 - \omega^2(1+\cos\theta)\right] \\
+   & = & \frac{p^2}{2ma^2} - p \omega (1 + \cos\theta) + \frac{1}{2}ma^2\omega^2\left[ (1+\cos\theta)^2 - 2(1+\cos\theta)\right]  \\
+   & = & \frac{p^2}{2ma^2} - p \omega (1 + \cos\theta) - \frac{1}{2}ma^2\omega^2 \sin^2\theta.
+\end{eqnarray*}
+Hamilton's equations are now
+\begin{eqnarray*}
+ \dot{p} & = & -\frac{\partial H}{\partial \theta} = - p \omega \sin\theta + ma^2 \omega^2 \sin\theta \cos\theta, \\
+ \dot{\theta} & = & \frac{\partial H}{\partial p} = \frac{p}{ma^2} - \omega (1+\cos\theta).
+\end{eqnarray*}
+From the second equation, which we already obtained earlier, we find $\dot{p} = ma^2 (\ddot\theta - \omega \dot\theta \sin\theta)$, and we can substitute this into the first equation:
+\begin{equation*}
+ ma^2 (\ddot\theta - \omega \dot\theta \sin\theta) = - ma^2 \left(\dot\theta + \omega (1+\cos\theta) \right) \omega \sin\theta + ma^2 \omega^2 \sin\theta \cos\theta.
+\end{equation*}
+This simplifies to $\ddot\theta + \omega^2 \sin\theta = 0$, the equation for the simple pendulum.
+
+b) The Hamilton-Jacobi equation is, with $S(\theta,\alpha,t) = W(\theta,\alpha) - \alpha t$ and using the expression for $H$ before expansion,
+\begin{equation*}
+ ma^2 \left[\frac{1}{2} \left(\frac{1}{ma^2}\frac{d W}{d\theta} - \omega (1+\cos\theta)\right)^2 - \omega^2(1+\cos\theta)\right] = \alpha.
+\end{equation*}
+We can solve for $\frac{d W}{d\theta}$ and find
+\begin{equation*}
+ \frac{d W}{d\theta} = ma^2 \left[\omega(1 + \cos\theta) \pm \sqrt{\frac{2}{ma^2}\left(\alpha + ma^2\omega^2(1+\cos\theta)\right)}\right].
+\end{equation*}
+Therefore, when we integrate, we obtain
+\begin{equation*}
+ W(\theta,\alpha) = \int d\theta ma^2\omega(1 + \cos\theta) \pm \int d\theta \sqrt{2ma^2\left(\alpha + ma^2\omega^2\left(1 + \cos\theta\right)\right)}.
+\end{equation*}
+For the other integration constant $\beta$ we find an elliptic integral
+\begin{eqnarray*}
+ \beta + t & = & \frac{d W}{d\alpha} = \pm \int d\theta \frac{\sqrt{2ma^2}}{2\sqrt{2ma^2\left(\alpha + ma^2\omega^2\left(1 + \cos\theta\right)\right)}}, \\
+ & =  & \pm \int d\theta \frac{1}{2\sqrt{\alpha + ma^2\omega^2 + ma^2\omega^2\cos\theta}}.
+\end{eqnarray*}
+
+\paragraph*{Fetter \& Walecka, Problem 6.4}
+a) We use the relativistic gamma factor $\gamma = \left(1-\frac{v^2}{c^2}\right)^{-\frac{1}{2}}$, which still depends on $\dot{x}_i$, to write $L = -\frac{1}{\gamma}mc^2 - V(\vec{r})$.  Using
+\begin{eqnarray*}
+ \frac{\partial L}{\partial \dot{x}_i} & = & \frac{m \dot{x}_i}{\sqrt{1-\frac{v^2}{c^2}}} = \gamma m \dot{x}_i = p_i, \\
+ \frac{\partial L}{\partial x_i} & = & -\frac{\partial V}{\partial x_i} = F_i.
+\end{eqnarray*}
+and with the relativistic momentum $\vec{p} = \gamma m \vec{v}$ and conservative force $\vec{F}$ the Lagrange equation then becomes simply $\dot{\vec{p}} = \vec{F}$.
+
+b) The Hamiltonian is, using $p^2 = \gamma^2 m^2 v^2$ or $v^2 = p^2\left(m^2 + \frac{p^2}{c^2}\right)^{-1}$ and therefore $\gamma = \sqrt{1 + \frac{p^2}{m^2c^2}}$,
+\begin{equation*}
+ H = \vec{p} \cdot \vec{v} - L = \gamma m v^2 + \frac{1}{\gamma} mc^2 + V(\vec{r}) = \gamma m c^2 + V(\vec{r}) = \sqrt{m^2 c^4 + p^2 c^2} + V(\vec{r}).
+\end{equation*}
+Since this does not depend explicitly on $t$, the Hamiltonian will be a conserved quantity.
+
+c) Central forces result in planar motion.  In polar coordinates the momentum is $\vec{p} = p_r \hat{e}_r + \frac{1}{r} p_\phi \hat{e}_\phi$ and $p^2 = p_r^2 + \frac{p_\phi^2}{r^2}$.  The Hamiltonian is then
+\begin{equation*}
+ H = c \sqrt{m^2 c^2 + p_r^2 + \frac{p_\phi^2}{r^2}} + V(r).
+\end{equation*}
+This is cyclic in $\phi$, and the momentum $p_\phi$ will therefore be constant.  Using $\vec{L} = \vec{r} \times \vec{p} = \hat{e}_r \times p_\phi \hat{e}_\phi = p_\phi \hat{e}_\theta$, we can rewrite the Hamiltonian as $H = c \sqrt{m^2 c^2 + p_r^2 + \frac{L^2}{r^2}} + V(r)$.
+
+\paragraph*{Fetter \& Walecka, Problem 6.14}
+a) Using the Hamiltonian $H = c \sqrt{m^2 c^2 + p_r^2 + \frac{p_\phi^2}{r^2}} + V(r)$ we can write the Hamilton-Jacobi equation, with $S = W_r + W_\phi - E t$, as
+\begin{equation*}
+ c \sqrt{m^2 c^2 + \left(\frac{\partial W_r}{\partial r}\right)^2 + \frac{1}{r^2} \left(\frac{\partial W_\phi}{\partial \phi}\right)} + V(r) = E.
+\end{equation*}
+We immediately have $W_\phi = \phi p_\phi$ for the cyclic variable $\phi$, and find for $W_r$
+\begin{eqnarray*}
+ \frac{\partial W_r}{\partial r} & = & \pm \frac{1}{c} \sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}, \\
+ W_r & = & \pm \frac{1}{c} \int dr \sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}.
+\end{eqnarray*}
+After integration and differentiation we find two expressions
+\begin{eqnarray*}
+ \beta & = & \frac{\partial S}{\partial E} = \frac{\partial W_r}{\partial E} - t \\
+       & = & \pm \frac{1}{c} \int dr \frac{E - V(r)}{\sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}} - t, \\
+ \beta_\phi & = & \frac{\partial S}{\partial p_\phi} = \frac{\partial W_r}{\partial p_\phi} + \phi \\
+       & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}} + \phi.
+\end{eqnarray*}
+After integration, the first expression will give $r(t)$ while the second expression will result in $r(\phi)$.
+
+b) For the gravitational potential, we have
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{\left(E + GMm\frac{1}{r}\right)^2 - p_\phi^2 c^2 \frac{1}{r^2} - m^2 c^4}} \\
+ & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{- \left( p_\phi^2 c^2 - (GMm)^2 \right) \frac{1}{r^2} + 2EGMm\frac{1}{r} - \left(m^2 c^4 - E^2\right)}}.
+\end{eqnarray*}
+We define now the positive constants
+\begin{eqnarray*}
+ A & = & \left(p_\phi^2 c^2 - (GMm)^2\right), \\
+ B & = & EGMm, \\
+ C & = & \left(m^2 c^4 - E^2\right),
+\end{eqnarray*}
+such that the discriminant
+\begin{eqnarray*}
+ B^2 - AC & = & E^2 (GMm)^2 - (p_\phi^2 c^2 - (GMm)^2) (m^2 c^4 - E^2) \\
+ & = & E^2 (GMm)^2 - p_\phi^2 c^2 (m^2 c^4 - E^2) + (GMm)^2 (m^2 c^4 - E^2) \\
+ & = & (GMm)^2 m^2 c^4 - p_\phi^2 c^2 (m^2 c^4 - E^2)
+\end{eqnarray*}
+is positive for $p_\phi c > GMm$ and $mc^2 > E$.  We rewrite the integral as
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{ - \frac{A}{r^2} + 2 \frac{B}{r} - C}} \\
+ & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\left(\frac{B^2}{A} - C\right) - \left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)^2}} \\
+ & = & \pm \frac{1}{c} \int \frac{-\frac{p_\phi c^2}{\sqrt{A}} d\left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)}{\sqrt{\left(\frac{B^2}{A} - C\right) - \left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)^2}} \\
+ \phi - \beta_\phi & = & \pm \frac{p_\phi c}{\sqrt{A}} \cos^{-1} \frac{\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}}{\sqrt{\frac{B^2}{A} - C}} = \pm \frac{p_\phi c}{\sqrt{A}} \cos^{-1} \frac{1 - \frac{A}{B}\frac{1}{r}}{\sqrt{1 - \frac{AC}{B^2}}},
+\end{eqnarray*}
+where we used $\int \frac{du}{\sqrt{k^2 - u^2}} = -\cos^{-1} \frac{u}{k}$.  We can solve this for $r$ as
+\begin{eqnarray*}
+ r(\phi) & = & \frac{A}{B} \frac{1}{1 - \sqrt{1 - \frac{AC}{B^2}} \cos\left(\pm \frac{\sqrt{A}}{p_\phi c} (\phi - \beta_\phi)\right)}.
+\end{eqnarray*}
+
+The general solution for a conic section with semimajor axis $a$, and eccentricity $e$, is given by equation (3.20b),
+\begin{equation*}
+ r = \frac{a(1 - e^2)}{1 - e \cos\phi}.
+\end{equation*}
+so we can identify for an ellipse with $e < 1$
+\begin{eqnarray*}
+ e & = & \sqrt{1 - \frac{AC}{B^2}} \approx 1 - \frac{AC}{2B^2} < 1, \\
+ a & = & \frac{A}{B}\frac{1}{(1-e^2)} = \frac{B}{C}.
+\end{eqnarray*}
+The only difference is the scale factor $\frac{\sqrt{A}}{p_\phi c}$ in the argument of the cosine.  This will ensure that a change over $2\pi$ in $\phi$ starting at the perihelium will not bring $r$ back to the perihelium value.  Instead, $\phi$ will have to change over $2\pi \frac{p_\phi c}{\sqrt{A}}$ before $r$ is back at the perihelium, and the perihelium will precess.  The perihelium precession per rotation is given by
+\begin{eqnarray*}
+ \delta\phi & = & 2\pi \left(1 - \frac{p_\phi c}{\sqrt{A}}\right) \\
+ & = & 2\pi \left(1 - \frac{p_\phi c}{\sqrt{p_\phi^2 c^2 - G^2M^2m^2}} \right) \\
+ & \approx & 2\pi \left(1 - \left(1 - \frac{1}{2} \frac{G^2M^2m^2}{p_\phi^2 c^2} \right) \right) \\
+ & = & \pi \left( \frac{GMm}{p_\phi c} \right)^2.
+\end{eqnarray*}
+For Mercury, with
+\begin{eqnarray*}
+ \frac{GM}{c^2} & = & 1.475\,\hbox{km}, \\
+ m & = & 3.30 \cdot 10^{23}\,\hbox{kg}, \\
+ p_\phi & = & 9.1 \cdot 10^{38}\,\hbox{kg m}^2\,\hbox{s}^{-1}, \\
+ \tau & = & 87.97\,\hbox{days},
+\end{eqnarray*}
+this evaluates to $\delta\phi = 8.1 \cdot 10^{-8}$ radians, or for 100 years $\Delta\phi = 3.4 \cdot 10^{-5}$ radians, or 6.9 arc seconds.
+
+c) When $p_\phi < \frac{GMm}{c}$ but still $E < mc^2$ the constant $A$ is not positive anymore, and we can now define instead $A = \left(G^2M^2m^2 - p_\phi^2 c^2\right)$ without changing $B$ and $C$.  The integral becomes now
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\frac{A}{r^2} + 2 \frac{B}{r} - C}} \\
+ & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\left(\frac{\sqrt{A}}{r} + \frac{B}{\sqrt{A}}\right)^2 - \left(\frac{B^2}{A} + C\right)}},
+\end{eqnarray*}
+which will lead to an eccentricity
+\begin{equation*}
+ e = \sqrt{1 + \frac{AC}{B^2}} \approx 1 + \frac{AC}{2B^2} > 1
+\end{equation*}
+for a hyperbola.
+
+\paragraph*{Fetter \& Walecka, Problem 6.17}
+a) From the generating function $S(\vec{q},\vec{P},t) = \vec{q} \cdot \vec{P} + \epsilon G(\vec{q},\vec{P},t)$ we can immediately write the transformations and expand
+\begin{eqnarray*}
+ p_i & = & \frac{\partial S}{\partial q_i} = P_i + \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{P},t), \\
+ P_i & = & p_i - \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{P},t) \\
+     & = & p_i - \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{p} - \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{P},t),t) \\
+     & = & p_i - \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{p},t) + \mathcal{O}(\epsilon^2), \\
+ Q_i & = & \frac{\partial S}{\partial P_i} = q_i + \epsilon \frac{\partial G}{\partial P_i}(\vec{q},\vec{P},t) \\
+     & = & q_i + \epsilon \frac{\partial G}{\partial P_i}(\vec{q},\vec{p} - \epsilon \frac{\partial G}{\partial q_i}(\vec{q},\vec{P},t),t) \\
+     & = & q_i + \epsilon \frac{\partial G}{\partial p_i}(\vec{q},\vec{p},t) + \mathcal{O}(\epsilon^2).
+\end{eqnarray*}
+
+b) Under this canonical transformation we can write the change in $F$ as
+\begin{eqnarray*}
+ dF & = & \sum_i \frac{\partial F}{\partial q_i} dq_i + \sum_i \frac{\partial F}{\partial p_i} dp_i \\
+    & = & \epsilon \sum_i \frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i} - \epsilon \sum_i \frac{\partial F}{\partial p_i} \frac{\partial G}{\partial q_i} \\
+    & = & \epsilon [F,G].
+\end{eqnarray*}
+
+c) The change in the Hamiltonian under these transformations is $dH = \epsilon [H,G]$.  If $G$ is a constant of motion then, by equation (37.5), we must have $[H,G] = 0$.  In a system of particles with two-body potentials, we have
+\begin{equation*}
+ H = \sum_i \frac{|\vec{p}_i|^2}{2 m_i} + \sum_{i \neq j} \frac{1}{2} V(\vec{r}_i,\vec{r}_j).
+\end{equation*}
+
+The total linear momentum is $G \hat{e}_G = \sum_i \vec{p}_i$, or $G = \sum_i \vec{p}_i \cdot \hat{e}_G$.  The change $dH$ in the Hamiltonian under the corresponding transformation
+\begin{eqnarray*}
+ \vec{P}_i & = & \vec{p}_i, \\
+ \vec{R}_i & = & \vec{r}_i + \epsilon \hat{e}_G \cdot \sum_j \delta_{ij} = \vec{r}_i + \epsilon \hat{e}_G,
+\end{eqnarray*}
+is then
+\begin{eqnarray*}
+ dH = H(P,R) - H(p,r) & = & \sum_{i \neq j} \frac{1}{2} \left( V(\vec{R}_i,\vec{R}_j) - V(\vec{r}_i,\vec{r}_j) \right) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \left( V(\vec{r}_i + \epsilon \hat{e}_G,\vec{r}_j + \epsilon \hat{e}_G) - V(\vec{r}_i,\vec{r}_j) \right) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \epsilon \left( \frac{\partial V}{\partial \vec{r}_i} + \frac{\partial V}{\partial \vec{r}_j} \right) \cdot \hat{e}_G + \mathcal{O}(\epsilon^2).
+\end{eqnarray*}
+This will be zero if $V(\vec{r}_i,\vec{r}_j) = V(\vec{r}_i - \vec{r}_j)$, or the two-body potential only depends on the distance between the two particles.
+
+The total angular momentum is $G \hat{e}_G = \sum_i \vec{r}_i \times \vec{p}_i$, or $G = \sum_i (\vec{r}_i \times \vec{p}_i) \cdot \hat{e}_G = \sum_i (\hat{e}_G \times \vec{r}_i) \cdot \vec{p}_i  = - \sum_i (\hat{e}_G \times \vec{p}_i) \cdot \vec{r}_i$.  The change $dH$ in the Hamiltonian under the corresponding transformation
+\begin{eqnarray*}
+ \vec{P}_i & = & \vec{p}_i - \epsilon \hat{e}_G \times \vec{p}_i, \\
+ \vec{R}_i & = & \vec{r}_i + \epsilon \hat{e}_G \times \vec{r}_i,
+\end{eqnarray*}
+is then
+\begin{eqnarray*}
+ dH = H(P,R) - H(p,r) & = & \sum_{i \neq j} \frac{1}{2} \left( V(\vec{R}_i,\vec{R}_j) - V(\vec{r}_i,\vec{r}_j) \right) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \left( V(\vec{r}_i + \epsilon \hat{e}_G \times \vec{r}_i,\vec{r}_j + \epsilon \hat{e}_G \times \vec{r}_j) - V(\vec{r}_i,\vec{r}_j) \right) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \epsilon \left( \frac{\partial V}{\partial \vec{r}_i} \cdot (\hat{e}_G \times \vec{r}_i) + \frac{\partial V}{\partial \vec{r}_j} \cdot (\hat{e}_G \times \vec{r}_j) \right) + \mathcal{O}(\epsilon^2) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \epsilon \left( \frac{\partial V}{\partial \vec{r}_i} \times \vec{r}_i + \frac{\partial V}{\partial \vec{r}_j} \times \vec{r}_j \right) \cdot \hat{e}_G + \mathcal{O}(\epsilon^2) \\
+ & = & \sum_{i \neq j} \frac{1}{2} \epsilon \frac{\partial V}{\partial \vec{r}_i} \times (\vec{r}_i - \vec{r}_j) \cdot \hat{e}_G + \mathcal{O}(\epsilon^2),
+\end{eqnarray*}
+where we used $\vec{P}_i \cdot \vec{P}_i = \vec{p}_i \cdot \vec{p}_i + \mathcal{O}(\epsilon^2)$ and the result found for the linear momentum.  This will be zero if the force $\vec{F} = - \frac{\partial V}{\partial \vec{r}_i}$ is parallel to $\vec{r}_i - \vec{r}_j$, the line connecting the two particles.
+
+
+
+\end{document}

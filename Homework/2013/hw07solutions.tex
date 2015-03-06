@@ -1,0 +1,208 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 7: Solutions}
+\date{Due: Thursday October 24, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Hamilton-Jacobi Theory}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 6.4 (Use the results from Chapter 1 where appropriate).
+\end{enumerate}
+a) We use the relativistic gamma factor $\gamma = \left(1-\frac{v^2}{c^2}\right)^{-\frac{1}{2}}$, which still depends on $\dot{x}_i$, to write $L = -\frac{1}{\gamma}mc^2 - V(\vec{r})$.  Using
+\begin{eqnarray*}
+ \frac{\partial L}{\partial \dot{x}_i} & = & \frac{m \dot{x}_i}{\sqrt{1-\frac{v^2}{c^2}}} = \gamma m \dot{x}_i = p_i, \\
+ \frac{\partial L}{\partial x_i} & = & -\frac{\partial V}{\partial x_i} = F_i.
+\end{eqnarray*}
+and with the relativistic momentum $\vec{p} = \gamma m \vec{v}$ and conservative force $\vec{F}$ the Lagrange equation then becomes simply $\dot{\vec{p}} = \vec{F}$.
+
+b) The Hamiltonian is, using $p^2 = \gamma^2 m^2 v^2$ or $v^2 = p^2\left(m^2 + \frac{p^2}{c^2}\right)^{-1}$ and therefore $\gamma = \sqrt{1 + \frac{p^2}{m^2c^2}}$,
+\begin{equation*}
+ H = \vec{p} \cdot \vec{v} - L = \gamma m v^2 + \frac{1}{\gamma} mc^2 + V(\vec{r}) = \gamma m c^2 + V(\vec{r}) = \sqrt{m^2 c^4 + p^2 c^2} + V(\vec{r}).
+\end{equation*}
+Since this does not depend explicitly on $t$, the Hamiltonian will be a conserved quantity.
+
+c) Central forces result in planar motion.  In polar coordinates the momentum is $\vec{p} = p_r \hat{e}_r + \frac{1}{r} p_\phi \hat{e}_\phi$ and $p^2 = p_r^2 + \frac{p_\phi^2}{r^2}$.  The Hamiltonian is then
+\begin{equation*}
+ H = c \sqrt{m^2 c^2 + p_r^2 + \frac{p_\phi^2}{r^2}} + V(r).
+\end{equation*}
+This is cyclic in $\phi$, and the momentum $p_\phi$ will therefore be constant.  Using $\vec{L} = \vec{r} \times \vec{p} = \hat{e}_r \times p_\phi \hat{e}_\phi = p_\phi \hat{e}_\theta$, we can rewrite the Hamiltonian as $H = c \sqrt{m^2 c^2 + p_r^2 + \frac{L^2}{r^2}} + V(r)$.
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 6.14 (Use the results from Chapter 1 where appropriate).
+\end{enumerate}
+
+a) Using the Hamiltonian $H = c \sqrt{m^2 c^2 + p_r^2 + \frac{p_\phi^2}{r^2}} + V(r)$ we can write the Hamilton-Jacobi equation, with $S = W_r + W_\phi - E t$, as
+\begin{equation*}
+ c \sqrt{m^2 c^2 + \left(\frac{\partial W_r}{\partial r}\right)^2 + \frac{1}{r^2} \left(\frac{\partial W_\phi}{\partial \phi}\right)} + V(r) = E.
+\end{equation*}
+We immediately have $W_\phi = \phi p_\phi$ for the cyclic variable $\phi$, and find for $W_r$
+\begin{eqnarray*}
+ \frac{\partial W_r}{\partial r} & = & \pm \frac{1}{c} \sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}, \\
+ W_r & = & \pm \frac{1}{c} \int dr \sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}.
+\end{eqnarray*}
+After integration and differentiation we find two expressions
+\begin{eqnarray*}
+ \beta & = & \frac{\partial S}{\partial E} = \frac{\partial W_r}{\partial E} - t \\
+       & = & \pm \frac{1}{c} \int dr \frac{E - V(r)}{\sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}} - t, \\
+ \beta_\phi & = & \frac{\partial S}{\partial p_\phi} = \frac{\partial W_r}{\partial p_\phi} + \phi \\
+       & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{\left(E - V(r)\right)^2 - p_\phi^2 c^2 r^{-2} - m^2 c^4}} + \phi.
+\end{eqnarray*}
+After integration, the first expression will give $r(t)$ while the second expression will result in $r(\phi)$.
+
+b) For the gravitational potential, we have
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{\left(E + GMm\frac{1}{r}\right)^2 - p_\phi^2 c^2 \frac{1}{r^2} - m^2 c^4}} \\
+ & = & \pm \frac{1}{c} \int dr \frac{-p_\phi c^2 r^{-2}}{\sqrt{- \left( p_\phi^2 c^2 - (GMm)^2 \right) \frac{1}{r^2} + 2EGMm\frac{1}{r} - \left(m^2 c^4 - E^2\right)}}.
+\end{eqnarray*}
+We define now the positive constants
+\begin{eqnarray*}
+ A & = & \left(p_\phi^2 c^2 - (GMm)^2\right), \\
+ B & = & EGMm, \\
+ C & = & \left(m^2 c^4 - E^2\right),
+\end{eqnarray*}
+such that the discriminant
+\begin{eqnarray*}
+ B^2 - AC & = & E^2 (GMm)^2 - (p_\phi^2 c^2 - (GMm)^2) (m^2 c^4 - E^2) \\
+ & = & E^2 (GMm)^2 - p_\phi^2 c^2 (m^2 c^4 - E^2) + (GMm)^2 (m^2 c^4 - E^2) \\
+ & = & (GMm)^2 m^2 c^4 - p_\phi^2 c^2 (m^2 c^4 - E^2)
+\end{eqnarray*}
+is positive for $p_\phi c > GMm$ and $mc^2 > E$.  We rewrite the integral as
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{ - \frac{A}{r^2} + 2 \frac{B}{r} - C}} \\
+ & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\left(\frac{B^2}{A} - C\right) - \left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)^2}} \\
+ & = & \pm \frac{1}{c} \int \frac{-\frac{p_\phi c^2}{\sqrt{A}} d\left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)}{\sqrt{\left(\frac{B^2}{A} - C\right) - \left(\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}\right)^2}} \\
+ \phi - \beta_\phi & = & \pm \frac{p_\phi c}{\sqrt{A}} \cos^{-1} \frac{\frac{B}{\sqrt{A}} - \frac{\sqrt{A}}{r}}{\sqrt{\frac{B^2}{A} - C}} = \pm \frac{p_\phi c}{\sqrt{A}} \cos^{-1} \frac{1 - \frac{A}{B}\frac{1}{r}}{\sqrt{1 - \frac{AC}{B^2}}},
+\end{eqnarray*}
+where we used $\int \frac{du}{\sqrt{k^2 - u^2}} = -\cos^{-1} \frac{u}{k}$.  We can solve this for $r$ as
+\begin{eqnarray*}
+ r(\phi) & = & \frac{A}{B} \frac{1}{1 - \sqrt{1 - \frac{AC}{B^2}} \cos\left(\pm \frac{\sqrt{A}}{p_\phi c} (\phi - \beta_\phi)\right)}.
+\end{eqnarray*}
+
+The general solution for a conic section with semimajor axis $a$, and eccentricity $e$, is given by equation (3.20b),
+\begin{equation*}
+ r = \frac{a(1 - e^2)}{1 - e \cos\phi}.
+\end{equation*}
+so we can identify for an ellipse with $e < 1$
+\begin{eqnarray*}
+ e & = & \sqrt{1 - \frac{AC}{B^2}} \approx 1 - \frac{AC}{2B^2} < 1, \\
+ a & = & \frac{A}{B}\frac{1}{(1-e^2)} = \frac{B}{C}.
+\end{eqnarray*}
+The only difference is the scale factor $\frac{\sqrt{A}}{p_\phi c}$ in the argument of the cosine.  This will ensure that a change over $2\pi$ in $\phi$ starting at the perihelium will not bring $r$ back to the perihelium value.  Instead, $\phi$ will have to change over $2\pi \frac{p_\phi c}{\sqrt{A}}$ before $r$ is back at the perihelium, and the perihelium will precess.  The perihelium precession per rotation is given by
+\begin{eqnarray*}
+ \delta\phi & = & 2\pi \left(1 - \frac{p_\phi c}{\sqrt{A}}\right) \\
+ & = & 2\pi \left(1 - \frac{p_\phi c}{\sqrt{p_\phi^2 c^2 - G^2M^2m^2}} \right) \\
+ & \approx & 2\pi \left(1 - \left(1 - \frac{1}{2} \frac{G^2M^2m^2}{p_\phi^2 c^2} \right) \right) \\
+ & = & \pi \left( \frac{GMm}{p_\phi c} \right)^2.
+\end{eqnarray*}
+For Mercury, with
+\begin{eqnarray*}
+ \frac{GM}{c^2} & = & 1.475\,\hbox{km}, \\
+ m & = & 3.30 \cdot 10^{23}\,\hbox{kg}, \\
+ p_\phi & = & 9.1 \cdot 10^{38}\,\hbox{kg m}^2\,\hbox{s}^{-1}, \\
+ \tau & = & 87.97\,\hbox{days},
+\end{eqnarray*}
+this evaluates to $\delta\phi = 8.1 \cdot 10^{-8}$ radians, or for 100 years $\Delta\phi = 3.4 \cdot 10^{-5}$ radians, or 6.9 arc seconds.
+
+c) When $p_\phi < \frac{GMm}{c}$ but still $E < mc^2$ the constant $A$ is not positive anymore, and we can now define instead $A = \left(G^2M^2m^2 - p_\phi^2 c^2\right)$ without changing $B$ and $C$.  The integral becomes now
+\begin{eqnarray*}
+ \beta_\phi - \phi & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\frac{A}{r^2} + 2 \frac{B}{r} - C}} \\
+ & = & \pm \frac{1}{c} \int \frac{-p_\phi c^2 r^{-2} dr}{\sqrt{\left(\frac{\sqrt{A}}{r} + \frac{B}{\sqrt{A}}\right)^2 - \left(\frac{B^2}{A} + C\right)}},
+\end{eqnarray*}
+which will lead to an eccentricity
+\begin{equation*}
+ e = \sqrt{1 + \frac{AC}{B^2}} \approx 1 + \frac{AC}{2B^2} > 1
+\end{equation*}
+for a hyperbola.
+
+\paragraph*{Non-Linear Dynamics}
+\begin{enumerate}[resume]
+ \item For the Duffing oscillator with potential $V(q) = \frac{1}{2} m \omega_0 q^2 + \frac{1}{4} m \epsilon q^4$ with initial conditions $q(0) = a$ and $\dot{q}(0) = 0$, use the conservation of energy to find the period $\tau(E)$ as a function of energy.  How does $\tau$ behave as a function of $\epsilon$ for fixed $E$?  For small $\epsilon$, expand to rederive the frequency shift $\omega = \omega_0 + \epsilon \frac{3a^2}{8\omega_0}$.
+ 
+ \textit{Hint:} The period $\tau$ is the integral of $t$ over one cycle, or $\tau = \int_{cycle} \frac{dt}{dq} dq$.
+\end{enumerate}
+
+From the Hamiltonian for this system,
+\begin{equation*}
+ H = E = \frac{1}{2} m\dot{q}^2 + \frac{1}{2} m \omega_0 q^2 + \frac{1}{4} m \epsilon q^4,
+\end{equation*}
+we determine the expression for $\dot{q}$ as a function of $E$ and $q$,
+\begin{equation*}
+ \dot{q} = \frac{dq}{dt} = \sqrt{\frac{2}{m} \left( E - \frac{1}{2} m \omega_0 q^2 - \frac{1}{4} m \epsilon q^4 \right)}.
+\end{equation*}
+
+The period of the motion is the integral of $dt$ over the time,
+\begin{eqnarray*}
+ \tau & = & \int_{\hbox{cycle}} dt = \int_{\hbox{cycle}} \frac{dt}{dq} dq = \int_{\hbox{cycle}} \sqrt{\frac{m}{2}} \frac{dq}{\sqrt{E - \frac{1}{2} m \omega_0 q^2 - \frac{1}{4} m \epsilon q^4}} \\
+ & = & 2 \int_{-a}^{+a} \sqrt{\frac{m}{2}} \frac{dq}{\sqrt{\frac{1}{2} m \omega_0 (a^2 - q^2) + \frac{1}{4} m \epsilon (a^4 - q^4)}}.
+\end{eqnarray*}
+With the substitution $q = a \sin\phi$, this integral becomes
+\begin{eqnarray*}
+ \tau & = & 2 \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \sqrt{\frac{m}{2}} \frac{a \cos\phi d\phi}{\sqrt{\frac{1}{2} m \omega_0 a^2 \cos^2\phi + \frac{1}{4} m \epsilon a^4 ( - \sin^4\phi)}} \\
+ & \approx & \sqrt{2 m} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \cos\phi d\phi \left( \frac{1}{2} m \omega_0 \cos^2\phi \right)^{-\frac{1}{2}} \left( 1 - \frac{1}{4} \frac{\epsilon}{\omega_0^2} a^2 \frac{(1 - \sin^4\phi)}{\cos^2\phi} \right) \\
+ & = & \frac{2}{\omega_0} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} d\phi \left( 1 - \frac{1}{4} \frac{\epsilon}{\omega_0^2} a^2 \frac{(1 - \sin^4\phi)}{\cos^2\phi} \right) \\
+ & = & \frac{2\pi}{\omega_0} - \frac{2\pi}{\omega_0} \frac{3 \epsilon a^2}{8 \omega_0^2}.
+\end{eqnarray*}
+This means that $\omega$ is related to $\omega_0$ by
+\begin{equation*}
+ \omega = \omega_0 (1 + \frac{3 \epsilon a^2}{8 \omega_0^2}).
+\end{equation*}
+
+\begin{enumerate}[resume]
+ \item Consider two coupled oscillators with Hamiltonian
+ \begin{equation*}
+  H = \frac{p_1^2}{2m} + \frac{1}{2} m \omega_1^2 q_1^2 + \frac{p_2^2}{2m} + \frac{1}{2} m \omega_2^2 q_1^2 + \epsilon m^2 \omega_1^2 \omega_2^2 q_1^2 q_2^2.
+ \end{equation*}
+ Transform to action-angle variables, and construct the new Hamiltonian $H(J_1, J_2, \phi_1, \phi_2)$.  Use the mean Hamiltonian $\bar{H}(J_1,J_2) = \langle H \rangle$ averaged over the range $0 \le \phi_1,\phi_2 \le 2\pi$ to show that the perturbed frequencies are $\langle \dot\phi_1 \rangle \approx \omega_1 + \epsilon \omega_1 \omega_2 J_2$ and $\langle \dot\phi_2 \rangle \approx \omega_2 + \epsilon \omega_1 \omega_2 J_1$ to first order in $\epsilon$.
+\end{enumerate}
+
+For the harmonic oscillator, we have derived an expression for $q$ in terms of the action and angle variables,
+\begin{equation*}
+ q = \sqrt{\frac{2J}{m\omega}} \sin\phi.
+\end{equation*}
+Using this transformation, the interaction potential $V(q_1,q_2) = m^2 \omega_1^2 \omega_2^2 q_1^2 q_2^2$ is
+\begin{eqnarray*}
+ V(J_1,J_2,\phi_1,\phi_2) & = & m^2 \omega_1^2 \omega_2^2 \frac{2J_1}{m\omega_1} \frac{2J_2}{m\omega_2} \sin^2\phi_1 \sin^2\phi_2 \\
+ & = & 4 \omega_1 \omega_2 J_1 J_2 \sin^2\phi_1 \sin^2\phi_2.
+\end{eqnarray*}
+The unperturbed Hamiltonian in action and angle variables is $H_0(J_1,J_2) = \omega_1 J_1 + \omega_2 J_2$.  The equation of motion for $\phi_1$ is
+\begin{equation*}
+ \dot\phi_1 = \frac{dH}{dJ_1} = \omega_1 + 4 \epsilon \omega_1 \omega_2 J_2 \sin^2\phi_1 \sin^2\phi_2,
+\end{equation*}
+which averages to
+\begin{equation*}
+ \langle\dot\phi_1\rangle = \omega_1 + 4 \epsilon \omega_1 \omega_2 J_2.
+\end{equation*}
+An analogous expression can be obtained for $\langle\dot\phi_2\rangle$.
+
+ 
+\begin{enumerate}[resume]
+ \item A recent paper in the American Journal of Physics, "Exploring dynamical systems and chaos using the logistic map model of population change," Jeffrey R. Groff, Am. J. Phys. 81(10), 725-732, \url{http://dx.doi.org/10.1119/1.4813114}, deals with models for population growth.  In particular it uses a modification of the Malthusian growth model (equation 1) with growth rate $r$, called the logistic equation (equation 2), where $K$ is the capacity of the environment to accommodate a particular population (due to finite food supply, for example).  The discretization of the logistic equation is the logistic map (equation 3).  The behavior of the logistic map exhibits chaotic behavior for large values of $r$.
+ 
+ Write one or two computer programs (in any language, except for the comments which should be present and in english)
+
+ \begin{itemize}
+  \item The program will draw the cobweb plots in figure 4 for the conditions of a stable fixed point, a period-4 oscillation limit cycle, and chaotic behavior. 
+  \item The program will construct the bifurcation diagram for the logistic map in figure 3.  Make sure that you can zoom in to a particular $r$ range.
+ \end{itemize}
+ 
+ If $\mu_n$ is the value of $r$ where the first $2^n$ cycle appears, determine the Feigenbaum constant $\delta$ which is the limit of ratio of $\mu_{n+1}-\mu_n$ over $\mu_{n+2}-\mu_{n+1}$.  The actual value is $\delta = 4.669201609\ldots$ but you will not be able to reach such a high precision.  The constant is common in a wide range of systems for which chaos occurs in the limit of bifurcations.
+ 
+ You will hand in your versions of figure 3 and 4, a table with the first few values of $\mu_n$, and a listing of the source code with comments.
+\end{enumerate}
+
+
+\end{document}

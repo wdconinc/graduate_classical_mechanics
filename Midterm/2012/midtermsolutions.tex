@@ -1,0 +1,217 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Midterm Exam \\ Classical Mechanics \\ Physics 601 (Fall 2012): Solutions}
+\date{Due by 9:30am on Thursday October 18, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Atwood's Bananas}
+\begin{enumerate}
+ \item A massless inextensible string passes over a pulley which is a fixed distance above the floor.  A bunch of bananas of mass $m$ is attached to one end $A$ of the string.  A monkey of mass $M$ is initially at the other end $B$. The monkey climbs the string, and his displacement $d(t)$ with respect to the end $B$ is a \emph{given} function of time.  The system is initially at rest, so that the initial conditions are $d(0) = \dot{d}(0) = 0$.  Introduce suitable generalized coordinates and calculate the Lagrangian of the system in terms of these coordinates.  Show that the equation of motion governing the height $z$ of the monkey above the floor is $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  Integrate the equation to find the subsequent motion.  In the special case that $m = M$, show that the bananas and the monkey rise through equal distances so that the vertical separation between them is constant.
+\end{enumerate}
+The height of the monkey above the floor is $z_M = z$; the height of the bananas is $z_m = H - (l - d + z - H) = 2 H - \ell - z + d$ where $H$ is the height of the pulley.  The Lagrangian is then
+\begin{eqnarray*}
+ L & = & \frac{1}{2} M \dot{z}_M^2 + \frac{1}{2} m \dot{z}_m^2 - Mgz_M - mgz_m \\
+   & = & \frac{1}{2} M \dot{z}^2 + \frac{1}{2} m (\dot{z} - \dot{d})^2 - Mgz - mg(2H - \ell - z + d).
+\end{eqnarray*}
+From the derivatives
+\begin{eqnarray*}
+ \frac{\partial L}{\partial \dot{z}} & = & M \dot{z} + m (\dot{z} - \dot{d}) \\
+ \frac{\partial L}{\partial z} & = & (m - M) g.
+\end{eqnarray*}
+follows indeed the given Euler-Lagrange equation $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  The solution for the given initial conditions (and assuming the monkey starts at $z = 0$ from rest) is then
+\begin{equation*}
+ z(t) = \frac{1}{2} \frac{m - M}{m + M} g t^2 + \frac{m}{m + M} d(t).
+\end{equation*}
+When $m = M$ we have $z = \frac{1}{2} d$, and the separation $z_m - z_M = 2 H - \ell - 2 z + d = 2 H - \ell$ is constant, so the monkey dies of hunger.
+
+\paragraph*{Struck Pendulum}
+\begin{enumerate}[resume]
+ \item A particle of mass $m$ suspended by a massless string of length $\ell$ is stationary in a gravitational field $g$.  It is struck by an impulsive horizontal blow, giving it an initial angular velocity $\omega$.  Introduce a Lagrange multiplier and prove the following statements:
+ \begin{itemize}
+  \item If $\ell\omega^2 < 2g$, the tension $\tau$ does not vanish and the particle does not reach the horizontal.
+  \item If $2g < \ell\omega^2 < 5g$, the particle passes the horizontal and the string becomes slack before the particle comes to rest.
+  \item If $5g < \ell\omega^2$, the string always remains taut and the particle executes periodic circular motion.
+ \end{itemize}
+ Discuss the role of the tension $\tau$ in the string by showing how these results are changed if the string is replaced by a rigid massless rod.
+\end{enumerate}
+We start with the Lagrangian for the simple pendulum in the coordinates $r$ and $\theta$ with constraint $r = \ell$,
+\begin{equation*}
+ L = \frac{1}{2} m (\dot{r}^2 + r^2 \dot\theta^2) + m g r \cos\theta.
+\end{equation*}
+
+With the Lagrange multiplier $\lambda$ the Euler-Lagrange equations are
+\begin{eqnarray*}
+ m \ddot{r} - mr\dot{\theta}^2 - mg\cos\theta & = & \lambda \\
+ m r^2 \ddot{\theta} + 2mr\dot{r}\dot{\theta} + mgr\sin\theta & = & 0 \\
+ r & = & \ell.
+\end{eqnarray*}
+The tension $\tau$ is given by the Lagrange multiplier $\lambda$ as
+\begin{equation*}
+ \tau = \lambda = m \ell\dot{\theta^2} + mg\cos\theta.
+\end{equation*}
+For small $\theta$ this is positive.
+
+Since the Lagrangian does not depend on the time, the Hamiltonian $H = \frac{1}{2} m (\dot{r}^2 + r^2 \dot\theta^2) - m g r \cos\theta$ will be conserved.  At the lowest point, immediately after impact, the Hamiltonian is $H = \frac{1}{2} m \ell^2 \omega^2 - m g \ell$.
+
+We can see that the tension $\tau$ will always be positive for $\theta < \frac{\pi}{2}$ and the string will remain taut for for angles below $\frac{\pi}{2}$.  If the pendulum swings with amplitude $\theta = \frac{\pi}{2}$ the Hamiltonian at the largest angle will be $H = 0$.  When $\ell \omega^2 < 2 g$ the pendulum will not swing higher than $\theta = \frac{\pi}{2}$.
+
+Naively, if the pendulum swings with amplitude $\theta = \pi$ the Hamiltonian at the largest angle will be $H = m g \ell$, which would lead one to think incorrectly that the minimum value for $\ell\omega^2$ is now $4 g$.  However, while correct for a rigid massless rod, the tension $\tau$ is negative at $\theta = \pi$ when $\dot{\theta} = 0$ and the string is slack before it reaches this point.
+
+To ensure that the tension is positive for $\theta = \pi$, we require that $\tau = m \ell\dot{\theta^2} - mg > 0$, or $\dot{\theta}^2 > \frac{g}{\ell}$.  This means that $H = \frac{1}{2} m \ell^2 \omega^2 - m g \ell > \frac{1}{2} m \ell^2\frac{g}{\ell} + m g \ell$ if $\ell\omega^2 > 5 g$.
+
+Since a rigid massless rod can support the mass under both positive and negative tension, the initial angular velocity does not need to be as large.
+
+\paragraph*{Pill Box Potential Well}
+\begin{enumerate}[resume]
+ \item Find the radial and angular periods for a particle with energy $E < V_0$ trapped in a two-dimensional potential well given by
+ \begin{equation*}
+  V(r) = \left\{
+  \begin{array}{c l}
+   0, & r < a, \\
+   V_0, & r > a.
+  \end{array}
+  \right.
+ \end{equation*}
+\end{enumerate}
+The Hamiltonian of the system in polar coordinates is
+\begin{equation*}
+ H = \frac{1}{2m} (p_r^2 + \frac{1}{r^2} p_\phi^2) + V(r),
+\end{equation*}
+independent of the time and therefore conserved with $H = E$.  Since $H$ is cyclic in $\phi$, the angular momentum $p_\phi$ will be conserved as well with $p_\phi = L$ and $\phi$ varying over $2\pi$ per cycle.  We can now write $p_r^2 + \frac{L^2}{r^2} = 2 m E$ in the allowed region, or
+\begin{equation*}
+ p_r = \pm \sqrt{2 m E - \frac{L^2}{r^2}}.
+\end{equation*}
+The maximum radius $r$ will be $a$, but the minimum radius (where $p_r$ vanishes) will not be zero but instead equal to the impact parameter $b$,
+\begin{equation*}
+ b = \frac{L}{\sqrt{2mE}}.
+\end{equation*}
+To determine the action, we have to integrate over one cycle of the motion (over $2\pi$ for $\phi$, and from $b$ to $a$ and back for $r$):
+\begin{eqnarray*}
+ J_\phi & = & \frac{1}{2\pi} \int_0^{2\pi} p_\phi d\phi = L, \\
+ J_r    & = & 2 \frac{1}{2\pi} \int_b^a p_r dr = \frac{1}{\pi} \int_b^a \sqrt{2 m E - \frac{L^2}{r^2}} dr.
+\end{eqnarray*}
+The second integral can be evaluated using the substitution $b = r \cos\theta$ and $dr = b \frac{\sin\theta}{\cos^2\theta} d\theta$,
+\begin{eqnarray*}
+ J_r & = & \frac{L}{b\pi} \int_b^a \sqrt{1 - \frac{b^2}{r^2}} dr \\
+     & = & \frac{L}{b\pi} \int_b^a \frac{1}{r} \sqrt{r^2 - b^2} dr \\
+     & = & \frac{L}{b\pi} \int_0^\alpha b \tan^2\theta d\theta \\
+     & = & \frac{L}{\pi} \int_0^\alpha \left(\frac{1}{\cos^2\theta} - 1\right) d\theta \\
+     & = & \frac{L}{\pi} \left[ \tan\theta - \theta \right]_0^\alpha \\
+     & = & \frac{L}{\pi} \left( \tan\alpha - \alpha \right) \\
+     & = & \frac{J_\phi}{\pi} \left( \tan\alpha - \alpha \right).
+\end{eqnarray*}
+with $\cos\alpha = \frac{b}{a}$ or $b = a \cos\alpha$.  The angle $\alpha$ has the geometrical interpretation as the angle between the point where the trajectory reaches the minimum and maximum radial distance.  It will always be smaller than $\pi$.
+
+We now write the Hamiltonian in terms of these action variables:
+\begin{equation*}
+ E = \frac{L^2}{2 m b^2} = \frac{J_\phi^2}{2 m a^2 \cos^2\alpha},
+\end{equation*}
+where $\alpha$ is related to the actions $J_r$ and $J_\phi$.  From the energy we calculate the frequencies
+\begin{eqnarray*}
+ \omega_r = \frac{\partial E}{\partial J_r} & = & \frac{J_\phi^2}{2 m a^2} \frac{\partial}{\partial J_r} \frac{1}{\cos^2\alpha} \\
+ & = & \frac{J_\phi^2 \sin\alpha}{m a^2 \cos^3\alpha} \frac{\partial \alpha}{\partial J_r}, \\
+ \omega_\phi = \frac{\partial E}{\partial J_\phi} & = & \frac{J_\phi}{m a^2 \cos^2\alpha} + \frac{J_\phi^2 \sin\alpha}{m a^2 \cos^3\alpha} \frac{\partial \alpha}{\partial J_\phi}. \\
+\end{eqnarray*}
+We find from the expression $\tan\alpha - \alpha = \frac{\pi J_r}{J_\phi}$ that
+\begin{eqnarray*}
+ \left( \frac{1}{\cos^2\alpha} - 1 \right) \frac{\partial \alpha}{\partial J_r} = \tan^2\alpha \frac{\partial \alpha}{\partial J_r} & = & \frac{\pi}{J_\phi} \\
+ \left( \frac{1}{\cos^2\alpha} - 1 \right) \frac{\partial \alpha}{\partial J_\phi} = \tan^2\alpha \frac{\partial \alpha}{\partial J_\phi} & = & -\frac{\pi J_r}{J_\phi^2} \\
+\end{eqnarray*}
+Using these expressions for the partial derivatives of $\alpha$ we find now
+\begin{eqnarray*}
+ \omega_r & = & \frac{\pi J_\phi}{m a^2 \sin\alpha \cos\alpha}, \\
+ \omega_\phi & = & \frac{J_\phi}{m a^2 \cos^2\alpha} - \frac{\pi J_r}{m a^2 \sin\alpha \cos\alpha}. \\
+\end{eqnarray*}
+Using $\tan\alpha - \alpha = \frac{\pi J_r}{J_\phi}$ we can simplify $\omega_\phi$ even more, until we get
+\begin{eqnarray*}
+ \omega_\phi & = & \frac{J_\phi}{m a^2 \sin\alpha \cos\alpha} \left( \tan\alpha - \frac{\pi J_r}{J_\phi} \right) \\
+ & = & \frac{\alpha J_\phi}{m a^2 \sin\alpha \cos\alpha}
+\end{eqnarray*}
+Notice that the ratio of the two frequencies is
+\begin{equation*}
+ \frac{\omega_\phi}{\omega_r} = \frac{\alpha}{\pi}.
+\end{equation*}
+The angular frequency $\omega_\phi$ will always be smaller than the radial frequency $\omega_r$.  The combined motion will be periodic when the frequencies are commensurate, or when $\alpha$ is related to $\pi$ by a ratio of integer numbers.
+
+
+\begin{enumerate}[resume]
+ \item A particle moving in one dimension sees a force $F(t) = \lambda t$ that is linearly increasing with time.  Solve the equations of motion using Hamilton's principal function for the initial conditions $x(0) = 0$ and $p(0) = mv_0$.
+\end{enumerate}
+For the given force $F(t) = -\frac{dV}{dx}$ we require a potential $V(x) = -\lambda tx$.  The Hamiltonian becomes then $H = \frac{p^2}{2m} - \lambda tx$ and the Hamilton-Jacobi equation is
+\begin{equation*}
+ \frac{1}{2m}\left(\frac{\partial S}{\partial x}\right)^2 - \lambda tx + \frac{\partial S}{\partial t} = 0.
+\end{equation*}
+The separation is not possible in this form.  In order to separate the variables, we try to write the equation only in terms of $t$, not $x$, by adding a term $\frac{1}{2} \lambda xt^2$ to cancel the $\lambda tx$, and we also keep the rest of the generating function linear in $x$ so no $x$ dependence remains after a single differentiation:
+\begin{equation*}
+ S = \frac{1}{2} \lambda xt^2 + \alpha x - \phi(t),
+\end{equation*}
+with $\phi(t)$ an arbitrary function and $\alpha$ the integration constant.  The Hamilton-Jacobi equation simplifies to
+\begin{equation*}
+ \frac{1}{2m} \left( \alpha + \frac{1}{2} \lambda t^2 \right)^2 - \lambda tx + \lambda xt - \phi'(t) = 0.
+\end{equation*}
+For $\phi(t)$ we find easily
+\begin{equation*}
+ \phi(t) = \frac{1}{2m} \left( \frac{\lambda^2}{20} t^5 + \frac{\lambda \alpha}{3} t^3 + \alpha^2 t \right).
+\end{equation*}
+We now find $\beta$
+\begin{equation*}
+ \beta = \frac{\partial S}{\partial \alpha} = x - \frac{1}{2m} \left(\frac{\lambda}{3} t^3 + 2 \alpha t \right),
+\end{equation*}
+or that $x = \beta + \frac{\alpha}{m} t + \frac{\lambda}{6m} t^3$ and $p = \frac{1}{2}\lambda t^2 + \alpha$ with $\alpha = mv_0$ and $\beta = 0$ determined by the initial conditions.  The final result is
+\begin{equation*}
+ x = v_0 t + \frac{\lambda}{6m} t^3
+\end{equation*}
+
+
+
+\paragraph*{Non-Linear Dynamics}
+\begin{enumerate}[resume]
+ \item For the Duffing oscillator with potential $V(q) = \frac{1}{2} m \omega_0^2 q^2 + \frac{1}{4} m \epsilon q^4$ with initial conditions $q(0) = a$ and $\dot{q}(0) = 0$, use the conservation of energy to find the period $\tau(E)$ as a function of energy.  How does $\tau$ behave as a function of $\epsilon$ for fixed $E$?  For small $\epsilon$, expand to rederive the frequency shift $\omega = \omega_0 + \epsilon \frac{3a^2}{8\omega_0}$.
+\end{enumerate}
+The full Hamiltonian for this system,
+\begin{equation*}
+ H = \frac{p^2}{2m} + \frac{1}{2} m \omega_0^2 q^2 + \frac{1}{4} m \epsilon q^4,
+\end{equation*}
+is independent of $t$ and therefore conserved,
+\begin{equation*}
+ H = E = \frac{1}{2} m \omega_0^2 a^2 + \frac{1}{4} m \epsilon a^4.
+\end{equation*}
+The period $\tau$ is given by
+\begin{equation*}
+ \tau = \int_{\hbox{cycle}} dt = \int_{\hbox{cycle}} \frac{dt}{dq} dq = \int_{\hbox{cycle}} \left(\frac{dq}{dt}\right)^{-1} dq.
+\end{equation*}
+The total time derivative of $q$ is found from the conserved Hamiltonian,
+\begin{equation*}
+ \dot{q} = \sqrt{\frac{2}{m}} \sqrt{E - \frac{1}{2}m\omega_0^2 q^2 - \frac{1}{4}m\epsilon q^4}.
+\end{equation*}
+The period becomes
+\begin{eqnarray*}
+ \tau & = & 2 \int_{-a}^{a} \sqrt{\frac{2}{m}} \frac{dq}{\sqrt{E - \frac{1}{2}m\omega_0^2 q^2 - \frac{1}{4}m\epsilon q^4}} \\
+ & = & 2 \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{\frac{2}{m}} \frac{a \cos\phi d\phi}{\sqrt{\frac{1}{2}m\omega_0^2 a^2 (1 - \sin^2\phi) - \frac{1}{4}m\epsilon a^4 (1 - \sin^4\phi)}} \\
+ & \approx & \sqrt{2 m} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{a \cos\phi d\phi}{\sqrt{\frac{1}{2}m\omega_0^2 a^2 \cos^2\phi}} \left(1 - \frac{1}{4} \frac{\epsilon a^2}{\omega_0^2} \frac{1 - \sin^4\phi}{\cos^2\phi} \right) \\
+ & = & \frac{2}{\omega_0} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left(1 - \frac{1}{4} \frac{\epsilon a^2}{\omega_0^2} \frac{1 - \sin^4\phi}{\cos^2\phi} \right) d\phi.
+\end{eqnarray*}
+with $q = a \sin\phi$, and $E$ the total energy for $q = a$.  This last integral evaluates to
+\begin{equation*}
+ \tau = \frac{2\pi}{\omega_0} \left( 1 - \epsilon \frac{3a^2}{8\omega_0} \right),
+\end{equation*}
+or in reciprocal
+\begin{equation*}
+ \omega \approx \omega_0 \left( 1 + \epsilon \frac{3a^2}{8\omega_0} \right).
+\end{equation*}
+
+
+\end{document}

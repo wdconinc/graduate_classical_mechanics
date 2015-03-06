@@ -1,0 +1,198 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Final Exam: Solutions \\ Classical Mechanics \\ Physics 601 (Fall 2012)}
+\date{Monday December 17, 2012, 9am}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Lagrangian Mechanics and Rigid Bodies}
+The mass $M$ and moment of inertia $I$ are
+\begin{eqnarray*}
+ M & = & \int_0^R dr \int_0^{2\pi} d\phi \int_0^\pi \rho r^2\sin\theta d\theta = \frac{4}{3}\pi \rho R^3, \\
+ I & = & \frac{1}{3} (I_1 + I_2 + I_3) = \frac{2}{3} \int_0^R dr \int_0^{2\pi} d\phi \int_0^\pi \rho r^4\sin\theta d\theta \\
+ & = & \frac{2}{3} (4\pi R^2) \int_0^R r^4 dr = \frac{2}{5} M R^2.
+\end{eqnarray*}
+Since all moments of inertia are degenerate, the inertia tensor is diagonal.  The principal axes can be chosen as any set of three orthogonal axes through the center of the sphere.
+
+For this spherical top, the Lagrangian can be written as
+\begin{equation*}
+ L = \frac{1}{2} M \vec{v}^2 + \frac{1}{2} \vec\omega^T I \vec\omega = \frac{1}{2} M (\dot{x}^2 + \dot{y}^2) + \frac{1}{2} I \left( \dot\alpha^2 + \dot\beta^2 + \dot\gamma^2 + 2 \dot\alpha \dot\gamma \cos\beta \right),
+\end{equation*}
+where we used, as in the case of the symmetric top, that
+\begin{eqnarray*}
+ \omega_x & = & -\dot\alpha \sin\beta \cos\gamma + \dot\beta \sin\gamma, \\
+ \omega_y & = &  \dot\alpha \sin\beta \sin\gamma + \dot\beta \cos\gamma, \\
+ \omega_z & = &  \dot\alpha \cos\beta + \dot\gamma.
+\end{eqnarray*}
+
+The constraint comes from the fact that the translational velocity of the contact point with respect to the turntable must be the same as the instantaneous rotational velocity of the sphere's surface at the contact point.  In vector form this means
+\begin{equation*}
+ \frac{d\vec{r}}{dt} - \Omega\hat{e}_3 \times \vec{r} = \vec{\omega} \times {R\hat{e}_3}.
+\end{equation*}
+In components we can write this as
+\begin{eqnarray*}
+ && \dot{x} + \Omega y = R \omega_y = R \dot\alpha \sin\beta \sin\gamma + R \dot\beta \cos\gamma, \\
+ && \dot{y} - \Omega x = - R \omega_x = R \dot\alpha \sin\beta \cos\gamma - R \dot\beta \sin\gamma,
+\end{eqnarray*}
+or using infinitesimal elements as
+\begin{eqnarray*}
+ && dx + \Omega y dt = R \omega_y dt = R d\alpha \sin\beta \sin\gamma + R d\beta \cos\gamma, \\
+ && dy - \Omega x dt = - R \omega_x dt = R d\alpha \sin\beta \cos\gamma - R d\beta \sin\gamma.
+\end{eqnarray*}
+In other words, with the given parametrization, $a = \Omega$ and $b = R$.  For the first constraint we find
+\begin{eqnarray*}
+ \frac{\partial A_\alpha}{\partial \beta} & = & R \cos\beta\cos\gamma, \\
+ \frac{\partial A_\beta}{\partial \alpha} & = & 0,
+\end{eqnarray*}
+so this constraint is non-holonomic.  The same is true for the second constraint.
+
+The equations of motion for the positions $x$ and $y$ are
+\begin{eqnarray*}
+ M \ddot{x} & = & \lambda_1, \\
+ M \ddot{y} & = & \lambda_2.
+\end{eqnarray*}
+The equations of motion for the angles $\alpha$, $\beta$, and $\gamma$ are
+\begin{eqnarray*}
+ I \frac{d}{dt} \left( \dot\alpha + \dot\gamma \cos\beta \right) & = & R \lambda_1 \sin\beta \sin\gamma + R \lambda_2 \sin\beta \cos\gamma, \\
+ I \ddot\beta + I \dot\alpha \dot\gamma \sin\beta & = & R \lambda_1 \cos\gamma + R \lambda_2 \sin\gamma, \\
+ I \frac{d}{dt} \left( \dot\gamma + \dot\alpha \cos\beta \right) & = & 0.
+\end{eqnarray*}
+
+The Lagrangian with constraints is cyclic in $\gamma$, and the constant of motion is
+\begin{equation*}
+ p_\gamma = \frac{\partial L}{\partial \dot\gamma} = I \left( \dot\gamma + \dot\alpha \cos\beta \right).
+\end{equation*}
+As in the treatment of the symmetric top, this corresponds to $\omega_z$, so the instantaneous angular velocity around the vertical axis is a constant of motion.  Due to the constraint, the Lagrangian is not cyclic anymore in $\alpha$.
+
+Using the equations of motion for $x$ and $y$ and the constraints we find
+\begin{eqnarray*}
+ M \ddot{x} & = & -\frac{I}{R^2} (\ddot{x} + \Omega \dot{y}), \\
+ M \ddot{y} & = & -\frac{I}{R^2} (\ddot{y} - \Omega \dot{x}), \\
+\end{eqnarray*}
+or with the moment of inertia of the sphere,
+\begin{eqnarray*}
+ \ddot{x} & = & -\frac{2 \Omega}{7} \dot{y}, \\
+ \ddot{y} & = & \frac{2 \Omega}{7} \dot{x}, \\
+\end{eqnarray*}
+When we plug in the proposed solution, we find
+\begin{eqnarray*}
+ -\rho^2 \cos\rho(t - t_0) & = & - \frac{2 \Omega}{7} \rho \cos\rho(t - t_0), \\
+ -\rho^2 \sin\rho(t - t_0) & = & - \frac{2 \Omega}{7} \rho \sin\rho(t - t_0),
+\end{eqnarray*}
+or
+\begin{equation*}
+ \rho = \frac{2 \Omega}{7}.
+\end{equation*}
+The ball will describe circles with a frequency that is $\frac{2}{7}$ the frequency of the turntable.
+
+The similarity between this problem and a charged particle lies in the form of the frictional force $\vec\lambda$.  This force can be written vectorially as
+\begin{equation*}
+ \vec{F} = M \vec{a} = \frac{2}{7} M \Omega\hat{e}_3 \times \vec{v}.
+\end{equation*}
+This form is analogous to the $\vec{B} \times \vec{v}$ form of the force on a charged particle in a magnetic field.
+
+\paragraph*{Hamiltonian Mechanics (1)}
+The Hamiltonian
+\begin{equation*}
+ H(p,x) = \frac{p^2}{2m} + k|x|
+\end{equation*}
+is time-independent, so the total energy $H(p,x) = E$ is conserved.  The momentum can thus be written as $p = \sqrt{2m \left(E - k|x|\right)}$.
+The motion occurs between $-a$ and $+a$ with $a = \frac{E}{k}$ determined by when $p$ is zero.  To find the action we integrate over a full period of the motion,
+\begin{eqnarray*}
+ J = \oint p dx & = & 2 \int_{-a}^{+a} \sqrt{2m \left(E - k|x|\right)} dx \\
+ & = & 2 \int_{-a}^0 \sqrt{2m \left(E + k x\right)} dx + 2 \int_0^{+a} \sqrt{2m \left(E - k x\right)} dx \\
+ & = & - 2 \int_{+a}^0 \sqrt{2m \left(E - k x\right)} dx + 2 \int_0^{+a} \sqrt{2m \left(E - k x\right)} dx \\
+ & = & 4 \int_0^{+a} \sqrt{2m \left(E + k x\right)} dx \\
+ & = & - \frac{4\sqrt{2m}}{k} \int_0^{+a} \sqrt{\left(E - k x\right)} d(E - k x) \\
+ & = & - \frac{4\sqrt{2m}}{k} \frac{2}{3} \left(E - k x\right)^\frac{3}{2}|_0^{a = \frac{E}{k}} \\
+ & = & \frac{8\sqrt{2m}}{3k} E^\frac{1}{2}.
+\end{eqnarray*}
+We can write the energy as a function of the action.
+\begin{equation*}
+ H(J) = E = \left(\frac{3kJ}{8\sqrt{2m}}\right)^\frac{2}{3}.
+\end{equation*}
+The frequency is now
+\begin{eqnarray*}
+ \nu = \frac{\partial H}{\partial J} & = & \frac{2}{3} \left(\frac{3k}{8\sqrt{2m}}\right)^\frac{2}{3} J^{-\frac{1}{3}} \\
+ & = & \frac{2}{3} \left(\frac{3k}{8\sqrt{2m}}\right)^\frac{2}{3} \left(\frac{8\sqrt{2m}}{3k}\right)^{-\frac{1}{3}} E^{-\frac{1}{2}} \\
+ & = & \frac{2}{3} \left(\frac{3k}{8\sqrt{2m}}\right) \frac{1}{\sqrt{E}}.
+\end{eqnarray*}
+
+
+\paragraph*{Hamiltonian Mechanics (2)}
+The action variable for a harmonic oscillator is $J = E/\omega$.  If the action is constant, $J' = J$, then the energy has to change as the frequency $\omega' = \sqrt\frac{g}{\ell'}$ and a doubling of the length $\ell' = 2 \ell$ will result in a reduction of the energy by $\sqrt{2}$ to $E' = E / \sqrt{2}$.  The amplitude $\theta_{max}$ is related to the energy by
+\begin{equation*}
+ E = \frac{1}{2} m\ell^2\theta_{max}^2,
+\end{equation*}
+or
+\begin{equation*}
+ \theta_{max} = \sqrt{\frac{2 E}{m\ell^2}}.
+\end{equation*}
+The new amplitude is now
+\begin{equation*}
+ \theta_{max}' = \sqrt{\frac{2 E'}{m\ell'^2}} = \sqrt{\frac{2 E'}{m\ell'^2}} = \frac{1}{\sqrt{2\sqrt{2}}} \theta_{max}.
+\end{equation*}
+
+\paragraph*{Small Oscillations}
+The Lagrangian for the system is
+\begin{equation*}
+ L = \frac{1}{2} L (I_1^2 + I_2^2) - \frac{1}{2 C} \left(Q_1^2 + Q_2^2 + (Q_1 + Q_2)^2\right).
+\end{equation*}
+The equations of motion are
+\begin{eqnarray*}
+ L \dot{I}_1 + \frac{1}{C} Q_1 + \frac{1}{C} (Q_1 + Q_2) & = & 0, \\
+ L \dot{I}_2 + \frac{1}{C} Q_2 + \frac{1}{C} (Q_1 + Q_2) & = & 0.
+\end{eqnarray*}
+These are indeed the Kirchhoff equations one would find for the left loop and the right loop.
+
+We can write the Lagrangian in matrix form with the mass matrix $M$ and the potential matrix $V$,
+\begin{eqnarray*}
+ M & = & L \left[ \begin{array}{cc}
+            1 & 0 \\ 0 & 1
+           \end{array} \right], \\
+ V & = & \frac{1}{C} \left[ \begin{array}{cc}
+            2 & 1 \\ 1 & 2
+           \end{array} \right].
+\end{eqnarray*}
+The eigenvalue equation $\det(V - \omega^2 M) = 0$ becomes
+\begin{equation*}
+ \left| \begin{array}{cc}
+  2 - \omega^2 L C & 1 \\ 1 & 2 - \omega^2 L C
+ \end{array} \right| = 0,
+\end{equation*}
+or $(2 - \omega^2 LC)^2 = 1$.  The solutions of this equation are
+\begin{eqnarray*}
+ \omega_+^2 & = & \frac{1}{LC}, \\
+ \omega_-^2 & = & \frac{3}{LC}.
+\end{eqnarray*}
+The eigenvectors are
+\begin{eqnarray*}
+ z_+ & = & \left[ \begin{array}{c} 1 \\ -1 \end{array} \right], \\
+ z_- & = & \left[ \begin{array}{c} 1 \\ 1 \end{array} \right].
+\end{eqnarray*}
+We normalize these eigenvectors with the mass matrix $M$ and get
+\begin{eqnarray*}
+ \tilde{z}_+ & = & \frac{1}{\sqrt{2L}} \left[ \begin{array}{c} 1 \\ -1 \end{array} \right], \\
+ \tilde{z}_- & = & \frac{1}{\sqrt{2L}} \left[ \begin{array}{c} 1 \\ 1 \end{array} \right].
+\end{eqnarray*}
+The normal modes $\xi$ are then
+\begin{eqnarray*}
+ \left[ \begin{array}{c} \xi_+ \\ \xi_- \end{array} \right] & = & U^T  \left[ \begin{array}{c} I_1 \\ I_2 \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2L}} \left[ \begin{array}{cc} 1 & 1 \\ -1 & 1 \end{array} \right]^T  \left[ \begin{array}{c} I_1 \\ I_2 \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2L}} \left[ \begin{array}{cc} 1 & -1 \\ 1 & 1 \end{array} \right]  \left[ \begin{array}{c} I_1 \\ I_2 \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2L}} \left[ \begin{array}{c} I_1 - I_2 \\ I_1 + I_2 \end{array} \right].
+\end{eqnarray*}
+
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2012) \\ Homework Assignment 3: Solutions}
+\date{Due: Thursday September 20, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Fetter \& Walecka, Problem 3.10, (a) and (c)}
+Since $x = a\theta - a\sin\theta$ and $y = a(1 - \cos\theta)$ we find that $ds^2 = dx^2 + dy^2 = 2a^2(1-\cos\theta)d\theta^2 = 4a^2\sin^2\frac{\theta}{2}d\theta^2$.  The length $S$ from 0 to $s$ is then $S = \int_0^\theta 2a\sin\frac{\theta}{2}d\theta = -4a\cos\frac{\theta}{2}$.
+
+The potential energy is $V = -mgy = -mga(1-\cos\theta = -2mga(1-\cos^2\frac{\theta}{2}) = -2mga\left(1 - \frac{s^2}{4a}\right)$.  The Lagrangian is then (up to a constant) $L = \frac{1}{2}m\dot{s}^2 + \frac{1}{2}m\frac{g}{4a}s^2$.  This is the Lagrangian for a harmonic oscillator with frequency $\omega = \sqrt{\frac{g}{4a}}$ even for large excursions $s$.
+
+\paragraph*{Alternative Form of the Euler-Lagrange Equation}
+When $L$ depends on $q$, $\dot{q}$, and $t$, the total time derivative is $\frac{dL}{dt} = \frac{\partial L}{\partial q} \dot{q} + \frac{\partial L}{\partial \dot{q}} \frac{d\dot{q}}{dt} + \frac{\partial L}{\partial t}$.  Independently we can evaluate $\frac{d}{dt} \left( \dot{q} \frac{\partial L}{\partial \dot{q}} \right) = \frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}} + \dot{q} \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} = \frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}} + \dot{q} \frac{\partial L}{\partial q}$, where we used the Euler-Lagrange equation.  Eliminating $\frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}}$ then gives the equation $\frac{\partial L}{\partial t} = \frac{d}{dt} \left( L - \dot{q} \frac{\partial L}{\partial \dot{q}} \right)$.
+
+\paragraph*{Fermat's Principle of Optics: Snell's Law}
+The infinitesimal time interval $dt$ is related to the distance $ds$ as $dt = \frac{ds}{v} = \frac{n}{c} ds$.  The total time on a curve $y(x)$ is then $T[y(x)] = \int n(x,y) \sqrt{1 + y'^2} dx$.  The Euler-Lagrange equation for this variational problem is $\frac{\partial L}{\partial y} - \frac{d}{dx} \frac{\partial L}{\partial y'} = 0$, or after substituting $L = n(x,y) \sqrt{1 + y'^2}$,
+\begin{equation*}
+ \frac{\partial n}{\partial y} \sqrt{1 + y'^2} = \frac{d}{dx} \left( n(x,y) \frac{y'}{\sqrt{1 + y'^2}} \right).
+\end{equation*}
+When $n$ is strictly constant, then $n \frac{y'}{\sqrt{1 + y'^2}}$ is constant, and the solutions are straight trajectories with $y'(x) = \tan\theta$ the slope with respect to the normal.  If we now choose our interface between two media along the $y$ axis (\textit{i.e.} $n(x) = n_1$ if $x < 0$ and $n(x) = n_2$ if $x > 0$), then in each medium $n(x) = n_i$ is still constant and the solution will be a straight line $y_i(x)$ with slope $y_i'(x) = \tan\theta_i$.  Because $\frac{\partial n}{\partial y} = 0$ we now find that
+\begin{eqnarray*}
+ n_1 \frac{y_1'}{\sqrt{1 + y_1'^2}} & = & n_2 \frac{y_2'}{\sqrt{q + y_2'^2}} \\
+ n_1 \sin\theta_1 & = & n_2 \sin\theta_2.
+\end{eqnarray*}
+
+\paragraph*{Fermat's Principle of Optics: Atmospheric Refraction}
+In two-dimensional polar coordinates $ds^2 = dr^2 + r^2 d\phi^2 = \left[ \left(\frac{dr}{d\phi}\right)^2 + r^2 \right] d\phi^2$.  The total time on a curve $r(\phi)$ is then $T[r(\phi)] = \int \frac{n}{c} ds = \frac{1}{c} \int n(r) \sqrt{r'^2 + r^2} d\phi$.  The Euler-Lagrange equation in the form $\frac{\partial L}{\partial t} = \frac{d}{d\phi} \left( L - r' \frac{\partial L}{\partial r'} \right)$, with $\frac{\partial L}{\partial t} = 0$, requires that $n(r) \frac{r'}{\sqrt{r'^2 + r^2}} = C$ is constant, or that (after some algebra) $r' = r \sqrt{k n^2 r^2 - 1}$ with $k = C^{-2}$.
+
+If $n(r) = A r^m$, then the differential equation for $r(\phi)$ becomes $r' = r \sqrt{A^2 k r^{2m + 2} - 1}$.  The distance remains constant if $r' = 0$ for all $r$ and $\phi$.  This requires that $A^2 k = 1$ and $m = -1$, or $n(r) = \frac{1}{r\sqrt{k}}$.
+
+\paragraph*{Geodesics on a Circular Cylinder}
+The line element in cylindrical coordinates is $ds^2 = r^2 d\theta^2 + dz^2$.  We minimize the functional $S = \int ds = \int \sqrt{r^2 d\theta^2 + dz^2} = \int \sqrt{r^2 + \dot{z}^2} d\theta = \int L(\theta,z,\dot{z}) d\theta$ by using the Euler-Lagrange equation $\frac{\partial L}{\partial z} - \frac{d}{d\theta} \frac{\partial L}{\partial \dot{z}} = 0$.  Because $L$ is cyclic in $z$, this becomes $\frac{\dot{z}}{\sqrt{r^2 + \dot{z}^2}} = C$ or $\dot{z} = \pm r \sqrt{\frac{C^2}{1 - C^2}} = \pm \frac{b}{a}$.  Therefore $a\,dz = \pm b\,d\theta$ or $a\,z \pm b\,\theta = c$ with $a$, $b$, and $c$ constants determined by the boundary conditions.  A more careful treatment would reveal an infinite number of solutions, different in how many times they go around the cylinder before reaching the end point.  These are all local minima of the functional $S$.
+
+\paragraph*{Particle on the Surface of a Right Circular Cone}
+In spherical coordinates on the cone the line element is $ds^2 = dr^2 + r^2 \sin^2\theta_0 d\phi^2$ because $d\theta = 0$.  The total distance is then $S = \int ds = \int \sqrt{r'^2 + r^2 \sin^2\theta_0} d\phi$.  The Euler-Lagrange equation $\frac{d}{d\phi} \left( \frac{\partial L}{\partial r'} \right) - \frac{\partial L}{\partial r} = 0$ becomes, after multiplying out the $\sqrt{r'^2 + r^2 \sin^2\theta_0}$ term and some algebra, indeed $r'' r - 2 r'^2 - r^2 \sin^2\theta_0 = 0$.  If we substitute the proposed solution, we find
+\begin{eqnarray*}
+ r   & = & r_0 \frac{1}{\cos\left[(\phi-\phi_0) \sin\theta_0 \right]}, \\
+ r'  & = & r_0 \frac{\sin\left[(\phi-\phi_0) \sin\theta_0 \right]}{\cos^2\left[(\phi-\phi_0) \sin\theta_0 \right]} \sin\theta_0, \\
+ r'' & = & r_0^2 \left[ \frac{\sin^2\left[(\phi-\phi_0) \sin\theta_0 \right]}{\cos^3\left[(\phi-\phi_0) \sin\theta_0 \right]} +  \frac{1}{\cos\left[(\phi-\phi_0) \sin\theta_0 \right]} \right] \sin^2\theta_0.
+\end{eqnarray*}
+The combinations in the differential equation are then
+\begin{eqnarray*}
+ r'' r & = & \left[ \frac{\sin^2\left[(\phi-\phi_0) \sin\theta_0 \right]}{\cos^4\left[(\phi-\phi_0) \sin\theta_0 \right]} +  \frac{1}{\cos^2\left[(\phi-\phi_0) \sin\theta_0 \right]} \right] \sin^2\theta_0, \\
+ - 2 r'^2 & = & - r_0^2 \frac{\sin^2\left[(\phi-\phi_0) \sin\theta_0 \right]}{\cos^4\left[(\phi-\phi_0) \sin\theta_0 \right]} \sin^2\theta_0, \\
+ - r^2 \sin^2\theta_0 & = & - r_0^2 \frac{1}{\cos^2\left[(\phi-\phi_0) \sin\theta_0 \right]} \sin^2\theta_0,
+\end{eqnarray*}
+which indeed cancels as required.
+
+\end{document}

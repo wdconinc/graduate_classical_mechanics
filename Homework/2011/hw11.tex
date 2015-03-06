@@ -1,0 +1,39 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{electComp}
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 11}
+\date{Due: Thursday November 17, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}
+ \item In the case of the torque-free symmetric top, we wrote the Hamiltonian as
+ \begin{equation*}
+  H = \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p^2_\beta}{2 I_1} + \frac{p^2_\gamma}{2 I_3}.
+ \end{equation*}
+ Because $\alpha$ and $\gamma$ are cyclic, this reduces to a one-dimensional problem in $\beta$.  We can interpret the Hamiltonian as $H = T(p_\beta) + V_{eff}(\beta)$ with
+ \begin{eqnarray*}
+  T & = & \frac{p^2_\beta}{2 I_1}, \\
+  V_{eff} & = & \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p^2_\gamma}{2 I_3}.
+ \end{eqnarray*}
+ Draw schematically how the effective potential energy $V_{eff}$ changes with $\beta$.  What are the two constant-$\beta$ solutions where $V'_{eff}(\beta) = 0$?  Discuss any conditions you might encounter.  What is the resulting total energy corresponding to each solution?
+ \item Fetter \& Walecka, Problem 5.4.
+ \item Fetter \& Walecka, Problem 5.6.
+\end{enumerate}
+
+\end{document}

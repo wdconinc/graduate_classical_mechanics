@@ -1,0 +1,47 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 6}
+\date{Due: Thursday October 6, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Canonical Transformations}
+\begin{itemize}
+ \item Derive the following direct conditions for canonical transformations:
+ \begin{eqnarray*}
+  \Bigl( \frac{\partial P_j}{\partial q_i} \Bigr)_{qp} & = & - \Bigl( \frac{\partial p_i}{\partial Q_j} \Bigr)_{QP}, \\
+  \Bigl( \frac{\partial P_j}{\partial p_i} \Bigr)_{qp} & = & \Bigl( \frac{\partial q_i}{\partial Q_j} \Bigr)_{QP}, \\
+  \Bigl( \frac{\partial Q_j}{\partial q_i} \Bigr)_{qp} & = & \Bigl( \frac{\partial p_i}{\partial P_j} \Bigr)_{QP}, \\
+  \Bigl( \frac{\partial Q_j}{\partial p_i} \Bigr)_{qp} & = & - \Bigl( \frac{\partial q_i}{\partial P_j} \Bigr)_{QP}.
+ \end{eqnarray*}
+ \item Show that the transformation
+ \begin{eqnarray*}
+  Q = p + i \alpha q, \\
+  P = \frac{1}{2i\alpha}(p-i\alpha q),
+ \end{eqnarray*}
+ is canonical and find a generating function.  Use this transformation to solve the simple linear harmonic osccilator problem.
+ \item The Hamiltonian for a system has the form
+ \begin{equation*}
+  H = \frac{1}{2} \Bigl( \frac{1}{q^2} + p^2 q^4 \Bigr).
+ \end{equation*}
+ Find the equation of motion for $q$.  Find a canonical transformation that reduces $H$ to the form of a simple harmonic oscillator.  Show that the solution for the transformed variables is such that the equation of motion found for $q$ is satisfied.
+\end{itemize}
+
+\paragraph*{Hamilton-Jacobi Theory}
+\begin{itemize}
+ \item Find Hamilton's principal function $S$ for a point projectile with mass $m$ moving in the vertical $xz$-plane under the constant force of gravity.  From the principal function determine the equations of motion in terms of the constants of motion $\alpha_i$ and $\beta_i$.  Determine the constants of motion for the initial conditions $x=z=0$ and an initial velocity $v_0$ at an angle $\theta$ with the horizontal.
+ \item Fetter \& Walecka, Problem 6.11.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 10}
+\date{Due: Thursday November 21, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Continuous Systems and Fields}
+\begin{enumerate}[resume]
+ \item Bead on a string: Fetter \& Walecka, problem 4.17. \emph{Note:} Treat the two halves of the string separately and use boundary and continuity conditions to find the eigenvalue equation for $\omega$.  Obtaining the concise expression in the book requires some trigonometric identities, such as $\tan 2x = 2 \tan x / (1-\tan^2 x)$ and $1 + \tan^2 x = \csc^2 x$.  In part (c) use symmetry properties to rewrite the integral over $(\frac{\ell}{2},\ell)$ as an integral over $(0,\frac{\ell}{2})$.
+ \item We derived the Klein-Gordon equation for a charged scalar meson represented by the complex field $\phi$ from the Lagrangian density $\mathcal{L} = c^2 \partial_\mu \phi \partial^\mu \phi^* - m_0^2 c^2 \phi \phi^*$.  Add the term $j_\lambda A^\lambda$ to the Lagrangian density to represent the interaction with an electromagnetic field $A$, where $j_\lambda = i(\phi \partial_\lambda \phi^* - \phi^* \partial_\lambda \phi)$.  What are the field equations for $\phi$ and $\phi^*$?
+\end{enumerate}
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}[resume]
+ \item Show that none of the three principal moments of inertia can exceed the sum of the other two.
+ \item What is the ratio of height $h$ to radius $R$ that a uniform circular cylinder should have to have degenerate principal moments ($I_1 = I_2 = I_3$)?  In this case any set of orthonormal axes will be a set of principal axes.
+\end{enumerate}
+
+\end{document}

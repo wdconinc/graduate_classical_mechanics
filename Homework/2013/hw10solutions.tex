@@ -1,0 +1,204 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 10: Solutions}
+\date{Due: Thursday November 21, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Continuous Systems and Fields}
+\begin{enumerate}[resume]
+ \item Bead on a string: Fetter \& Walecka, problem 4.17. \emph{Note:} Treat the two halves of the string separately and use boundary and continuity conditions to find the eigenvalue equation for $\omega$.  Obtaining the concise expression in the book requires some trigonometric identities, such as $\tan 2x = 2 \tan x / (1-\tan^2 x)$ and $1 + \tan^2 x = \csc^2 x$.  In part (c) use symmetry properties to rewrite the integral over $(\frac{\ell}{2},\ell)$ as an integral over $(0,\frac{\ell}{2})$.
+\end{enumerate}
+
+a) Call $u_1(x,t)$ the displacement of the string between $0$ and $\ell/2$ and $u_2(x,t)$ the displacement between $\ell/2$ and $\ell$.  Of course, $u_1$ and $u_2$ satisfy continuity conditions at $\ell/2$, and boundary conditions at $0$ and $\ell$.  For $x \ne \ell/2$ the string satisfies the wave equation,
+\begin{equation*}
+ \sigma \frac{\partial^2 u_i}{\partial t^2}\left(x,t\right) = \tau \frac{\partial^2 u_i}{\partial x^2}\left(x,t\right).
+\end{equation*}
+For $x = \ell/2$ the equation of motion is
+\begin{equation*}
+ m \frac{\partial^2 u_1}{\partial t^2}\left(\ell/2,t\right) = m \frac{\partial^2 u_2}{\partial t^2}\left(\ell/2,t\right) = \tau \left[ \frac{\partial^2 u_2}{\partial x^2}\left(\ell/2,t\right) - \frac{\partial^2 u_1}{\partial x^2}\left(\ell/2,t\right) \right].
+\end{equation*}
+
+To ensure continuity at $\ell/2$ at all times, the time behavior will be the same for $u_1$ and $u_2$.  We can therefore propose a solution of the form
+\begin{eqnarray*}
+ u_1(x,t) = \rho_1(x) \cos(\omega t + \phi) & \hbox{for} & 0 < x < \ell/2, \\
+ u_2(x,t) = \rho_2(x) \cos(\omega t + \phi) & \hbox{for} & \ell/2 < x < \ell.
+\end{eqnarray*}
+After substitution in the equation of motion for $x \ne \ell/2$, the eigenfunctions $\rho_i(x)$ have to satisfy
+\begin{equation*}
+ \frac{d^2 \rho_i}{d x^2} + k^2 \rho_i(x) = 0 \quad \hbox{for} \quad 0< x < \ell/2 ~ \hbox{and} ~ \ell/2 < x < \ell.
+\end{equation*}
+After substitution in the equation of motion for $x = \ell/2$, an additional requirement is
+\begin{equation*}
+ -m \omega^2 \rho_i\left(\ell/2\right) = \tau \left[ \frac{d^2 \rho_i}{d x^2}\left(\ell/2\right) - \frac{d^2 \rho_i}{d x^2}\left(\ell/2\right) \right] \quad \hbox{for} \quad x = \ell/2.
+\end{equation*}
+
+From the equation of motion for $x \ne \ell/2$, the general solution for $\rho_i(x)$ is
+\begin{eqnarray*}
+ \rho_1(x) & = & A_1 \sin kx + B_1 \cos kx, \\
+ \rho_2(x) & = & A_2 \sin kx + B_2 \cos kx.
+\end{eqnarray*}
+The boundary and continuity conditions on the eigenfunctions $\rho_i(x)$ are
+\begin{eqnarray*}
+ \rho_1(0) & = & 0, \\
+ \rho_1(\ell/2) & = & \rho_2(\ell/2), \\
+ \rho_2(\ell) & = & 0.
+\end{eqnarray*}
+Applying these three conditions to the expressions with four unknowns results in
+\begin{eqnarray*}
+ \rho_1(x) & = & A_1 \sin kx, \\
+ \rho_2(x) & = & A_1 \sin k(\ell - x),
+\end{eqnarray*}
+with a remaining arbitrary scale factor.  The remaining condition is the equation of motion for the mass $m$, and we find using $\omega = c k$ and $c^2 = \tau / \sigma$
+\begin{eqnarray*}
+ m \omega^2 A_1 \sin k\ell/2 & = & \tau (A_1 k\cos k\ell/2 + A_1 k\cos k\ell/2) \\
+ m \omega^2 & = & 2 \tau k \cot \frac{\omega \ell}{2 c} \\
+ \frac{m}{\sigma \ell} & = & \frac{2 c}{\omega \ell} \cot \frac{\omega \ell}{2 c}
+\end{eqnarray*}
+
+We could have made this a bit more difficult on ourselves by insisting on the exact form of the general solution, and using the conditions
+\begin{eqnarray*}
+ \rho_1(0) = 0 & \Rightarrow & B_1 = 0, \\
+ \rho_2(\ell) = 0 & \Rightarrow & B_2 = -A_2 \tan k\ell, \\
+ \rho_1(\ell/2) = \rho_2(\ell/2) & \Rightarrow & A_1 = A_2 (1 - \cot k\ell/2 \tan k\ell).
+\end{eqnarray*}
+Plugging all this into the equation of motion for the mass $m$ gives
+\begin{eqnarray*}
+ m \omega^2 A_1 \sin k\ell/2 & = & \tau \left(A_1 k \cos k\ell/2 - B_1 k \sin k\ell/2 - A_2 k \cos k\ell/2 + B_2 k \sin k\ell/2 \right) \\
+ m \omega^2 A_1 & = & \tau k \left( A_1 \cot k\ell/2 - A_2 \cot k\ell/2 + B_2 \right) \\
+ m \omega^2 A_2 (1 - \cot k\ell/2 \tan k\ell) & = & A_2 \tau k \left( \left(1 - \cot k\ell/2 \tan k\ell\right) \cot k\ell/2 - \cot k\ell/2 - \tan k\ell \right).
+\end{eqnarray*}
+Using $\tan 2 a = 2 \tan a / (1 - \tan^2 a)$ and $1 + \tan^2 a = 1 / \cos^2 a$ we can simplify further
+\begin{eqnarray*}
+ \frac{m \omega}{c \sigma} (1 - \cot k\ell/2 \tan k\ell) & = & - \tan k\ell ( 1 + \cot^2 k\ell/2) \\
+ & = & \frac{- \tan k\ell ( 1 + \cot^2 k\ell/2)}{1 - \cot k\ell/2 \tan k\ell} \\
+ & = & 2 \frac{\tan k\ell/2 + \cot k\ell/2)}{1 + \tan^2 k\ell/2} \\
+ & = & 2 \cos^2 k\ell/2 (\tan k\ell/2 + \cot k\ell/2) \\
+ & = & 2 \cot k\ell/2 = 2 \cot \frac{\omega \ell}{2 c}.
+\end{eqnarray*}
+This finally gives us the expression found earlier:
+\begin{equation*}
+ \frac{2 c}{\omega \ell} \cot \frac{\omega \ell}{2 c} = \frac{m}{\sigma \ell}.
+\end{equation*}
+
+For the limit $m \to 0$, the relation reduces to
+\begin{eqnarray*}
+ \frac{2 c}{\omega \ell} \cot \frac{\omega \ell}{2 c} & = & 0, \\
+ \frac{\omega \ell}{2 c} = \frac{k\ell}{2} & = & (2 n + 1) \frac{\pi}{2}, \\
+ k & = & (2 n + 1) \frac{\pi}{\ell}.
+\end{eqnarray*}
+These are the odd wavenumbers for the motion of a simple string with fixed ends, $k = \frac{n \pi}{\ell}$ with $n = 1, 2,\ldots$  Only for the odd modes does the mass move at all.  The even modes keep the central mass stationary at all times.
+
+For the limit $m \to \infty$, the relation becomes
+\begin{eqnarray*}
+ \frac{2 c}{\omega \ell} \cot \frac{\omega \ell}{2 c} & \to & \infty, \\
+ \frac{\omega \ell}{2 c} = \frac{k\ell}{2} & = & n \pi, \\
+ k & = & \frac{n \pi}{\ell/2}.
+\end{eqnarray*}
+These are the wavenumbers for the motion of a simple string of length $\ell/2$ with fixed ends.  The central point with infinite mass acts as a fixed point.
+
+c) The integral can be evaluated as
+\begin{eqnarray*}
+ \int_0^\ell dx \rho_p(x) m(x) \rho_q(x) & = & \int_0^{\ell/2} dx \rho_p(x) \sigma \rho_q(x) + m \rho_p(\ell/2) \rho_q(\ell/2) + \int_{\ell/2}^\ell dx \rho_p(x) \sigma \rho_q(x) \\
+ & = & 2 \sigma \int_0^{\ell/2} dx \sin k_p x \sin k_q x + m \sin k_p \ell/2 \sin k_q \ell/2,
+\end{eqnarray*}
+where we used symmetry properties.
+
+If $k_p \ne k_q$ we can evaluate the first integral as
+\begin{eqnarray*}
+ \int_0^{\ell/2} dx \sin k_p x \sin k_q x & = & \frac{1}{2} \int_0^{\ell/2} dx \left[ \cos (k_p - k_q) x - \cos (k_q + k_p) x \right] \\
+ & = & \frac{1}{2} \frac{1}{k_p - k_q} \sin (k_p - k_q) \ell/2 - \frac{1}{2} \frac{1}{k_p + k_q} \sin (k_q + k_p) \ell/2 \\
+ & = & \frac{1}{2} \frac{1}{k_p - k_q} \left( \sin k_p\ell/2 \cos k_q \ell/2 - \cos k_p\ell/2 \sin k_q \ell/2 \right) \\
+ & & - \frac{1}{2} \frac{1}{k_p + k_q} \left( \sin k_q \ell/2 \cos k_p \ell/2 + \cos k_q \ell/2 \sin k_p \ell/2 \right) \\
+ & = & \frac{1}{2} \frac{1}{k_p^2 - k_q^2} \left( (k_p + k_q) \sin k_p\ell/2 \cos k_q \ell/2 - (k_p + k_q) \cos k_p\ell/2 \sin k_q \ell/2 \right) \\
+ & & - \frac{1}{2} \frac{1}{k_p^2 - k_q^2} \left( (k_p - k_q) \sin k_q \ell/2 \cos k_p \ell/2 + (k_p - k_q) \cos k_q \ell/2 \sin k_p \ell/2 \right) \\
+ & = & \frac{1}{k_p^2 - k_q^2} \left( k_q \cos k_q \ell/2 \sin k_p \ell/2 - k_p \cos k_p \ell/2 \sin k_q \ell/2 \right).
+\end{eqnarray*}
+In the last expression we can use the result of part b to rewrite $\cos k\ell/2 = \frac{m}{\sigma\ell} k\ell/2 \sin k\ell/2$.
+\begin{eqnarray*}
+ 2 \sigma \int_0^{\ell/2} dx \sin k_p x \sin k_q x & = & 2 \sigma \frac{1}{k_p^2 - k_q^2} \frac{m}{\sigma \ell} \frac{\ell}{2} (k_q^2 - k_p^2) \sin k_p \ell/2 \sin k_q \ell/2 \\
+ & = & -m \sin k_p \ell/2 \sin k_q \ell/2.
+\end{eqnarray*}
+The total integral is therefore zero.
+
+If $k_p = k_q$ we can evaluate the first integral as
+\begin{eqnarray*}
+ \int_0^{\ell/2} dx \sin^2 k_p x & = & \frac{1}{2} \int_0^{\ell/2} dx ( 1 - \cos 2 k_p x) \\
+ & = & \frac{1}{2} \left( \frac{\ell}{2} - \frac{1}{2 k_p} \sin 2 k_p \ell/2 \right) \\
+ & = & \frac{1}{4} \left( \ell - \frac{1}{k_p} \sin k_p \ell \right) \\
+ & = & \frac{1}{4} \left( \ell - \frac{2}{k_p} \sin k_p \ell/2 \cos k_p \ell/2 \right) \\
+ & = & \frac{1}{4} \left( \ell - \frac{m}{\sigma} \sin^2 k_p \ell/2 \right).
+\end{eqnarray*}
+The total integral is now
+\begin{equation*}
+ \int_0^\ell dx \rho_p(x) m(x) \rho_q(x) = \frac{\sigma \ell}{2} + \frac{m}{2} \sin^2 k_p \ell/2,
+\end{equation*}
+and this can be used to properly normalize the eigenfunctions.
+
+
+\begin{enumerate}[resume]
+ \item We derived the Klein-Gordon equation for a charged scalar meson represented by the complex field $\phi$ from the Lagrangian density $\mathcal{L} = c^2 \partial_\mu \phi \partial^\mu \phi^* - m_0^2 c^2 \phi \phi^*$.  Add the term $j_\lambda A^\lambda$ to the Lagrangian density to represent the interaction with an electromagnetic field $A$, where $j_\lambda = i(\phi \partial_\lambda \phi^* - \phi^* \partial_\lambda \phi)$.  What are the field equations for $\phi$ and $\phi^*$?
+\end{enumerate}
+
+The Lagrangian density with the added interaction term is
+\begin{eqnarray*}
+ \mathcal{L} & = & c^2 \partial_\mu \phi \partial^\mu \phi^* - m_0^2 c^2 \phi \phi^* + j_\lambda A^\lambda \\
+ & = & c^2 \partial_\mu \phi \partial^\mu \phi^* - m_0^2 c^2 \phi \phi^* + i(\phi \partial_\lambda \phi^* - \phi^* \partial_\lambda \phi) A^\lambda.
+\end{eqnarray*}
+Using
+\begin{eqnarray*}
+ \frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)} & = & c^2 \partial^\mu \phi^* + i A^\mu \phi^*, \\
+ \frac{\partial \mathcal{L}}{\partial \phi} & = & - m_0^2 c^2 \phi^*,
+\end{eqnarray*}
+the field equations are then
+\begin{equation*}
+ c^2 \partial_\mu \partial^\mu \phi - i (\partial_\mu A^\mu) \phi - i (\partial_\mu \phi) A^\mu + m_0^2 c^2 \phi = 0,
+\end{equation*}
+and similar for $\phi^*$.
+
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}[resume]
+ \item Show that none of the three principal moments of inertia can exceed the sum of the other two.
+\end{enumerate}
+
+Since we are talking about the principal moments, our coordinate axes are the principal axes and only $I_{ii} = I_i \ne 0$.  The principal moment around $\hat{e}_1$ is
+\begin{eqnarray*}
+ I_1 & = & \int d^3\vec{r} \rho(\vec{r}) (x_2^2 + x_3^2) \\
+ & = & \int d^3\vec{r} \rho(\vec{r}) (x_1^2 + x_2^2) + \int d^3\vec{r} \rho(\vec{r}) (x_1^2 + x_3^2) - 2 \int d^3\vec{r} \rho(\vec{r}) x_1^2 \\
+ & = & I_2 + I_3 - 2 \int d^3\vec{r} \rho(\vec{r}) x_1^2.
+\end{eqnarray*}
+Because the integrand is always positive, this means that $I_1 \le I_2 + I_3$.  The same argument can be made for the two other principal moments.
+
+
+\begin{enumerate}[resume]
+ \item What is the ratio of height $h$ to radius $R$ that a uniform circular cylinder should have to have degenerate principal moments ($I_1 = I_2 = I_3$)?  In this case any set of orthonormal axes will be a set of principal axes.
+\end{enumerate}
+
+Because of the previous problem we know that $I_1 = I_2$, and for this circular cylinder
+\begin{eqnarray*}
+ I_1 = I_2 & = & \int_0^R dr \int_{-h/2}^{+h/2} dz \rho \left( \pi r^3 + 2 \pi r z^2 \right) \\
+ & = & \frac{1}{12} M (3 R^2 + h^2).
+\end{eqnarray*}
+The third principal moment is
+\begin{eqnarray*}
+ I_3 & = & 2 \pi \rho \int_0^R r^3 dr \int_{-h/2}^{+h/2} dz \\
+ & = & \frac{1}{2} M R^2.
+\end{eqnarray*}
+The principal moments will be equal if $6 R^2 = 3 R^2 + h^2$ or $h = \sqrt{3} R$.
+
+
+\end{document}

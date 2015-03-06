@@ -1,0 +1,394 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2012) \\ Homework Assignment 7: Solutions}
+\date{Due: Friday October 26, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Small Oscillations}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 4.3.
+\end{enumerate}
+a) Introduce the small transverse displacements around the equilibrium $\eta_1 \approx \ell\theta_1$ and $\eta_2 \approx \ell\theta_2$ in the full Lagrangian:
+\begin{eqnarray*}
+ L & = & T_1 + T_2 - V_1 - V_2 \\
+ & = & \frac{1}{2}m_1 \ell^2\dot\theta_1^2 + \frac{1}{2}m_2 (\ell\dot\theta_1 + \ell\dot\theta_2)^2 - m_1g\ell(1 - \cos\theta_1) - m_2g\ell(1 - \cos\theta_1) - m_2g\ell(1 - \cos\theta_2) \\
+ & = & \frac{1}{2}m_1 \ell^2\dot\theta_1^2 + \frac{1}{2}m_2 (\ell\dot\theta_1 + \ell\dot\theta_2)^2 - \frac{1}{2}m_1g\ell\theta_1^2 - \frac{1}{2}m_2g\ell\theta_1^2 - \frac{1}{2}m_2g\ell\theta_2^2 \\
+ & = & \frac{1}{2}m_1 \dot\eta_1^2 + \frac{1}{2}m_2 (\dot\eta_1 + \dot\eta_2)^2 - \frac{g}{2\ell}m_1\eta_1^2 - \frac{g}{2\ell}m_2\eta_1^2 - \frac{g}{2\ell}m_2\eta_2^2 \\
+ & = & \frac{1}{2}m_1 \dot\eta_1^2 + \frac{1}{2}m_2 (\dot\eta_1 + \dot\eta_2)^2 - \frac{g}{2\ell}\left[ (m_1+m_2)\eta_1^2 + m_2\eta_2^2\right].
+\end{eqnarray*}
+b) The mass and potential matrices are
+\begin{eqnarray*}
+ M & = & \left[ \begin{array}{cc}
+          m_1 + m_2 & m_2 \\
+          m_2 & m_2
+         \end{array} \right], \\
+ V & = & \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          m_1 + m_2 & 0 \\
+          0 & m_2 
+         \end{array} \right].
+\end{eqnarray*}
+The eigenvalue problem then becomes
+\begin{equation*}
+ \left| \begin{array}{cc}
+  \frac{g}{\ell} (m_1 + m_2) - \omega^2 (m_1 + m_2) & - \omega^2 m_2 \\
+  - \omega^2 m_2 & \frac{g}{\ell} m_2 - \omega^2 m_2
+ \end{array} \right| = 0.
+\end{equation*}
+This becomes now the quadratic equation in $\omega^2$
+\begin{equation*}
+ \left( m_2 (m_1 + m_2) - m_2^2 \right) \omega^4 - 2 \frac{g}{\ell} m_2 (m_1 + m_2) \omega^2 + \frac{g^2}{\ell^2} m_2 (m_1 + m_2) = 0
+\end{equation*}
+or
+\begin{equation*}
+ \frac{m_1}{m_1 + m_2} \omega^4 - 2 \frac{g}{\ell} \omega^2  + \frac{g^2}{\ell^2} = 0.
+\end{equation*}
+With $\gamma^2 = \frac{m_2}{m_1 + m_2}$ we find the positive discriminant
+\begin{equation*}
+ D = 4 \left(1 - \frac{m_1}{m_1 + m_2}\right) \frac{g^2}{\ell^2} = 4 \frac{m_2}{m_1 + m_2} \frac{g^2}{\ell^2} = 4 \gamma^2 \frac{g^2}{\ell^2}
+\end{equation*}
+and the eigenvalues are
+\begin{eqnarray*}
+ \omega_\pm^2 & = & \frac{1}{2} \frac{m_1 + m_2}{m_1} \left( 2 \frac{g}{\ell}  \pm 2 \gamma \frac{g}{\ell} \right) \\
+ & = & \frac{g}{\ell} \frac{1 \pm \gamma}{1 - \gamma^2} \\
+ & = & \frac{g}{\ell} \frac{1}{1 \mp \gamma}
+\end{eqnarray*}
+where we used $\frac{m_1}{m_1 + m_2} = 1 - \gamma^2$.
+
+c) To determine the eigenvectors we try to find $z_\pm$ from $(V - \omega_\pm^2 M)z_\pm = 0$, or
+\begin{eqnarray*}
+ \left[ \begin{array}{cc}
+  (m_1 + m_2) \left(\frac{g}{\ell} - \omega_\pm^2\right) & - m_2 \omega_\pm^2 \\
+  - m_2 \omega_\pm^2 & m_2 \left(\frac{g}{\ell} - \omega_\pm^2\right)
+ \end{array} \right] z_\pm & = & 0 \\
+ \left[ \begin{array}{cc}
+  (m_1 + m_2) \frac{g}{\ell}\left(1 - \frac{1}{1 \mp \gamma}\right) & - m_2 \frac{g}{\ell} \frac{1}{1 \mp \gamma} \\
+  - m_2 \frac{g}{\ell} \frac{1}{1 \mp \gamma} & m_2 \frac{g}{\ell} \left( 1 - \frac{1}{1 \mp \gamma} \right)
+ \end{array} \right] z_\pm & = & 0 \\
+ m_2 \frac{g}{\ell} \frac{1}{1 \mp \gamma} \left[ \begin{array}{cc}
+  \frac{m_1 + m_2}{m_2} \left(1 \mp \gamma - 1\right) & - 1 \\
+  - 1 & 1 \mp \gamma - 1
+ \end{array} \right] z_\pm & = & 0 \\
+ - m_2 \frac{g}{\ell} \frac{1}{1 \mp \gamma} \left[ \begin{array}{cc}
+  \pm \frac{1}{\gamma} & 1 \\
+  1 & \pm \gamma
+ \end{array} \right] z_\pm & = & 0.
+\end{eqnarray*}
+The eigenvectors are then
+\begin{equation*}
+ z_\pm = \left[ \begin{array}{c} \mp \gamma \\ 1 \end{array} \right],
+\end{equation*}
+or, with
+\begin{eqnarray*}
+ z_\pm^T M z_\pm
+   & = & \left[ \begin{array}{cc} \mp \gamma & 1 \end{array} \right]
+         \left[ \begin{array}{cc}
+          m_1 + m_2 & m_2 \\
+          m_2 & m_2
+         \end{array} \right]
+         \left[ \begin{array}{c} \mp \gamma \\ 1 \end{array} \right] \\
+   & = & \left[ \begin{array}{cc} \mp \gamma & 1 \end{array} \right]
+         \left[ \begin{array}{c} \mp \gamma (m_1 + m_2) + m_2 \\ \mp \gamma m_2 + m_2 \end{array} \right] \\
+   & = & \gamma^2 (m_1 + m_2) \mp \gamma m_2 \mp \gamma m_2 + m_2 \\
+   & = & 2 m_2 (1 \mp \gamma),
+\end{eqnarray*}
+we find the normalized eigenvectors
+\begin{equation*}
+ \tilde{z}_\pm = \left(2 m_2 (1 \mp \gamma)\right)^{-1/2} \left[ \begin{array}{c} \mp \gamma \\ 1 \end{array} \right],
+\end{equation*}
+
+\begin{itemize}
+ \item For a very large middle mass, $m_1 \gg m_2$, we have $\gamma = \sqrt{m_2/m_1}$ small.  Both frequencies are $\omega_\pm \approx \frac{g}{\ell}$ and the eigenvectors are
+\begin{equation*}
+ z_\pm = \left[ \begin{array}{c} \pm m_2/m_1 \\ 1 \end{array} \right] \approx \left[ \begin{array}{c} 0 \\ 1 \end{array} \right].
+\end{equation*}
+Only the lowest mass is moving with the frequency of a pendulum of length $\ell$.
+
+\item For a very small middle mass, $m_1 \ll m_2$, we have $\gamma^2 \approx 1$.  The eigenvectors are then
+\begin{equation*}
+ z_\pm = \left[ \begin{array}{c} \pm 1 \\ 1 \end{array} \right].
+\end{equation*}
+The frequency $\omega_-$ is large and the eigenvector is
+\begin{equation*}
+ z_- = \left[ \begin{array}{c} -1 \\ 1 \end{array} \right].
+\end{equation*}
+This corresponds to the middle mass vibrating quickly under the large tension in the string.
+The other frequency is $\omega_+ = \frac{g}{2\ell}$ and the corresponding eigenvector is
+\begin{equation*}
+ z_+ = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right].
+\end{equation*}
+This describes the motion of a pendulum that is twice as long and with both masses moving in the same direction.
+\end{itemize}
+
+d) The modal matrix is
+\begin{eqnarray*}
+ U & = & \left[ \begin{array}{cc} \tilde{z}_- & \tilde{z}_+ \end{array} \right] \\
+   & = & (2 m_2)^{-1/2} \left[ \begin{array}{cc}
+          \frac{\gamma}{\sqrt{1 + \gamma}} & - \frac{\gamma}{\sqrt{1 - \gamma}} \\
+          \frac{1}{\sqrt{1 + \gamma}} & \frac{1}{\sqrt{1 - \gamma}}
+         \end{array} \right].
+\end{eqnarray*}
+To simplify we use
+\begin{eqnarray*}
+ \frac{1}{\sqrt{1 \pm \gamma}} & = & \sqrt{1 \mp \gamma} \frac{1}{\sqrt{1 - \gamma^2}} \\
+ & = & \sqrt{1 \mp \gamma} \sqrt{\frac{m_1 + m_2}{m_1}} \\
+ & = & \sqrt{1 \mp \gamma} \sqrt{\frac{m_2}{m_1}} \frac{1}{\gamma}
+\end{eqnarray*}
+to find
+\begin{eqnarray*}
+ U & = & (2 m_1)^{-1/2} \left[ \begin{array}{cc}
+          \sqrt{1 - \gamma} & - \sqrt{1 + \gamma} \\
+          \gamma^{-1} \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+         \end{array} \right] \\
+\end{eqnarray*}
+This does indeed diagonalize $M$, by construction, and $V$:
+\begin{eqnarray*}
+ U^T V U & = & \frac{1}{2 m_1} \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 - \gamma} \\
+          - \sqrt{1 + \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+         \end{array} \right]
+         \left[ \begin{array}{cc}
+          m_1 + m_2 & 0 \\
+          0 & m_2 
+         \end{array} \right]
+         \left[ \begin{array}{cc}
+          \sqrt{1 - \gamma} & - \sqrt{1 + \gamma} \\
+          \gamma^{-1} \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+         \end{array} \right] \\
+ & = & \frac{1}{2 m_1} \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 - \gamma} \\
+          - \sqrt{1 + \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+         \end{array} \right]
+         \left[ \begin{array}{cc}
+          (m_1 + m_2) \sqrt{1 - \gamma} & - (m_1 + m_2) \sqrt{1 + \gamma} \\
+          m_2 \gamma^{-1} \sqrt{1 - \gamma} & m_2 \gamma^{-1} \sqrt{1 + \gamma}
+         \end{array} \right] \\
+ & = & \frac{1}{2 m_1} \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          (m_1 + m_2) (1 - \gamma) + m_2 \gamma^{-2} (1 - \gamma) & - (m_1 + m_2) \sqrt{1 - \gamma^2} + m_2 \gamma^{-2} \sqrt{1 - \gamma^2} \\
+          - (m_1 + m_2) \sqrt{1 - \gamma^2} + m_2 \gamma^{-2} \sqrt{1 - \gamma^2} & (m_1 + m_2) (1 + \gamma) + m_2 \gamma^{-2} (1 + \gamma)
+         \end{array} \right] \\
+ & = & \frac{1}{2 m_1} \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          2 (m_1 + m_2) (1 - \gamma) & 0 \\
+          0 & 2 (m_1 + m_2) (1 + \gamma)
+         \end{array} \right] \\
+ & = & \frac{g}{\ell}
+         \left[ \begin{array}{cc}
+          \frac{1}{1 + \gamma} & 0 \\
+          0 & \frac{1}{1 - \gamma}
+         \end{array} \right] = 
+         \left[ \begin{array}{cc}
+          \omega_-^2 & 0 \\
+          0 & \omega_+^2
+         \end{array} \right].
+\end{eqnarray*}
+
+e) The normal coordinates $\xi_\pm$ are
+\begin{eqnarray*}
+ \left[ \begin{array}{c}
+  \xi_- \\
+  \xi_+
+ \end{array} \right] & = & U^T M \eta \\
+ & = & \frac{1}{\sqrt{2 m_1}}
+        \left[ \begin{array}{cc}
+         \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 - \gamma} \\
+         - \sqrt{1 + \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+        \end{array} \right]
+        \left[ \begin{array}{cc}
+         m_1 + m_2 & m_2 \\
+         m_2 & m_2
+        \end{array} \right]
+        \left[ \begin{array}{c}
+         \eta_1 \\
+         \eta_2
+        \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2 m_1}}
+        \left[ \begin{array}{cc}
+         \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 - \gamma} \\
+         - \sqrt{1 + \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+        \end{array} \right]
+        \left[ \begin{array}{c}
+         (m_1 + m_2) \eta_1 + m_2 \eta_2 \\
+         m_2 \eta_1 + m_2 \eta_2
+        \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2 m_1}}
+        \left[ \begin{array}{c}
+         \sqrt{1 - \gamma} \left(  (m_1 + m_2) \eta_1 + m_2 \eta_2 + \gamma^{-1} (m_2 \eta_1 + m_2 \eta_2)\right) \\
+         \sqrt{1 + \gamma} \left(- (m_1 + m_2) \eta_1 - m_2 \eta_2 + \gamma^{-1} (m_2 \eta_1 + m_2 \eta_2)\right)
+        \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2 m_1}}
+        \left[ \begin{array}{c}
+         \sqrt{1 - \gamma} \left(  (m_1 + m_2) \eta_1 + \gamma^2 (m_1 + m_2) \eta_2 + \gamma (m_1 + m_2) (\eta_1 + \eta_2)\right) \\
+         \sqrt{1 + \gamma} \left(- (m_1 + m_2) \eta_1 - \gamma^2 (m_1 + m_2) \eta_2 + \gamma (m_1 + m_2) (\eta_1 + \eta_2)\right)
+        \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2 m_1}}
+        \left[ \begin{array}{c}
+         \sqrt{1 - \gamma} (m_1 + m_2) \left( \eta_1 + \gamma^2 \eta_2 + \gamma (\eta_1 + \eta_2)\right) \\
+         \sqrt{1 + \gamma} (m_1 + m_2) \left(-\eta_1 - \gamma^2 \eta_2 + \gamma (\eta_1 + \eta_2)\right)
+        \end{array} \right] \\
+ & = & \frac{m_1 + m_2}{\sqrt{2 m_1}}
+        \left[ \begin{array}{c}
+         \sqrt{1 - \gamma} (1 + \gamma) (\eta_1 + \gamma\eta_2) \\
+       - \sqrt{1 + \gamma} (1 - \gamma) (\eta_1 - \gamma\eta_2)
+        \end{array} \right] \\
+ & = & \frac{\sqrt{m_1}}{\sqrt{2} (1 - \gamma^2)}
+        \left[ \begin{array}{c}
+         \sqrt{1 - \gamma} (1 + \gamma) (\eta_1 + \gamma\eta_2) \\
+       - \sqrt{1 + \gamma} (1 - \gamma) (\eta_1 - \gamma\eta_2)
+        \end{array} \right] \\
+ & = & \frac{\sqrt{m_1}}{\sqrt{2}}
+        \left[ \begin{array}{c}
+         \frac{1}{\sqrt{1 - \gamma}} (\eta_1 + \gamma\eta_2) \\
+       - \frac{1}{\sqrt{1 + \gamma}} (\eta_1 - \gamma\eta_2)
+        \end{array} \right].
+\end{eqnarray*}
+Inversely, the coordinates $\eta$ in terms of the normal coordinates are
+\begin{eqnarray*}
+ \left[ \begin{array}{c}
+  \eta_1 \\
+  \eta_2
+ \end{array} \right] = U \xi & = & \frac{1}{\sqrt{2 m_1}}
+ \left[ \begin{array}{cc}
+  \sqrt{1 - \gamma} & - \sqrt{1 + \gamma} \\
+  \gamma^{-1} \sqrt{1 - \gamma} & \gamma^{-1} \sqrt{1 + \gamma}
+ \end{array} \right]
+ \left[ \begin{array}{c}
+  \xi_- \\
+  \xi_+
+ \end{array} \right].
+\end{eqnarray*}
+ 
+f) The initial conditions are $\eta_1(0) = a$ and $\eta_2(0) = 0$, and $\dot\eta_1 = \dot\eta_2 = 0$.  The general solution
+\begin{equation*}
+ \left[ \begin{array}{c}
+  \xi_- \\
+  \xi_+
+ \end{array} \right] = 
+ \left[ \begin{array}{c}
+  C_- \cos (\omega_- t + \phi_-) \\
+  C_+ \cos (\omega_+ t + \phi_+)
+ \end{array} \right]
+\end{equation*}
+gives the initial conditions on the normal coordinates,
+\begin{equation*}
+ \left[ \begin{array}{c}
+  \xi_-(0) \\
+  \xi_+(0)
+ \end{array} \right] = 
+ \left[ \begin{array}{c}
+  C_- \cos \phi_- \\
+  C_+ \cos \phi_+
+ \end{array} \right] = \frac{\sqrt{m_1}}{\sqrt{2}}
+ \left[ \begin{array}{c}
+  \frac{1}{\sqrt{1 - \gamma}} a \\
+- \frac{1}{\sqrt{1 + \gamma}} a
+ \end{array} \right],
+\end{equation*}
+and on their derivatives,
+\begin{equation*}
+ \left[ \begin{array}{c}
+  \dot\xi_-(0) \\
+  \dot\xi_+(0)
+ \end{array} \right] = 
+ \left[ \begin{array}{c}
+  - C_- \omega_- \sin \phi_- \\
+  - C_+ \omega_+ \sin \phi_+
+ \end{array} \right] =
+ \left[ \begin{array}{c}
+  0 \\
+  0
+ \end{array} \right],
+\end{equation*}
+and requires $\phi_- = \phi_+ = 0$.  As already pointed out, for a very large middle mass, $m_1 \gg m_2$, we have $\gamma = \sqrt{m_2/m_1}$ small.  The conditions on $C_-$ and $C_+$ are then
+\begin{eqnarray*}
+ C_- & \approx & \frac{a\sqrt{m_1}}{\sqrt{2}}, \\
+ C_+ & \approx & - \frac{a\sqrt{m_1}}{\sqrt{2}}.
+\end{eqnarray*}
+Putting all this together, the motion is then given by
+\begin{eqnarray*}
+ \left[ \begin{array}{c}
+  \eta_1 \\
+  \eta_2
+ \end{array} \right] & \approx &
+ \frac{1}{\sqrt{2 m_1}}
+ \left[ \begin{array}{cc}
+  1 & - 1 \\
+  \gamma^{-1} & \gamma^{-1}
+ \end{array} \right]
+ \left[ \begin{array}{c}
+  \xi_- \\
+  \xi_+
+ \end{array} \right] \\
+ & = & 
+ \frac{1}{\sqrt{2 m_1}}
+ \left[ \begin{array}{c}
+  \xi_- - \xi_+ \\
+  \gamma^{-1} (\xi_- + \xi_+)
+ \end{array} \right] \\
+ & = & \frac{1}{\sqrt{2 m_1}} \frac{a\sqrt{m_1}}{\sqrt{2}}
+ \left[ \begin{array}{c}
+  \cos\omega_-t + \cos\omega_+t \\
+  \gamma^{-1} (\cos\omega_-t - \cos\omega_+t)
+ \end{array} \right] \\
+ & = & 
+ a
+ \left[ \begin{array}{c}
+  \cos\frac{1}{2}(\omega_+ - \omega_-)t \, \cos\frac{1}{2}(\omega_+ + \omega_-)t \\
+  \gamma^{-1} \sin\frac{1}{2}(\omega_+ - \omega_-)t \, \sin\frac{1}{2}(\omega_+ + \omega_-)t
+ \end{array} \right].
+\end{eqnarray*}
+Indeed, we find the characteristic beat pattern as discussed in section 23 because $\omega_- \approx \omega_+$, with one of $\eta_1$ and $\eta_2$ oscillating with maximum amplitude when the other one is stationary.
+
+\begin{enumerate}[resume]
+ \item Consider two identical harmonic oscillators of mass $m$ and frequency $\omega_0$ that are coupled by the interaction potential $V_{int} = -\alpha q_1 q_2$.
+ \begin{itemize}
+  \item Determine the normal-mode frequencies and eigenvectors.
+  \item Determine the frequencies and discuss their superposition when $\alpha \ll \omega_0^2$.
+ \end{itemize}
+\end{enumerate}
+The Lagrangian for this system is
+\begin{equation*}
+ L = \frac{1}{2} m \dot{q}_1^2 + \frac{1}{2} m\omega_0^2 q_1^2 + \frac{1}{2} m \dot{q}_2^2 + \frac{1}{2} m\omega_0^2 q_2^2 - \alpha q_1 q_2.
+\end{equation*}
+The equilibrium occurs when $q_1 = q_2 = 0$.  The mass and potential matrices are
+\begin{eqnarray*}
+ M & = & m 1, \\
+ V & = & m \left[ \begin{array}{cc}
+                   \omega_0^2 & -\frac{\alpha}{m} \\
+                   -\frac{\alpha}{m} & \omega_0^2
+                  \end{array} \right].
+\end{eqnarray*}
+The eigenvalue equation leads to the frequencies
+\begin{equation*}
+ \omega_\pm^2 = \omega_0^2 \pm \frac{\alpha}{m}
+\end{equation*}
+and corresponding eigenvectors
+\begin{equation*}
+ z_\pm = \frac{1}{\sqrt{2m}} \left[ \begin{array}{cc} \mp 1 \\ 1 \end{array} \right],
+\end{equation*}
+normalized by setting $z_\pm^T M z_\pm = 1$.
+
+For $\alpha \ll \omega^2$ we get that $\omega_\pm^2 = \omega_0^2 (1 \pm \epsilon)$ and our general solution $q(t) = \sum c_\pm z_\pm \cos\omega_\pm t$ can be written as
+\begin{equation*}
+ q(t) = \left[ \begin{array}{cc} q_1(t) \\ q_2(t) \end{array} \right] = \frac{c_+ + c_-}{2} \left[ \begin{array}{cc} \cos\frac{\omega_+ - \omega_-}{2}t \cos\frac{\omega_+ + \omega_-}{2}t \\ \sin\frac{\omega_+ - \omega_-}{2}t \sin\frac{\omega_+ + \omega_-}{2}t \end{array} \right].
+\end{equation*}
+This is a modulation with a small frequency $\frac{\omega_+ - \omega_-}{2} = \omega_0\sqrt{\epsilon}$.
+
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 4}
+\date{Due: Tuesday September 27, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Forces of Constraint}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 3.18.
+\end{itemize}
+
+\paragraph*{Calculus of Variations}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 3.19.
+\end{itemize}
+
+\paragraph*{Lagrangians, Hamiltonians, and Noether's Theorem}
+\begin{itemize}
+ \item The Lagrangian for a free particle in generalized multi-dimensional curvilinear coordinates is obtained analogously to the two-dimensional case of Fetter \& Walecka, Problem 3.19 above.  Find the canonical momenta $p_i$ and show that the Hamiltonian can be written as $H = \sum_{i,j} \frac{1}{2m} g^{ij} p_i p_j$, without reference to the generalized velocities $\dot{q}_i$.  Use this result to find the Hamiltonian of a free particle in spherical coordinates as a function of the generalized coordinates and momenta.
+ \item Consider a system with conservative forces derivable from a time-independent potential $V(q_j)$ and dissipative forces derivable from a dissipation function $\mathcal{F} = \frac{1}{2}\sum_j k_j \dot{q}_j^2$.  If $L$ is not an explicit function of the time and the system satisfies all requirements for $H$ to be equal to the total energy $E$, determine the rate of change of the total energy.
+ \item A two-dimensional system is described by the Lagrangian $L = \frac{1}{2} \dot{q}_1 \dot{q}_2 - \frac{1}{2}\omega_0^2 q_1 q_2$.
+ \begin{enumerate}
+  \item Find a solution to the equations of motion and give a physics interpretation of the system.
+  \item This Lagrangian is invariant under the continuous scale transformation
+  \begin{eqnarray*}
+   q_1 & \to & e^{\lambda} q_1, \\
+   q_2 & \to & e^{-\lambda} q_2.
+  \end{eqnarray*}
+  Use Noether's theorem to find the conserved quantity associated with this invariance.  Interpret the meaning of this conserved quantity.
+ \end{enumerate}
+
+\end{itemize}
+
+\end{document}

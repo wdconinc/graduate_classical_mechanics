@@ -1,0 +1,226 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 9: Solutions}
+\date{Due: Thursday November 14, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Small Oscillations}
+\begin{enumerate}
+ \item A charged particle of mass $m$ and charge $+e$ is restricted to move in the $xy$ plane.  It moves under the influence of two fixed charges $q_1$ located at $\pm a \hat{x}$ and two other charges $q_2$ at $\pm a \hat{y}$.  Show that the origin is a point of equilibrium.  Under which conditions is the origin a point of \emph{stable} equilibrium?  For a stable equilibrium, find the frequencies and normal modes of the small oscillations around the origin.
+\end{enumerate}
+
+The total potential energy at a position $(x,y)$ close to the origin is
+\begin{equation*}
+ V(x,y) = k \frac{q_1}{\sqrt{(x - a)^2 + y^2}} +  k \frac{q_1}{\sqrt{(x + a)^2 + y^2}} +  k \frac{q_2}{\sqrt{x^2 + (y - a)^2}} +  k \frac{q_2}{\sqrt{x^2 + (y + a)^2}}.
+\end{equation*}
+We can expand these terms for small $x$ and $y$ to second order, for example for the first term:
+\begin{equation*}
+ V_1(x,y) = k \frac{q_1}{a} \left(1 - \frac{1}{2} \left(- 2 \frac{x}{a} + \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + \frac{3}{8} \left(- 2 \frac{x}{a} + \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right)^2 + \cdots \right).
+\end{equation*}
+Up to second order terms the total potential energy is then
+\begin{eqnarray*}
+ V(x,y) & = & k \frac{q_1}{a} \left( - 2 \frac{1}{2} \left( \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + 2 \frac{3}{8} \left( 2 \frac{x}{a} \right)^2 \right) \\
+ & + & k \frac{q_2}{a} \left( - 2 \frac{1}{2} \left( \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + 2 \frac{3}{8} \left( 2 \frac{y}{a} \right)^2 \right) + \mathcal{O}(x^3, y^3) \\
+ & = & \frac{k}{a^3} \left( (2 q_1 - q_2) x^2 + (2 q_2 - q_1) y^2 \right).
+\end{eqnarray*}
+Since the potential matrix is diagonal, the original is a stable equilibrium if both coefficients are positive, or in other words both $\frac{\partial^2 V}{\partial x^2}$ and $\frac{\partial^2 V}{\partial y^2}$ are positive.  This is the case when $2 q_1 > q_2$ and $2 q_2 > q_1$.  Because $V$ is already diagonal the frequencies are particularly easy to determine:
+\begin{eqnarray*}
+ \omega_1^2 & = & 2 \frac{k}{m a^3} (2 q_1 - q_2) \\
+ \omega_2^2 & = & 2 \frac{k}{m a^3} (2 q_2 - q_1).
+\end{eqnarray*}
+The corresponding eigenvectors are the unit vectors in the $x$ and $y$ direction.
+
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 4.6.
+\end{enumerate}
+
+a) The Lagrangian in polar coordinates in the orbital plane is
+\begin{equation*}
+ L = \frac{1}{2} m \left(\dot{r}^2 + r^2\dot{\phi}^2\right) - V(r).
+\end{equation*}
+The Euler-Lagrange equation in $r$ is
+\begin{eqnarray*}
+ \frac{d}{dt}\frac{\partial L}{\partial \dot{r}} & = & \frac{\partial L}{\partial r} \\
+ m \ddot{r} & = & m r \dot\phi^2 - V'(r).
+\end{eqnarray*}
+At the equilibrium, $r = r_0$ and $\phi = \Omega t$, this gives $V'(r_0) = m r_0 \Omega^2$.
+
+With $r = r_0 + \eta_r$ and $\phi = \Omega t + \eta_\phi$, we can expand the Lagrangian:
+\begin{eqnarray*}
+ L & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + (r_0 + \eta_r)^2 (\Omega + \dot\eta_\phi)^2\right) - V(r_0 + \eta_r) \\
+   & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + (r_0^2 + 2 r_0 \eta_r + \eta_r^2) (\Omega^2 + 2 \Omega \dot\eta_\phi + \dot\eta_\phi^2)\right) - V(r_0 + \eta_r) \\
+   & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + r_0^2 \Omega^2 + 2 r_0 \Omega^2 \eta_r + \Omega^2 \eta_r^2 + 2 r_0^2 \Omega \dot\eta_\phi + 4 r_0 \Omega \eta_r \dot\eta_\phi + 2 \Omega \dot\eta_\phi \eta_r^2 + r_0^2 \dot\eta_\phi^2  + 2 r_0 \eta_r \dot\eta_\phi^2 + \eta_r^2 \dot\eta_\phi^2 \right) \\
+   & &  - V(r_0) - \eta_r V'(r_0) - \frac{1}{2} \eta_r^2 V''(r_0) + \mathcal{O}(\eta^3) \\
+   & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + r_0^2 \Omega^2 + \Omega^2 \eta_r^2 + 2 r_0^2 \Omega \dot\eta_\phi + 4 r_0 \Omega \eta_r \dot\eta_\phi + 2 \Omega \dot\eta_\phi \eta_r^2 + r_0^2 \dot\eta_\phi^2  + 2 r_0 \eta_r \dot\eta_\phi^2 + \eta_r^2 \dot\eta_\phi^2 \right) \\
+   & & - V(r_0) - \frac{1}{2} \eta_r^2 V''(r_0) + \mathcal{O}(\eta^3),
+\end{eqnarray*}
+where we used the previously found expression for $V'(r_0)$.
+
+Since the Lagrangian is cyclic in $\phi$, the angular momentum $\ell = p_\phi$ is conserved.  After expansion,
+\begin{eqnarray*}
+ \ell = p_\phi = \frac{\partial L}{\partial \dot{\phi}} & = & m r^2 \dot\phi \\
+ & = & m (r_0 + \eta_r)^2 (\Omega + \dot\eta_\phi) \\
+ & = & m r_0^2 \Omega + m r_0^2 \dot\eta_\phi + 2 m r_0 \Omega \eta_r + 2 m r_0 \eta_r \dot\eta_\phi + m \Omega \eta_r^2 + m \eta_r^2 \dot\eta_\phi
+\end{eqnarray*}
+the angular momentum $\ell$ is constant and equal to $m r_0^2 \Omega$.  This results in
+\begin{equation*}
+ r_0^2 \dot\eta_\phi + 2 r_0 \eta_r \dot\eta_\phi + \eta_r^2 \dot\eta_\phi = - 2 r_0 \Omega \eta_r - \Omega \eta_r^2.
+\end{equation*}
+We can use this relation (multiplied with $2 \Omega$) to remove the non-bilinear terms in the expanded Lagrangian, after removing constant terms:
+\begin{eqnarray*}
+ L & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + \Omega^2 \eta_r^2 + 2 r_0^2 \Omega \dot\eta_\phi + 4 r_0 \Omega \eta_r \dot\eta_\phi + 2 \Omega \dot\eta_\phi \eta_r^2 + r_0^2 \dot\eta_\phi^2  + 2 r_0 \eta_r \dot\eta_\phi^2 + \eta_r^2 \dot\eta_\phi^2\right) - \frac{1}{2} \eta_r^2 V''(r_0) + \mathcal{O}(\eta^3) \\
+   & = & \frac{1}{2} m \left(\dot{\eta_r}^2 + r_0^2 \dot\eta_\phi^2 - 3 \Omega^2 \eta_r^2\right) - \frac{1}{2} \eta_r^2 V''(r_0) + \mathcal{O}(\eta^3).
+\end{eqnarray*}
+This is in the form $L = \frac{1}{2} \dot\eta^T M \dot\eta - \frac{1}{2} \eta^T V \eta$ with
+\begin{eqnarray*}
+ M & = & m \left[
+  \begin{array}{cc}
+   1 & 0 \\
+   0 & r_0^2 \\
+  \end{array} \right], \\
+ V & = & \left[
+  \begin{array}{cc}
+   V''(r_0) + 3 m \Omega^2 & 0 \\
+   0 & 0 \\
+  \end{array} \right].
+\end{eqnarray*}
+
+The eigenvalue equation $\det(V - \omega^2 M) = 0$ becomes then
+\begin{eqnarray*}
+ \left|   \begin{array}{cc}
+   V''(r_0) + 3 m \Omega^2 - m \omega^2 & 0 \\
+   0 & -m r_0^2 \omega^2 \\
+ \end{array} \right| & = & 0, \\
+ -m r_0^2 \omega^2 \left(V''(r_0) + 3 m \Omega^2 - m \omega^2 \right) & = & 0.
+\end{eqnarray*}
+
+The non-zero eigenvalue of this system is
+\begin{equation*}
+ \omega^2 = 3 \Omega^2 + \frac{1}{m} V''(r_0) = \Omega^2 \left(3 + r_0 \frac{V''(r_0)}{V'(r_0)} \right).
+\end{equation*}
+This eigenvalue is positive, and the equilibrium therefore stable, as long as the following criterion is satisfied:
+\begin{equation*}
+ V''(r_0) + \frac{3}{r_0} V'(r_0) > 0.
+\end{equation*}
+
+b) We can derive the same criterium from the one-dimensional Lagrangian with an effective potential $V_{eff}(r)$
+\begin{equation*}
+ V_{eff}(r) = V(r) + \frac{\ell^2}{2 m r^2}.
+\end{equation*}
+Note the difference with (3.9) where the energy $E$ is considered.  The criterion for stability at the equilibrium is now, with $\ell = m r^2 \Omega$ as found above,
+\begin{eqnarray*}
+ V''_{eff}(r_0) & > & 0 \\
+ V''(r_0) + \frac{3 \ell^2}{m r_0^4} & > & 0 \\
+ V''(r_0) + 3 m \Omega^2 & > & 0 \\
+ V''(r_0) + \frac{3}{r_0} V'(r_0) & > & 0,
+\end{eqnarray*}
+where we used again the expression for $V'(r_0)$.
+
+c) If $V(r) = -\lambda r^{-n}$, then the criterion becomes
+\begin{equation*}
+ - n (n+1) \lambda r_0^{-n-2} + 3 n \lambda r_0^{-n-2} > 0.
+\end{equation*}
+This is satisfied for $n(n+1) - 3 n < 0$ or $n+1 < 3$ or $n < 2$.
+
+d) If $V(r) = -\frac{\lambda}{r} \exp(-\frac{r}{a})$, then the criterion becomes
+\begin{eqnarray*}
+ \left( -\frac{1}{a^2} \frac{\lambda}{r_0} \exp(-\frac{r_0}{a}) - \frac{1}{a} \frac{\lambda}{r_0^2} \exp(-\frac{r_0}{a}) - 2 \frac{\lambda}{r_0^3} \exp(-\frac{r_0}{a}) - \frac{1}{a} \frac{\lambda}{r_0^2} \exp(-\frac{r_0}{a}) \right) & & \\
++ 3 \frac{1}{r_0} \left( \frac{1}{a} \frac{\lambda}{r_0} \exp(-\frac{r_0}{a}) + \frac{\lambda}{r_0^2} \exp(-\frac{r_0}{a}) \right) & > & 0 \\
+ \left( -\frac{1}{a^2} - \frac{1}{a r_0} - 2 \frac{1}{r_0^2} - \frac{1}{a r_0} + 3 \frac{1}{a r_0} + 3 \frac{1}{r_0^2} \right) \frac{\lambda}{r_0} \exp(-\frac{r_0}{a}) & > & 0 \\
+ \left( \frac{1}{r_0^2} + \frac{1}{a r_0} - \frac{1}{a^2}\right) & > & 0 \\
+ 1 + \frac{r_0}{a} - \left(\frac{r_0}{a}\right)^2 & > & 0 \\
+ \left( \frac{\sqrt{5} - 1}{2} + \frac{r_0}{a} \right) \left( \frac{\sqrt{5} + 1}{2} - \frac{r_0}{a} \right) & > & 0.
+\end{eqnarray*}
+This is satisfied if $r_0/a$ is smaller than the golden ratio, or
+\begin{equation*}
+ r_0 < \frac{\sqrt{5} + 1}{2} \, a.
+\end{equation*}
+
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 4.7.
+\end{enumerate}
+
+a) The potential energy is now $V(r) = V_0(r) + \delta V(r)$.  The angle that the orbit describes for a time $\Delta t$ is $\Delta\phi = \omega \Delta t$.  For the unperturbed circular orbit, the angular frequency is $\Omega$, and $\Omega T = 2\pi$.  For the nearly circular orbit in this problem, the angular frequency changes to $\omega$ as in the previous problem.  The additional angle due to the perturbation is therefore
+\begin{eqnarray*}
+ \delta\phi & = & \Delta\phi^{\hbox{(pert)}} - \Delta\phi^{\hbox{(unpert)}} \\
+ & = & \Omega T \left(3 + r_0 \frac{V''(r_0)}{V'(r_0)}\right)^{1/2} - \Omega T \left(3 + r_0 \frac{V_0''(r_0)}{V_0'(r_0)}\right)^{1/2} \\
+ & = & 2\pi \left(3 + r_0 \frac{V''(r_0)}{V'(r_0)}\right)^{1/2} - 2\pi \left(3 + r_0 \frac{V_0''(r_0)}{V_0'(r_0)}\right)^{1/2}.
+\end{eqnarray*}
+We now expand this for small $\delta V(r)$ as
+\begin{eqnarray*}
+ \delta\phi & = & 2\pi \left(3 + \frac{1}{2} r_0 \frac{V''(r_0)}{V'(r_0)}\right) - 2\pi \left(3 + \frac{1}{2} r_0 \frac{V_0''(r_0)}{V_0'(r_0)}\right) \\
+ & = & \pi r_0 \frac{1}{V_0'(r_0)} \left(V_0''(r_0) + \delta V''(r_0)\right) \left(1 - \frac{\delta V'(r_0)}{V_0'(r_0)}\right) - \pi r_0 \frac{1}{V_0'(r_0)} V_0''(r_0) \\
+ & = & \pi r_0 \frac{1}{V_0'(r_0)} \left( - \frac{V_0''(r_0)}{V_0'(r_0)} \delta V'(r_0) + \delta V''(r_0)\right) + \mathcal{O}(\delta V^2).
+\end{eqnarray*}
+Using the expression for $V_0(r)$ we find
+\begin{eqnarray*}
+ V_0(r) & = & -mMGr^{-1}, \\
+ V_0'(r) & = & mMGr^{-2}, \\
+ V_0''(r) & = & -2mMGr^{-3}, \\
+ \frac{V_0''(r)}{V_0'(r)} & = & -2 r^{-1}.
+\end{eqnarray*}
+This finally leads to
+\begin{eqnarray*}
+ \delta\phi & = & \pi r_0 \frac{r_0^2}{mMG} \left( 2 r_0^{-1} \delta V'(r_0) + \delta V''(r_0)\right) + \mathcal{O}(\delta V^2) \\
+ & = & \frac{\pi r_0}{mMG} \left( 2 r_0 \delta V'(r_0) + r_0^2 \delta V''(r_0)\right) + \mathcal{O}(\delta V^2).
+\end{eqnarray*}
+
+b) For $\delta V(r) = -\alpha m(MG/rc)^2$ this leads to
+\begin{eqnarray*}
+ \delta V'(r) & = & 2 \alpha m (MG/c)^2 r^{-3}, \\
+ \delta V''(r) & = & - 6 \alpha m (MG/c)^2 r^{-4},
+\end{eqnarray*}
+and we find for the precession
+\begin{equation*}
+ \delta\phi = -2 \alpha \frac{\pi}{r_0} \frac{MG}{c^2}.
+\end{equation*}
+
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 4.13.
+\end{enumerate}
+
+To determine the dispersion relation we use the equations of motion.  These can be obtained from the Lagrangian,
+\begin{equation*}
+ L = T - V = \frac{1}{2} m \sum_i \dot\eta_i^2 - \frac{1}{2} k \sum_i (\eta_{i+1} - \eta_i)^2 - \frac{1}{2} m \frac{g}{\ell} \sum_i \eta_i^2,
+\end{equation*}
+but we can also consider the force and immediately write down
+\begin{eqnarray*}
+ m \ddot\eta_i & = & - m \frac{g}{\ell} \eta_i + k (\eta_{i+1} - \eta_i) - k (\eta_i - \eta_{i-1}) \\
+ m \ddot\eta_i & = & - (m \frac{g}{\ell} + 2 k) \eta_i  + k (\eta_{i+1} + \eta_{i-1}).
+\end{eqnarray*}
+We assume a wave solution of the form $\eta_i(t) = \eta(x_i,t) = A \exp i(q x_i - \omega t)$, and we substitute this in the equation of motion to find the dispersion relation,
+\begin{eqnarray*}
+ - m \omega^2 & = & - (m \frac{g}{\ell} + 2 k) + k (e^{iqa} + e^{-iqa}) \\
+ \omega^2 & = & \frac{g}{\ell} + 4 \frac{k}{m} \sin^2 \frac{qa}{2}.
+\end{eqnarray*}
+We find that there is an offset of $\frac{g}{\ell}$ in the frequency when comparing with the sketch of Figure 24.6 in F\&W.
+
+With periodic boundary conditions we require that $\eta(x_i) = \eta(x_i + N a)$ or $\exp iqNa = 1$.  The allowed wavenumbers are then
+\begin{equation*}
+ q_n = \frac{2 \pi n}{N a} \quad \hbox{with} \quad n = 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+The allowed frequencies are now
+\begin{equation*}
+ \omega_n^2 = \frac{g}{\ell} + 4 \frac{k}{m} \sin^2 \frac{\pi n}{N} \quad \hbox{with} \quad n = 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+The lowest frequency is $\omega_0^2 = \frac{g}{\ell}$, when all pendulums are moving in phase and the springs have no effect.
+
+
+\end{document}

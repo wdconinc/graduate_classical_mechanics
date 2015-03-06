@@ -1,0 +1,140 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 4: Solutions}
+\date{Due: Thursday September 26, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Forces of Constraint}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 3.17.
+\end{enumerate}
+
+a) Work in $r,\theta,\phi$, but choose $\phi = 0$.  The Lagrangian becomes
+\begin{equation*}
+ L = \frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2) - m g r \cos\theta
+\end{equation*}
+with constraint $r = R_1$.  The Euler-Lagrange equations with Lagrange multiplier $\lambda$ become
+\begin{eqnarray*}
+ m\ddot{r} - m r \dot{\theta}^2 + m g \cos\theta & = & \lambda, \\
+ m r^2 \ddot\theta + 2 m r \dot{r} \dot\theta - m g r \sin\theta & = & 0.
+\end{eqnarray*}
+Because $\dot{r} = \ddot{r} = 0$, the second equation becomes $r \ddot\theta = g \sin\theta$, multiply with $\dot\theta$ and integrate to get $R_1 \dot\theta^2 = 2 g (1 - \cos\theta)$.  We can plug this into the first equation and get $2 g (1 - \cos\theta) - g \cos\theta + \frac{\lambda}{m} = 0$.  When the mass leaves the sphere, $\lambda = 0$, or $\cos\theta = \frac{2}{3}$.
+
+b) The Lagrangian has an additional term and becomes
+\begin{equation*}
+ L = \frac{1}{2}m(\dot{r}^2+r^2\dot\theta_1^2) + \frac{1}{2} I \theta_2^2 - m g r \cos\theta_1
+\end{equation*}
+with constraints $r = R_1 + R_2$ and $R_1 \theta_1 = R_2 (\theta_2 - \theta_1)$.  The Euler-Lagrange equations with Lagrange multipliers $\lambda_r$ and $\lambda_\theta$ become
+\begin{eqnarray*}
+ m\ddot{r} - m r \dot{\theta}^2 + m g \cos\theta & = & \lambda, \\
+ m r^2 \ddot\theta + 2 m r \dot{r} \dot\theta - m g r \sin\theta & = & (R_1 + R_2) \lambda_\theta, \\
+ I \ddot\theta_2 & = & -R_2 \lambda_\theta.
+\end{eqnarray*}
+We can eliminate $\lambda_\theta$ from the last two equations, multiply with $\dot\theta_1$ and integrate to get $R_1 \dot\theta_1^2 = 2 g (1 + \frac{I}{m R_2^2})^{-1} (1 - \cos\theta_1)$.  When we plug this into the first equation, we now get with $I = \frac{2}{5} m R_2^2$ that $2 g \frac{5}{7} (1 - \cos\theta_1) - g \cos\theta_1 + \frac{\lambda_r}{m} = 0$.  When the second sphere leaves the first sphere, $\lambda_r = 0$, or $\cos\theta_1 = \frac{10}{17}$.
+
+\paragraph*{Calculus of Variations}
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 3.19.
+\end{enumerate}
+
+a) We find the Lagrangian for this free particle as $L = T = \frac{1}{2} m |\vec{v}|^2 = \frac{1}{2} m \frac{d\vec{s} \cdot d\vec{s}}{dt^2} = \frac{1}{2} m \sum_j \sum_k g_{jk} \dot{q}^j \dot{q}^k$.  From this Lagrangian we find
+\begin{eqnarray*}
+\frac{\partial L}{\partial \dot{q}^i} & = & \frac{1}{2} m \sum_j \sum_k g_{jk} (\dot{q}^j \delta_i^k + \dot{q}^k \delta_i^j) = m \sum_j g_{ij} \dot{q}^j, \\
+\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} & = & m \sum_j \sum_k \frac{\partial g_{ij}}{\partial q^k} \dot{q}^j dot{q}^k + m \sum_j g_{ij} \ddot{q}^j, \\
+ & = & \frac{1}{2} m \sum_j \sum_k \left( \frac{\partial g_{ij}}{\partial q^k} \dot{q}^j dot{q}^k + \frac{\partial g_{ik}}{\partial q^j} \dot{q}^k dot{q}^j \right) + m \sum_j g_{ij} \ddot{q}^j, \\
+\frac{\partial L}{\partial q^i} & = & \frac{1}{2} m \sum_j \sum_k \frac{\partial g_{jk}}{\partial q^i} \dot{q}^j dot{q}^k.
+\end{eqnarray*}
+The Euler-Lagrange equation then becomes:
+\begin{equation*}
+ \sum_j g_{ij} \ddot{q}^j + \frac{1}{2} \sum_j \sum_k \left( \frac{\partial g_{ij}}{\partial q^k} + \frac{\partial g_{ik}}{\partial q^j} - \frac{\partial g_{jk}}{\partial q^i} \right) \dot{q}^j dot{q}^k = 0.
+\end{equation*}
+If we matrix-multiply this with $g^{im}$ (\textit{i.e.} sum over $m$), we get
+\begin{equation*}
+ \sum_j \delta^i_j \ddot{q}^j + \sum_j \sum_k \frac{1}{2} \sum_m g^{im} \left( \frac{\partial g_{mj}}{\partial q^k} + \frac{\partial g_{mk}}{\partial q^j} - \frac{\partial g_{jk}}{\partial q^m} \right) \dot{q}^j dot{q}^k = 0,
+\end{equation*}
+which becomes $\ddot{q}^i + \sum_j \sum_k \Gamma^i_{jk} \dot{q}^j dot{q}^k = 0$.
+
+b) Along the curve $\vec{s}(\tau)$ the metric is
+$$ds = \sqrt{ds^2} = \sqrt{\sum_i \sum_j g_{ij} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau}} d\tau.$$
+Minimizing the integral of this metric gives us the Euler-Lagrange equation
+$$\frac{d}{d\tau} \frac{\partial}{\partial \dot{q}^k} \sqrt{\sum_i \sum_j g_{ij} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau}} - \frac{\partial}{\partial q^k} \sqrt{\sum_i \sum_j g_{ij} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau}} = 0.$$
+Since the solution that minimizes the integral of $\sqrt{\sum_i \sum_j g_{ij} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau}}$ will also have to minimize the integral of $\sum_i \sum_j g_{ij} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau}$ we can basically ignore the square roots (you can also just keep them and realize that they can be multiplied out in both terms).  The equation becomes
+\begin{equation*}
+ \sum_j g_{jk} \frac{d^2 q_j}{d\tau^2} + \frac{1}{2} \sum_i \sum_j \left( \frac{\partial g_{jk}}{\partial q_i} \frac{d q^i}{d\tau} \frac{dq^j}{d\tau} + \frac{\partial g_{ik}}{\partial q_j} \frac{d q^i}{d\tau} \frac{dq^j}{d\tau} \right) - \frac{1}{2} \sum_i \sum_j \frac{\partial g_{ij}}{\partial q^k} \frac{dq^i}{d\tau} \frac{dq^j}{d\tau} = 0.
+\end{equation*}
+This is the same equation.
+
+c) Since $\frac{\partial L}{\partial t} = 0$ the Hamiltonian is conserved and since $H = L$ the Lagrangian is constant, or $v^2$ is constant.  Since $\frac{d}{d\tau}$ can now be written as $\frac{\ell}{v} \frac{d}{dt}$ the equations are equal.
+
+
+\paragraph*{Lagrangians, Hamiltonians, and Noether's Theorem}
+\begin{enumerate}[resume]
+ \item The Lagrangian for a free particle in generalized multi-dimensional curvilinear coordinates is obtained analogously to the two-dimensional case of Fetter \& Walecka, Problem 3.19 above.  Find the canonical momenta $p_i$ and show that the Hamiltonian can be written as $H = \sum_{i,j} \frac{1}{2m} g^{ij} p_i p_j$, without reference to the generalized velocities $\dot{q}_i$.  Use this result to find the Hamiltonian of a free particle in spherical coordinates as a function of the generalized coordinates and momenta.  Find Hamilton's equations of motion and identify two constants of the motion for this coordinate system.
+\end{enumerate}
+
+From $L = \frac{1}{2} m \sum_j \sum_k g_{jk} \dot{q}^j \dot{q}^k$ we find that $p_i = \frac{\partial L}{\partial \dot{q}^i} = m \sum_j g_{ij} \dot{q}^j$, or by multiplying this with $g^{ik}$, summing over $k$, and using $\sum_k g^{ik} g_{kj} = \delta^i_j$ that $\dot{q}^i = \frac{1}{m} \sum_k g^{ik} p_k$.  Plugging this in the Hamiltonian gives $$H = L = \frac{1}{2m} \sum_{j,k} g^{jk} p_j p_k.$$
+
+In spherical coordinates $ds^2 = dr^2 + r^2 \sin^2\theta d\phi^2 + r^2 d\theta^2$ so $g_{ij}$ is diagonal with elements $g_{rr} = 1$, $g_{\phi\phi} = r^2 \sin^2\theta$, and $g_{\theta\theta} = r^2$.  $g^{ij}$ is the inverse of $g_{ij}$, also a diagonal matrix but with the inverse of the elements of $g_{ij}$.  The Hamiltonian is then $$H = \frac{1}{2m} (p_r^2 + \frac{p_\phi^2}{r^2\sin^2\theta} + \frac{p_\theta^2}{r^2}).$$  This is cyclic in $\phi$, so $p_\phi$ is a constant of motion.  Since $\frac{\partial H}{\partial t} = 0$, the Hamiltonian $H$ is also a constant of motion.  The equations of motion become:
+\begin{eqnarray*}
+ \dot{p}_r & = & -\frac{\partial H}{\partial r} = \frac{1}{mr^3}(\frac{p_\phi^2}{\sin^2\theta} + p_\theta^2) \\
+ \dot{r} & = & \frac{\partial H}{\partial p_r} = \frac{p_r}{m} \\
+ \dot{p}_\theta & = & -\frac{\partial H}{\partial \theta} =  \frac{1}{mr^2}\frac{p_\phi^2}{\sin^2\theta} \cos\theta \\
+ \dot{\theta} & = & \frac{\partial H}{\partial p_\theta} = \frac{p_\theta}{m r^2} \\
+ \dot{p}_\phi & = & -\frac{\partial H}{\partial \phi} = 0 \\
+ \dot{\phi} & = & \frac{\partial H}{\partial p_\phi} = \frac{p_\phi}{m r^2 \sin^2\theta}
+\end{eqnarray*}
+
+\begin{enumerate}[resume]
+ \item The point of suspension of a simple pendulum of length $\ell$ and mass $m$ is constrained to move on the parabola $z = a x^2$ in a vertical plane.  Derive the Hamiltonian and the equations of motion for this system.  \textit{Note:} You can write the kinetic energy as the quadratic form $T = \frac{1}{2} \dot{q}^T M \dot{q} = \frac{1}{2} p^T M^{-1} p$ for some symmetric matrix $M$.
+\end{enumerate}
+See hand-written solution in different file.
+
+\begin{enumerate}[resume]
+ \item Consider a system with conservative forces derivable from a time-independent potential $V(q_j)$ and dissipative forces derivable from a dissipation function $\mathcal{F} = \frac{1}{2}\sum_j k_j \dot{q}_j^2$.  If $L$ is not an explicit function of the time and the system satisfies all requirements for $H$ to be equal to the total energy $E$, determine the rate of change of the total energy.
+\end{enumerate}
+Not written yet\ldots
+
+\begin{enumerate}[resume]
+ \item Comment on energy and momentum conservation for the Langrangian
+ \begin{equation*}
+  L = e^{\gamma t} \left( \frac{1}{2}m \dot{q}^2 - \frac{1}{2}k q^2 \right).
+ \end{equation*}
+ Find the equations of motion and describe the system.  Make the transformation $s = e^{\gamma t/2}q$.  Show that in the new system of coordinates there is a conserved ``energy.''  Solve the resulting equations of motion and interpret the results.
+\end{enumerate}
+
+Because $\frac{\partial L}{\partial t} \ne 0$, the Hamiltonian is not conserved.  Since this system satisfies all conditions for the Hamiltonian to be equal to the total energy, that means that the energy is not conserved.  Because $\frac{\partial L}{\partial q} \ne 0$ also the momentum $p = \frac{\partial L}{\partial \dot{q}}$ is not conserved.
+
+The Euler-Lagrange equation is
+\begin{eqnarray*}
+ \frac{\partial L}{\partial q} & = & - e^{\gamma t} k q, \\
+ \frac{\partial L}{\partial \dot{q}} & = & e^{\gamma t} m \dot{q}, \\
+ e^{\gamma t} (m \ddot{q} + m \gamma \dot{q} + k q) & = & 0.
+\end{eqnarray*}
+This is the damped harmonic oscillator equation.
+
+Because $\dot{s} = \frac{\gamma}{2}s + e^{\gamma t/2} \dot{q}$, the transformed Lagrangian is
+\begin{equation*}
+ L' = \frac{1}{2}m (\dot{s} - \frac{\gamma}{2} s)^2 - \frac{1}{2}k s^2.
+\end{equation*}
+There is no explicit time-dependence anymore, so the Hamiltonian is conserved.  The Euler-Lagrange equation becomes:
+\begin{eqnarray*}
+ \frac{\partial L'}{\partial s} & = & - m \frac{\gamma}{2} (\dot{s} - \frac{\gamma}{2} s) - k s, \\
+ \frac{\partial L'}{\partial \dot{s}} & = & m (\dot{s} - \frac{\gamma}{2} s), \\
+ m \ddot{s} + (k - \frac{\gamma^2}{4}) s & = & 0.
+\end{eqnarray*}
+The solution, with $\omega'^2 = \omega^2 - \frac{\gamma^2}{4m}$, is $s = A \cos \omega' t + B \sin \omega' t$, or $q = e^{-\gamma t} (A \cos \omega' t + B \sin \omega' t)$.  The exponential behavior was factorized completely into the relationship between $q$ and $s$, and the harmonic behavior was reproduced for $s$.
+
+\end{document}

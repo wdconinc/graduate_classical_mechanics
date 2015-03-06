@@ -1,0 +1,59 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Midterm Exam \\ Classical Mechanics \\ Physics 601 (Fall 2011)}
+\date{Due by noon on Wednesday October 12, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Instructions}
+\begin{itemize}
+ \item This midterm exam is to be completed \textbf{individually}.
+ \item Please carefully explain each step in your answer.
+\end{itemize}
+
+\paragraph*{Lagrangian Mechanics}
+\begin{enumerate}
+ \item Two masses $m_1$ and $m_2$ are connected by a string with fixed length passing through a hole in a smooth table, so that $m_1$ rests on the table and $m_2$ hangs suspended and moves only in the vertical direction.  Consider the motion until $m_1$ reaches the hole.
+ \begin{itemize}
+  \item Write down the Lagrangian and the equations of motion for this system. Interpret the first integral you encounter.
+  \item Under what condition will the hanging mass remain stationary?
+  \item Starting from this stationary situation, the mass $m_2$ is pulled down slightly and released again. Investigate the resulting small oscillations in the vertical position of $m_2$.
+  \item Calculate the tension in the string for stationary motion using the method of the Lagrange multipliers.
+ \end{itemize}
+ \item A particle of mass $m$ in a uniform gravitational field is constrained to move on a helical wire with height $z = a\theta$ and radius $r = b$ in cylindrical coordinates.
+ \begin{itemize}
+  \item Write down the Lagrangian and the equations of motion for this system.
+  \item Solve the equations of motion if at $t = 0$ the mass is at $z = 0$.
+  \item Find the forces of constraint using the method of the Lagrange multipliers.
+ \end{itemize}
+\end{enumerate}
+
+\paragraph*{Hamiltonian Mechanics}
+\begin{enumerate}[resume]
+ \item The point of suspension of a simple pendulum of length $\ell$ and mass $m$ is constrained to move on the parabola $z = a x^2$ in a vertical plane.  Derive the Hamiltonian and the equations of motion for this system.  \textit{Note:} You can write the kinetic energy as the quadratic form $T = \frac{1}{2} \dot{q}^T M \dot{q} = \frac{1}{2} p^T M^{-1} p$ for some symmetric matrix $M$.
+\end{enumerate}
+
+\paragraph*{Hamiltonian-Jacobi Theory}
+\begin{enumerate}[resume]
+ \item Consider the physical system described by the kinetic energy $T$ and potential energy $V$
+ \begin{eqnarray*}
+  T & = & \frac{1}{2} (\dot{q}_1^2 + \dot{q}_2^2) (q_1^2 + q_2^2), \\
+  V & = & (q_1^2 + q_2^2)^{-1},
+ \end{eqnarray*}
+ where $q_1$ and $q_2$ are the generalized coordinates.  What is the Hamilton-Jacobi equation for this system?  Solve this equation to find Hamilton's principal function, and determine the solutions to the equations of motion (you need not evaluate any definite integrals).
+\end{enumerate}
+
+
+\end{document}

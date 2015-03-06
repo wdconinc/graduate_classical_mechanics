@@ -1,0 +1,81 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 3: Solutions}
+\date{Due: Thursday September 19, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Generalized Coordinates and the Lagrange's Equations}
+\begin{enumerate}
+ \item A massless inextensible string passes over a pulley which is a fixed distance above the floor.  A bunch of bananas of mass $m$ is attached to one end $A$ of the string.  A monkey of mass $M$ is initially at the other end $B$. The monkey climbs the string, and his displacement $d(t)$ with respect to the end $B$ is a \emph{given} function of time.  The system is initially at rest, so that the initial conditions are $d(0) = \dot{d}(0) = 0$.  Introduce suitable generalized coordinates and calculate the Lagrangian of the system in terms of these coordinates.  Show that the equation of motion governing the height $z$ of the monkey above the floor is $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  Integrate the equation to find the subsequent motion.  In the special case that $m = M$, show that the bananas and the monkey rise through equal distances so that the vertical separation between them is constant.
+\end{enumerate}
+The height of the monkey above the floor is $z_M = z$; the height of the bananas is $z_m = H - (l - d + z - H) = 2 H - \ell - z + d$ where $H$ is the height of the pulley.  The Lagrangian is then
+\begin{eqnarray*}
+ L & = & \frac{1}{2} M \dot{z}_M^2 + \frac{1}{2} m \dot{z}_m^2 - Mgz_M - mgz_m \\
+   & = & \frac{1}{2} M \dot{z}^2 + \frac{1}{2} m (\dot{z} - \dot{d})^2 - Mgz - mg(2H - \ell - z + d).
+\end{eqnarray*}
+From the derivatives
+\begin{eqnarray*}
+ \frac{\partial L}{\partial \dot{z}} & = & M \dot{z} + m (\dot{z} - \dot{d}) \\
+ \frac{\partial L}{\partial z} & = & (m - M) g.
+\end{eqnarray*}
+follows indeed the given Euler-Lagrange equation $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  The solution for the given initial conditions (and assuming the monkey starts at $z = 0$ from rest) is then
+\begin{equation*}
+ z(t) = \frac{1}{2} \frac{m - M}{m + M} g t^2 + \frac{m}{m + M} d(t).
+\end{equation*}
+When $m = M$ we have $z = \frac{1}{2} d$, and the separation $z_m - z_M = 2 H - \ell - 2 z + d = 2 H - \ell$ is constant, so the monkey dies of hunger.
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 3.8.
+\end{enumerate}
+Since $x = a\theta - a\sin\theta$ and $y = a(1 - \cos\theta)$ we find that $ds^2 = dx^2 + dy^2 = 2a^2(1-\cos\theta)d\theta^2 = 4a^2\sin^2\frac{\theta}{2}d\theta^2$.  The length $S$ from 0 to $s$ is then $S = \int_0^\theta 2a\sin\frac{\theta}{2}d\theta = -4a\cos\frac{\theta}{2}$.
+
+The potential energy is $V = -mgy = -mga(1-\cos\theta = -2mga(1-\cos^2\frac{\theta}{2}) = -2mga\left(1 - \frac{s^2}{4a}\right)$.  The Lagrangian is then (up to a constant) $L = \frac{1}{2}m\dot{s}^2 + \frac{1}{2}m\frac{g}{4a}s^2$.  This is the Lagrangian for a harmonic oscillator with frequency $\omega = \sqrt{\frac{g}{4a}}$ even for large excursions $s$.
+
+\paragraph*{Calculus of Variations}
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 3.10, (a) and (c).
+\end{enumerate}
+When $L$ depends on $q$, $\dot{q}$, and $t$, the total time derivative is $\frac{dL}{dt} = \frac{\partial L}{\partial q} \dot{q} + \frac{\partial L}{\partial \dot{q}} \frac{d\dot{q}}{dt} + \frac{\partial L}{\partial t}$.  Independently we can evaluate $\frac{d}{dt} \left( \dot{q} \frac{\partial L}{\partial \dot{q}} \right) = \frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}} + \dot{q} \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} = \frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}} + \dot{q} \frac{\partial L}{\partial q}$, where we used the Euler-Lagrange equation.  Eliminating $\frac{d\dot{q}}{dt} \frac{\partial L}{\partial \dot{q}}$ then gives the equation $\frac{\partial L}{\partial t} = \frac{d}{dt} \left( L - \dot{q} \frac{\partial L}{\partial \dot{q}} \right)$.
+
+\begin{enumerate}[resume]
+ \item Show that Euler--Lagrange equation for the functional $S = \int_a^b L(q,\dot{q},t) dt$ is equivalent to
+  \begin{equation}
+   \frac{\partial L}{\partial t} = \frac{d}{dt} \left( L - \dot{q} \frac{\partial L}{\partial \dot{q}} \right).
+  \end{equation}
+ When $L$ does not depend explicitly on the time $t$, this will lead to a constant of motion.
+\end{enumerate}
+The infinitesimal time interval $dt$ is related to the distance $ds$ as $dt = \frac{ds}{v} = \frac{n}{c} ds$.  The total time on a curve $y(x)$ is then $T[y(x)] = \int n(x,y) \sqrt{1 + y'^2} dx$.  The Euler-Lagrange equation for this variational problem is $\frac{\partial L}{\partial y} - \frac{d}{dx} \frac{\partial L}{\partial y'} = 0$, or after substituting $L = n(x,y) \sqrt{1 + y'^2}$,
+\begin{equation*}
+ \frac{\partial n}{\partial y} \sqrt{1 + y'^2} = \frac{d}{dx} \left( n(x,y) \frac{y'}{\sqrt{1 + y'^2}} \right).
+\end{equation*}
+When $n$ is strictly constant, then $n \frac{y'}{\sqrt{1 + y'^2}}$ is constant, and the solutions are straight trajectories with $y'(x) = \tan\theta$ the slope with respect to the normal.  If we now choose our interface between two media along the $y$ axis (\textit{i.e.} $n(x) = n_1$ if $x < 0$ and $n(x) = n_2$ if $x > 0$), then in each medium $n(x) = n_i$ is still constant and the solution will be a straight line $y_i(x)$ with slope $y_i'(x) = \tan\theta_i$.  Because $\frac{\partial n}{\partial y} = 0$ we now find that
+\begin{eqnarray*}
+ n_1 \frac{y_1'}{\sqrt{1 + y_1'^2}} & = & n_2 \frac{y_2'}{\sqrt{q + y_2'^2}} \\
+ n_1 \sin\theta_1 & = & n_2 \sin\theta_2.
+\end{eqnarray*}
+
+\begin{enumerate}[resume]
+ \item Fermat's principle of optics states that light will follow the path that leads to an extremum in the travel time $T$.  The velocity of light in a medium with refractive index $n$ is given by $v = c/n$.
+ \begin{enumerate}
+  \item Derive Snell's law at the interface of two media with refractive indices $n_1$ and $n_2$ by minimizing the functional $T[y(x)]$ for the piecewise linear trajectory $y(x)$.
+  \item Light in the Earth's atmosphere: Fetter \& Walecka, Problem 3.12.
+ \end{enumerate}
+\end{enumerate}
+In two-dimensional polar coordinates $ds^2 = dr^2 + r^2 d\phi^2 = \left[ \left(\frac{dr}{d\phi}\right)^2 + r^2 \right] d\phi^2$.  The total time on a curve $r(\phi)$ is then $T[r(\phi)] = \int \frac{n}{c} ds = \frac{1}{c} \int n(r) \sqrt{r'^2 + r^2} d\phi$.  The Euler-Lagrange equation in the form $\frac{\partial L}{\partial t} = \frac{d}{d\phi} \left( L - r' \frac{\partial L}{\partial r'} \right)$, with $\frac{\partial L}{\partial t} = 0$, requires that $n(r) \frac{r'}{\sqrt{r'^2 + r^2}} = C$ is constant, or that (after some algebra) $r' = r \sqrt{k n^2 r^2 - 1}$ with $k = C^{-2}$.
+
+If $n(r) = A r^m$, then the differential equation for $r(\phi)$ becomes $r' = r \sqrt{A^2 k r^{2m + 2} - 1}$.  The distance remains constant if $r' = 0$ for all $r$ and $\phi$.  This requires that $A^2 k = 1$ and $m = -1$, or $n(r) = \frac{1}{r\sqrt{k}}$.
+
+\end{document}

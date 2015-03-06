@@ -1,0 +1,195 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 11: Solutions}
+\date{Due: Thursday December 5, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}
+ \item Consider a density distribution $\rho(\vec{r}) = \rho(r_\perp,z)$, \textit{i.e.} the $\hat{z}$ axis is an axis of rotational symmetry.
+ \begin{enumerate}
+  \item Show by direct integration that the $\hat{z}$ axis is a principal axis.
+  \item Show that the moments of inertia about any two axis in the $xy$ plane are degenerate.
+ \end{enumerate}
+\end{enumerate}
+
+a) The $\hat{z}$ axis will be a principal axis if $I_{13}$ and $I_{23}$ are zero.
+\begin{eqnarray*}
+ I_{13} & = & - \int d^3\vec{r} \rho(\vec{r}) x z \\
+ & = & - \int d^3\vec{r} \rho(r_\perp,z) r_\perp \cos\phi z \\
+ & = & - \int_0^{+\infty} dr_\perp \int_0^{2\pi} r_\perp d\phi \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) r_\perp \cos\phi z \\
+ & = & - \int_0^{+\infty} dr_\perp r_\perp^2 \int_{-\infty}^{+\infty} dz z \rho(r_\perp,z) \int_0^{2\pi} d\phi \cos\phi \\
+ & = & 0,
+\end{eqnarray*}
+due to the $\cos\phi$ integral.  Similarly, $I_{23} = 0$, and therefore $I_{33} = I_3$ is a principal moment around the principal axis $\hat{z}$, with
+\begin{eqnarray*}
+ I_{33} & = & \int d^3\vec{r} \rho(r_\perp,z) r_\perp^2 \\
+ & = & \int_0^{+\infty} dr_\perp \int_0^{2\pi} r_\perp d\phi \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) r_\perp^2 \\
+ & = & 2 \pi \int_0^{+\infty} r_\perp^3 dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z).
+\end{eqnarray*}
+
+b) The inertia tensor can be written as
+\begin{equation*}
+ I = \left[ \begin{array}{ccc}
+  I_{11} & I_{12} & 0 \\
+  I_{12} & I_{22} & 0 \\
+  0 & 0 & I_{33}
+ \end{array} \right].
+\end{equation*}
+We can determine the remaining components of this tensor (with $r = r_\perp$):
+\begin{eqnarray*}
+ I_{12} & = & - \int d^3\vec{r} \rho(r_\perp,z) r_\perp \cos\phi r_\perp \sin\phi \\
+ & = & - \int_0^{+\infty} r_\perp^3 dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \int_0^{2\pi} d\phi \cos\phi \sin\phi \\
+ & = & - \int_0^{+\infty} r_\perp^3 dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \int_0^{2\pi} d\phi \sin\phi d \sin\phi \\
+ & = & 0 \\
+ I_{11} & = & \int d^3\vec{r} \rho(r_\perp,z) (r_\perp^2 \cos^2\phi + z^2) \\
+ I_{22} & = & \int d^3\vec{r} \rho(r_\perp,z) (r_\perp^2 \sin^2\phi + z^2) \\
+ & = & \int_0^{+\infty} dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \int_0^{2\pi} d\phi (r_\perp^2 \sin^2\phi + z^2) \\
+ & = & \int_0^{+\infty} dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \left( r_\perp^3 \int_0^{2\pi} d\phi \sin^2\phi + 2 \pi r_\perp z^2 \right) \\
+ & = & \int_0^{+\infty} dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \left( \pi r_\perp^3 + 2 \pi r_\perp z^2 \right) \\
+ & = & \int_0^{+\infty} dr_\perp \int_{-\infty}^{+\infty} dz \rho(r_\perp,z) \left( r_\perp^3 \int_0^{2\pi} d\phi \cos^2\phi + 2 \pi r_\perp z^2 \right) \\
+ & = & I_{11}.
+\end{eqnarray*}
+The inertia tensor can therefore be written as
+\begin{equation*}
+ I = \left[ \begin{array}{ccc}
+  I_{11} & 0 & 0 \\
+  0 & I_{11} & 0 \\
+  0 & 0 & I_{33}
+ \end{array} \right].
+\end{equation*}
+The moments of inertia about any (degenerate) principal axes in the $xy$ plane are equal.
+
+
+\begin{enumerate}[resume]
+ \item A uniform solid sphere of mass $M$ and radius $R$ rotates freely in space with an angular velocity $\omega$ about a fixed diameter.  A particle of mass $m$, initially on the pole, moves with a constant velocity along a great circle of the sphere.  Absent any extern torques, show that by the time the particle reaches the other pole the sphere will have been retarded by an angle
+ \begin{equation*}
+  \alpha = \omega T \left( 1 - \sqrt{\frac{2M}{2M + 5m}} \right)
+ \end{equation*}
+ where $T$ is the total time required for the particle to move from one pole to the other pole.
+\end{enumerate}
+
+Since there are no external torques, the angular momentum around the $\hat{e}_3$ axis is constant, or
+\begin{equation*}
+ L = I(t) \vec{\omega}(t) = I_3(t) \omega_3(t) = I_3(0) \omega_3(0).
+\end{equation*}
+The momentum of inertia around the $\hat{e}_3$ axis is
+\begin{equation*}
+ I_3(t) = \frac{2}{5}MR^2 + m\left(R\sin\frac{\pi t}{T}\right)^2.
+\end{equation*}
+The angular velocity is therefore
+\begin{equation*}
+ \omega_3(t) = \omega \frac{\frac{2}{5}MR^2}{\frac{2}{5}MR^2 + mR^2\sin^2\frac{\pi t}{T}}.
+\end{equation*}
+The retardation is then
+\begin{eqnarray*}
+ \alpha & = & \int_0^T \omega dt - \int_0^T \omega_3(t) dt \\
+ & = & \omega T - \int_0^T \omega \frac{\frac{2}{5}MR^2}{\frac{2}{5}MR^2 + mR^2\sin^2\frac{\pi t}{T}} dt \\
+ & = & \omega T - \int_0^T \omega \frac{1}{1 + \frac{5m}{2M}\sin^2\frac{\pi t}{T}} dt \\
+ & = & \omega T \left(1 - \frac{1}{\sqrt{1 + \frac{5m}{2M}}} \right) \\
+ & = & \omega T \left(1 - \sqrt{\frac{2M}{2M + 5m}} \right).
+\end{eqnarray*}
+
+ 
+\begin{enumerate}[resume]
+ \item In the case of the torque-free symmetric top, we wrote the Hamiltonian as
+ \begin{equation*}
+  H = \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p^2_\beta}{2 I_1} + \frac{p^2_\gamma}{2 I_3}.
+ \end{equation*}
+ Because $\alpha$ and $\gamma$ are cyclic, this reduces to a one-dimensional problem in $\beta$.  We can interpret the Hamiltonian as $H = T(p_\beta) + V_{eff}(\beta)$ with
+ \begin{eqnarray*}
+  T & = & \frac{p^2_\beta}{2 I_1}, \\
+  V_{eff} & = & \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p^2_\gamma}{2 I_3}.
+ \end{eqnarray*}
+ Draw schematically how the effective potential energy $V_{eff}$ changes with $\beta$.  What are the two constant-$\beta$ solutions where $V'_{eff}(\beta) = 0$?  Discuss any conditions you might encounter.  What is the resulting total energy corresponding to each solution?
+\end{enumerate}
+
+The equilibrium solutions are given by $V'_{eff}(\beta) = 0$, or
+\begin{equation*}
+ V'_{eff}(\beta) = 2 \frac{(p_\alpha - p_\gamma \cos\beta) p_\gamma \sin\beta}{2 I_1 \sin^2 \beta} - 2 \frac{(p_\alpha - p_\gamma \cos\beta)^2}{2 I_1 \sin^3 \beta} \cos\beta = 0.
+\end{equation*}
+The solutions for this equation are $\cos\beta_0 = \frac{p_\gamma}{p_\alpha}$.  The resulting total energy is
+\begin{eqnarray*}
+ E & = & T + V_{eff} = \frac{p_\beta^2}{2 I_1} + \frac{\left(p_\alpha - \frac{p_\gamma^2}{p_\alpha}\right)^2}{2 I_1 \left(1 - \frac{p_\gamma^2}{p_\alpha^2}\right)} + \frac{p_\gamma^2}{2 I_3} \\
+ & = & \frac{p_\alpha^2 - p_\gamma^2}{2 I_1} + \frac{p_\beta^2}{2 I_1} + \frac{p_\gamma^2}{2 I_3}.
+\end{eqnarray*}
+In the first term $p_\alpha^2 - p_\gamma^2$ is equal to $I_1^2 \omega_\perp^2$.
+
+ 
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 5.9.  Describe what will happen to a real symmetric top that is set spinning with its axis initially vertical and with initial $\omega$ large enough.
+\end{enumerate}
+
+When we expand the effective potential energy $V_{eff}$ for small $\beta$ we find, with $\cos\beta = 1 - \frac{1}{2}\beta^2 + \frac{1}{24}\beta^4 + \mathcal{O}(\beta^6)$,
+\begin{eqnarray*}
+ V_{eff}(\beta) & = & \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p^2_\gamma}{2 I_3} + Mg\ell \cos\beta \\
+ & = & \frac{p_\gamma^2}{2 I_1} \frac{(1 - \cos\beta)^2}{(1 - \cos^2\beta)} + \frac{p^2_\gamma}{2 I_3} + Mg\ell \cos\beta \\
+ & = & \frac{p_\gamma^2}{2 I_1} \frac{(1 - \cos\beta)}{(1 + \cos\beta)} + \frac{p^2_\gamma}{2 I_3} + Mg\ell \cos\beta \\
+ & = & \frac{p_\gamma^2}{2 I_1} \frac{(\frac{1}{2}\beta^2 - \frac{1}{24}\beta^4)}{(2 - \frac{1}{2}\beta^2)} + \frac{p^2_\gamma}{2 I_3} + Mg\ell \left( 1 - \frac{1}{2}\beta^2 + \frac{1}{24}\beta^4 \right) + \mathcal{O}(\beta^6) \\
+ & = & \frac{p_\gamma^2}{2 I_1} \frac{1}{2}\beta^2 (1 - \frac{1}{12}\beta^2) \frac{1}{2} (1 + \frac{1}{4}\beta^2) + \frac{p^2_\gamma}{2 I_3} + Mg\ell \left( 1 - \frac{1}{2}\beta^2 + \frac{1}{24}\beta^4 \right) + \mathcal{O}(\beta^6) \\
+ & = & \left(\frac{p^2_\gamma}{2 I_3} + Mg\ell\right) + \frac{1}{2}\beta^2 \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{24}\beta^4 \left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right) + \mathcal{O}(\beta^6).
+\end{eqnarray*}
+This describes a parabola for small $\beta$, with a minimum at $\beta_0 = 0$ when $p_\gamma^2 > 4 I_1 Mg\ell$.  Explicitly, the derivatives are
+\begin{eqnarray*}
+ \frac{\partial V_{eff}}{\partial \beta} & = & \beta \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{6}\beta^3\left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right), \\
+ \frac{\partial^2 V_{eff}}{\partial \beta^2} & = & \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{2}\beta^2\left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right).
+\end{eqnarray*}
+For $p_\gamma^2 \lesssim 4 I_1 Mg\ell$ the minimum is at
+\begin{eqnarray*}
+ \beta_0^2 & = & -3\frac{p_\gamma^2 - 4 I_1 Mg\ell}{p_\gamma^2 + 2 I_1 Mg\ell} \\
+ & \approx & -3\frac{p_\gamma^2 - 4 I_1 Mg\ell}{6 I_1 Mg\ell} \\
+ & = & 2 - \frac{p_\gamma^2}{2 I_1 Mg\ell}.
+\end{eqnarray*}
+To find the frequency of oscillations around this equilibrium, we write $\beta = \beta_0 + \eta$ and find
+\begin{eqnarray*}
+ V_{eff}(\eta) & = & \left(\frac{p^2_\gamma}{2 I_3} + Mg\ell\right) \\
+ & & + \frac{1}{2}\beta_0^2 \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{24} \beta_0^4 \left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right) \\
+ & & + \eta \beta_0 \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{6} \eta \beta_0^3 \left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right) \\
+ & & + \frac{1}{2} \eta^2 \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{4} \eta^2 \beta_0^2 \left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right) \\
+ & & + \mathcal{O}(\eta^3) \\
+ & = & \hbox{constant} + \frac{1}{2} \left[ \left(\frac{p^2_\gamma}{4 I_1} - Mg\ell\right) + \frac{1}{2} \beta_0^2 \left(\frac{p^2_\gamma}{2 I_1} + Mg\ell\right) \right] \eta^2 + \mathcal{O}(\eta^3),
+\end{eqnarray*}
+where the first order term is zero explicitly and by definition of the equilibrium.  The frequency is given by
+\begin{equation*}
+ \Omega^2 = \frac{1}{2 I_1^2} \left( 4 I_1 Mg\ell - p_\gamma^2 \right).
+\end{equation*}
+
+ 
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 6.13.
+\end{enumerate}
+
+The Hamiltonian can be written as
+\begin{equation*}
+ H = \frac{(p_\alpha - p_\gamma\cos\beta)^2}{2 I_1 \sin^2\beta} + \frac{p_\beta^2}{2 I_1} + \frac{p_\gamma^2}{2 I_3} + Mg\ell\cos\beta = \frac{p_\beta^2}{2 I_1} + V_{eff}(\beta).
+\end{equation*}
+Since $\alpha$ and $\gamma$ are cyclic, $p_\alpha$ and $p_\gamma$ are constant.  Therefore we have $S = \alpha p_\alpha + W_\beta + \gamma p_\gamma - E t$.  The Hamilton-Jacobi equation is now
+\begin{equation*}
+ H\left(\frac{\partial W_\beta}{\partial \beta}\right) = \frac{1}{2 I_1} \left(\frac{\partial W_\beta}{\partial \beta}\right)^2 + V_{eff}(\beta).
+\end{equation*}
+The characteristic function $W_\beta$ is then
+\begin{equation*}
+ S = \int \sqrt{2 I_1 \left(E - V_{eff}(\beta)\right)} d\beta - E t,
+\end{equation*}
+and the final expression is
+\begin{equation*}
+ \beta + t = \frac{\partial W_\beta}{\partial \beta} = \sqrt{\frac{I_1}{2}} \int \frac{d\beta}{\sqrt{E - V_{eff}(\beta)}}
+\end{equation*}
+
+
+\end{document}

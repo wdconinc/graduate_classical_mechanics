@@ -1,0 +1,119 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+
+%opening
+\title{Physics 601 (Fall 2012) \\ Homework Assignment 9: Solutions}
+\date{Due: Friday November 9, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Small Oscillations}
+\begin{enumerate}
+ \item A charged particle of mass $m$ and charge $+e$ is restricted to move in the $xy$ plane.  It moves under the influence of two fixed charges $q_1$ located at $\pm a \hat{x}$ and two other charges $q_2$ at $\pm a \hat{y}$.  Show that the origin is a point of equilibrium.  Under which conditions is the origin a point of \emph{stable} equilibrium?  For a stable equilibrium, find the frequencies and normal modes of the small oscillations around the origin.
+\end{enumerate}
+The total potential energy at a position $(x,y)$ close to the origin is
+\begin{equation*}
+ V(x,y) = k \frac{q_1}{\sqrt{(x - a)^2 + y^2}} +  k \frac{q_1}{\sqrt{(x + a)^2 + y^2}} +  k \frac{q_2}{\sqrt{x^2 + (y - a)^2}} +  k \frac{q_2}{\sqrt{x^2 + (y + a)^2}}.
+\end{equation*}
+We can expand these terms for small $x$ and $y$ to second order, for example for the first term:
+\begin{equation*}
+ V_1(x,y) = k \frac{q_1}{a} \left(1 - \frac{1}{2} \left(- 2 \frac{x}{a} + \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + \frac{3}{8} \left(- 2 \frac{x}{a} + \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right)^2 + \cdots \right).
+\end{equation*}
+Up to second order terms the total potential energy is then
+\begin{eqnarray*}
+ V(x,y) & = & k \frac{q_1}{a} \left( - 2 \frac{1}{2} \left( \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + 2 \frac{3}{8} \left( 2 \frac{x}{a} \right)^2 \right) \\
+ & + & k \frac{q_2}{a} \left( - 2 \frac{1}{2} \left( \left(\frac{x}{a}\right)^2 + \left(\frac{y}{a}\right)^2 \right) + 2 \frac{3}{8} \left( 2 \frac{y}{a} \right)^2 \right) + \mathcal{O}(x^3, y^3) \\
+ & = & \frac{k}{a^3} \left( (2 q_1 - q_2) x^2 + (2 q_2 - q_1) y^2 \right).
+\end{eqnarray*}
+Since the potential matrix is diagonal, the original is a stable equilibrium if both coefficients are positive, or in other words both $\frac{\partial^2 V}{\partial x^2}$ and $\frac{\partial^2 V}{\partial y^2}$ are positive.  This is the case when $2 q_1 > q_2$ and $2 q_2 > q_1$.  Because $V$ is already diagonal the frequencies are particularly easy to determine:
+\begin{eqnarray*}
+ \omega_1^2 & = & 2 \frac{k}{m a^3} (2 q_1 - q_2) \\
+ \omega_2^2 & = & 2 \frac{k}{m a^3} (2 q_2 - q_1).
+\end{eqnarray*}
+The corresponding eigenvectors are the unit vectors in the $x$ and $y$ direction.
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 4.10.
+\end{enumerate}
+a) The eigenvalue equation,
+\begin{equation*}
+ \det(V - M \omega^2) = \left| \begin{array}{cc}
+ v - m \omega^2 & v_{12} - m_{12} \omega^2 \\
+ v_{12} - m_{12} \omega^2 & v - m \omega^2 \\
+ \end{array} \right| = 0,
+\end{equation*}
+becomes $(v - m \omega^2)^2 - (v_{12} - m_{12} \omega^2)^2 = 0$, and we find immediately the solutions
+\begin{eqnarray*}
+ \omega_1^2 & = & \frac{v - v_{12}}{m - m_{12}}, \\
+ \omega_2^2 & = & \frac{v + v_{12}}{m + m_{12}}. \\
+\end{eqnarray*}
+These frequencies are indeed degenerate for the given limits.
+
+b) The eigenvector equation is
+\begin{equation*}
+ \left[ \begin{array}{cc}
+ v - m \omega^2 & v_{12} - m_{12} \omega^2 \\
+ v_{12} - m_{12} \omega^2 & v - m \omega^2 \\
+ \end{array} \right] \left[ \begin{array}{c} z_1 \\ z_2 \end{array} \right] = 0
+\end{equation*}
+or $(v - m \omega^2) z_1 + (v_{12} - m_{12} \omega^2) z_2 = 0$ and $(v_{12} - m_{12} \omega^2) z_1 + (v - m \omega^2) z_2 = 0$.  For $(m_{12},v_{12}) \to 0$, $\omega_1^2 = \omega_2^2 = v/m$ and we find that $z_1$ and $z_2$ are arbitrary.  For $(m,v) \to 0$, $\omega_1^2 = \omega_2^2 = v_{12}/m_{12}$ and we also find that $z_1$ and $z_2$ are arbitrary.  In both of these limits we can choose two linearly independent eigenvectors in the $(z_1,z_2)$ plane
+\begin{equation*}
+ z^{(1)} = \left[ \begin{array}{c} z^{(1)}_1 \\ z^{(1)}_2 \end{array} \right] \qquad
+ z^{(2)} = \left[ \begin{array}{c} z^{(2)}_1 \\ z^{(2)}_2 \end{array} \right].
+\end{equation*}
+The rest is just confusing notation by F\&W to absorb arbitrary phases determined by the initial conditions.
+
+c) To make $z^{(1)}$ and $z^{(2)}$ orthonormal, we will start by normalizing $z^{(1)}$:
+\begin{equation*}
+ \tilde{z}^{(1)} = \frac{1}{C_1} z^{(1)} \quad \hbox{with} \quad C_1^2 = (z^{(1)})^T M z^{(1)} = \sum_{ij} z^{(1)}_i m_{ij} z^{(1)}_j.
+\end{equation*}
+We subtract a fraction $\alpha$ of $z^{(1)}$ from $z^{(2)}$ such that $z^{(1)} \perp (z^{(2)} - \alpha z^{(1)})$, or $(z^{(1)})^T M (z^{(2)} - \alpha z^{(1)}) = 0$.  This requires that
+\begin{equation*}
+ \alpha = \frac{(z^{(1)})^T M z^{(2)}}{(z^{(1)})^T M z^{(1)}} = \frac{\sum_{ij} z^{(1)}_i m_{ij} z^{(2)}_j}{\sum_{ij} z^{(1)}_i m_{ij} z^{(1)}_j}.
+\end{equation*}
+Now all that remains is finding $C_2$ from $(z^{(2)} - \alpha z^{(1)})^T M (z^{(2)} - \alpha z^{(1)}) = C_2^2$, or $(z^{(2)})^T M z^{(2)} - 2 \alpha (z^{(1)})^T M z^{(2)} + \alpha^2 (z^{(1)})^T M z^{(1)} = C_2^2$, or $(z^{(2)})^T M z^{(2)} - \alpha^2 C_1^2 = C_2^2$,
+\begin{equation*}
+ \tilde{z}^{(2)} = \frac{1}{C_2} (z^{(2)} - \alpha z^{(1)}) \quad \hbox{with} \quad C_2^2 = \sum_{ij} z^{(2)}_i m_{ij} z^{(2)}_j - \alpha^2 C_1^2.
+\end{equation*}
+
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 4.13.
+\end{enumerate}
+To determine the dispersion relation we use the equations of motion.  These can be obtained from the Lagrangian,
+\begin{equation*}
+ L = T - V = \frac{1}{2} m \sum_i \dot\eta_i^2 - \frac{1}{2} k \sum_i (\eta_{i+1} - \eta_i)^2 - \frac{1}{2} m \frac{g}{\ell} \sum_i \eta_i^2,
+\end{equation*}
+but we can also consider the force and immediately write down
+\begin{eqnarray*}
+ m \ddot\eta_i & = & - m \frac{g}{\ell} \eta_i + k (\eta_{i+1} - \eta_i) - k (\eta_i - \eta_{i-1}) \\
+ m \ddot\eta_i & = & - (m \frac{g}{\ell} + 2 k) \eta_i  + k (\eta_{i+1} + \eta_{i-1}).
+\end{eqnarray*}
+We assume a wave solution of the form $\eta_i(t) = \eta(x_i,t) = A \exp i(q x_i - \omega t)$, and we substitute this in the equation of motion to find the dispersion relation,
+\begin{eqnarray*}
+ - m \omega^2 & = & - (m \frac{g}{\ell} + 2 k) + k (e^{iqa} + e^{-iqa}) \\
+ \omega^2 & = & \frac{g}{\ell} + 4 \frac{k}{m} \sin^2 \frac{qa}{2}.
+\end{eqnarray*}
+We find that there is an offset of $\frac{g}{\ell}$ in the frequency when comparing with the sketch of Figure 24.6 in F\&W.
+
+With periodic boundary conditions we require that $\eta(x_i) = \eta(x_i + N a)$ or $\exp iqNa = 1$.  The allowed wavenumbers are then
+\begin{equation*}
+ q_n = \frac{2 \pi n}{N a} \quad \hbox{with} \quad n = 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+The allowed frequencies are now
+\begin{equation*}
+ \omega_n^2 = \frac{g}{\ell} + 4 \frac{k}{m} \sin^2 \frac{\pi n}{N} \quad \hbox{with} \quad n = 0, \pm 1, \pm 2, \ldots
+\end{equation*}
+The lowest frequency is $\omega_0^2 = \frac{g}{\ell}$, when all pendulums are moving in phase and the springs have no effect.
+
+\end{document}

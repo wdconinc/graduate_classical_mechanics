@@ -1,0 +1,42 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 4}
+\date{Due: Thursday September 26, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Forces of Constraint}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 3.17.
+\end{itemize}
+
+\paragraph*{Calculus of Variations}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 3.19.
+\end{itemize}
+
+\paragraph*{Lagrangians, Hamiltonians, and Noether's Theorem}
+\begin{itemize}
+ \item The Lagrangian for a free particle in generalized multi-dimensional curvilinear coordinates is obtained analogously to the two-dimensional case of Fetter \& Walecka, Problem 3.19 above.  Find the canonical momenta $p_i$ and show that the Hamiltonian can be written as $H = \sum_{i,j} \frac{1}{2m} g^{ij} p_i p_j$, without reference to the generalized velocities $\dot{q}_i$.  Use this result to find the Hamiltonian of a free particle in spherical coordinates as a function of the generalized coordinates and momenta.  Find Hamilton's equations of motion and identify two constants of the motion for this coordinate system.
+ \item The point of suspension of a simple pendulum of length $\ell$ and mass $m$ is constrained to move on the parabola $z = a x^2$ in a vertical plane.  Derive the Hamiltonian and the equations of motion for this system.  \textit{Note:} You can write the kinetic energy as the quadratic form $T = \frac{1}{2} \dot{q}^T M \dot{q} = \frac{1}{2} p^T M^{-1} p$ for some symmetric matrix $M$.
+ \item Consider a system with conservative forces derivable from a time-independent potential $V(q_j)$ and dissipative forces derivable from a dissipation function $\mathcal{F} = \frac{1}{2}\sum_j k_j \dot{q}_j^2$.  If $L$ is not an explicit function of the time and the system satisfies all requirements for $H$ to be equal to the total energy $E$, determine the rate of change of the total energy.
+ \item Comment on energy and momentum conservation for the Langrangian
+ \begin{equation*}
+  L = e^{\gamma t} \left( \frac{1}{2}m \dot{q}^2 - \frac{1}{2}k q^2 \right).
+ \end{equation*}
+ Find the equations of motion and describe the system.  Make the transformation $s = e^{\gamma t/2}q$.  Show that in the new system of coordinates there is a conserved ``energy.''  Solve the resulting equations of motion and interpret the results.
+\end{itemize}
+
+\end{document}

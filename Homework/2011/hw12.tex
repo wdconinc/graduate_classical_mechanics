@@ -1,0 +1,39 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{electComp}
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 12}
+\date{Due: Thursday December 1, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 5.9.  Describe what will happen to a real symmetric top that is set spinning with its axis initially vertical and with initial $\omega$ large enough.
+ \item Fetter \& Walecka, Problem 6.13.
+\end{enumerate}
+
+\paragraph*{Non-linear Dynamics}
+\begin{enumerate}[resume]
+ \item For the Duffing oscillator with potential $V(q) = \frac{1}{2} m \omega_0 q^2 + \frac{1}{4} m \epsilon q^4$ with initial conditions $q(0) = a$ and $\dot{q}(0) = 0$, use the conservation of energy to find the period $\tau(E)$ as a function of energy.  How does $\tau$ behave as a function of $\epsilon$ for fixed $E$?  For small $\epsilon$, expand to rederive the frequency shift $\omega = \omega_0 + \epsilon \frac{3a^2}{8\omega_0}$.
+ \item Consider two coupled oscillators with Hamiltonian
+ \begin{equation*}
+  H = \frac{p_1^2}{2m} + \frac{1}{2} m \omega_1^2 q_1^2 + \frac{p_2^2}{2m} + \frac{1}{2} m \omega_2^2 q_1^2 + \epsilon m^2 \omega_1^2 \omega_2^2 q_1^2 q_2^2.
+ \end{equation*}
+ Transform to action-angle variables, and construct the new Hamiltonian $H(J_1, J_2, \phi_1, \phi_2)$.  Use the mean Hamiltonian $\bar{H}(J_1,J_2) = \langle H \rangle$ averaged over the range $0 \le \phi_1,\phi_2 \le 2\pi$ to show that the perturbed frequencies are $\langle \dot\phi_1 \rangle \approx \omega_1 + \epsilon \omega_1 \omega_2 J_2$ and $\langle \dot\phi_2 \rangle \approx \omega_2 + \epsilon \omega_1 \omega_2 J_1$ to first order in $\epsilon$.
+\end{enumerate}
+
+\end{document}

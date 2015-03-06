@@ -1,0 +1,53 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 7}
+\date{Due: Thursday October 24, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Hamilton-Jacobi Theory}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 6.4 \& 6.14 (Use the results from Chapter 1 where appropriate).
+\end{itemize}
+
+\paragraph*{Non-Linear Dynamics}
+\begin{itemize}
+ \item For the Duffing oscillator with potential $V(q) = \frac{1}{2} m \omega_0 q^2 + \frac{1}{4} m \epsilon q^4$ with initial conditions $q(0) = a$ and $\dot{q}(0) = 0$, use the conservation of energy to find the period $\tau(E)$ as a function of energy.  How does $\tau$ behave as a function of $\epsilon$ for fixed $E$?  For small $\epsilon$, expand to rederive the frequency shift $\omega = \omega_0 + \epsilon \frac{3a^2}{8\omega_0}$.
+ 
+ \textit{Hint:} The period $\tau$ is the integral of $t$ over one cycle, or $\tau = \int_{cycle} \frac{dt}{dq} dq$.
+ 
+ \item Consider two coupled oscillators with Hamiltonian
+ \begin{equation*}
+  H = \frac{p_1^2}{2m} + \frac{1}{2} m \omega_1^2 q_1^2 + \frac{p_2^2}{2m} + \frac{1}{2} m \omega_2^2 q_1^2 + \epsilon m^2 \omega_1^2 \omega_2^2 q_1^2 q_2^2.
+ \end{equation*}
+ Transform to action-angle variables, and construct the new Hamiltonian $H(J_1, J_2, \phi_1, \phi_2)$.  Use the mean Hamiltonian $\bar{H}(J_1,J_2) = \langle H \rangle$ averaged over the range $0 \le \phi_1,\phi_2 \le 2\pi$ to show that the perturbed frequencies are $\langle \dot\phi_1 \rangle \approx \omega_1 + \epsilon \omega_1 \omega_2 J_2$ and $\langle \dot\phi_2 \rangle \approx \omega_2 + \epsilon \omega_1 \omega_2 J_1$ to first order in $\epsilon$.
+
+ \item A recent paper in the American Journal of Physics, "Exploring dynamical systems and chaos using the logistic map model of population change," Jeffrey R. Groff, Am. J. Phys. 81(10), 725-732, \url{http://dx.doi.org/10.1119/1.4813114}, deals with models for population growth.  In particular it uses a modification of the Malthusian growth model (equation 1) with growth rate $r$, called the logistic equation (equation 2), where $K$ is the capacity of the environment to accommodate a particular population (due to finite food supply, for example).  The discretization of the logistic equation is the logistic map (equation 3).  The behavior of the logistic map exhibits chaotic behavior for large values of $r$.
+ 
+ Write one or two computer programs (in any language, except for the comments which should be present and in english)
+
+ \begin{itemize}
+  \item The program will draw the cobweb plots in figure 4 for the conditions of a stable fixed point, a period-4 oscillation limit cycle, and chaotic behavior. 
+  \item The program will construct the bifurcation diagram for the logistic map in figure 3.  Make sure that you can zoom in to a particular $r$ range.
+ \end{itemize}
+ 
+ If $\mu_n$ is the value of $r$ where the first $2^n$ cycle appears, determine the Feigenbaum constant $\delta$ which is the limit of ratio of $\mu_{n+1}-\mu_n$ over $\mu_{n+2}-\mu_{n+1}$.  The actual value is $\delta = 4.669201609\ldots$ but you will not be able to reach such a high precision.  The constant is common in a wide range of systems for which chaos occurs in the limit of bifurcations.
+ 
+ You will hand in your versions of figure 3 and 4, a table with the first few values of $\mu_n$, and a listing of the source code with comments.
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2013) \\ Homework Assignment 3}
+\date{Due: Thursday September 19, 2013}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Generalized Coordinates and the Lagrange's Equations}
+\begin{enumerate}
+ \item A massless inextensible string passes over a pulley which is a fixed distance above the floor.  A bunch of bananas of mass $m$ is attached to one end $A$ of the string.  A monkey of mass $M$ is initially at the other end $B$. The monkey climbs the string, and his displacement $d(t)$ with respect to the end $B$ is a \emph{given} function of time.  The system is initially at rest, so that the initial conditions are $d(0) = \dot{d}(0) = 0$.  Introduce suitable generalized coordinates and calculate the Lagrangian of the system in terms of these coordinates.  Show that the equation of motion governing the height $z$ of the monkey above the floor is $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  Integrate the equation to find the subsequent motion.  In the special case that $m = M$, show that the bananas and the monkey rise through equal distances so that the vertical separation between them is constant.
+ \item Fetter \& Walecka, Problem 3.8.
+\end{enumerate}
+
+
+\paragraph*{Calculus of Variations}
+\begin{enumerate}[resume]
+ \item Fetter \& Walecka, Problem 3.10, (a) and (c).
+ \item Show that Euler--Lagrange equation for the functional $S = \int_a^b L(q,\dot{q},t) dt$ is equivalent to
+  \begin{equation}
+   \frac{\partial L}{\partial t} = \frac{d}{dt} \left( L - \dot{q} \frac{\partial L}{\partial \dot{q}} \right).
+  \end{equation}
+ When $L$ does not depend explicitly on the time $t$, this will lead to a constant of motion.
+ \item Fermat's principle of optics states that light will follow the path that leads to an extremum in the travel time $T$.  The velocity of light in a medium with refractive index $n$ is given by $v = c/n$.
+ \begin{enumerate}
+  \item Derive Snell's law at the interface of two media with refractive indices $n_1$ and $n_2$ by minimizing the functional $T[y(x)]$ for the piecewise linear trajectory $y(x)$.
+  \item Light in the Earth's atmosphere: Fetter \& Walecka, Problem 3.12.
+ \end{enumerate}
+\end{enumerate}
+
+\end{document}

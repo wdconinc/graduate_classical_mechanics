@@ -1,0 +1,41 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{electComp}
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 10}
+\date{Due: Thursday November 10, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Rigid Body Dynamics}
+\begin{enumerate}
+ \item Show that none of the three principal moments of inertia can exceed the sum of the other two.
+ \item Consider a density distribution $\rho(\vec{r}) = \rho(r_\perp,z)$, \textit{i.e.} the $\hat{z}$ axis is an axis of rotational symmetry.
+ \begin{enumerate}
+  \item Show by direct integration that the $\hat{z}$ axis is a principal axis.
+  \item Show that the moments of inertia about any two axis in the $xy$ plane are degenerate.
+ \end{enumerate}
+ \item What is the ratio of height $h$ to radius $R$ that a uniform circular cylinder should have to have degenerate principal moments ($I_1 = I_2 = I_3$)?  In this case any set of orthonormal axes will be a set of principal axes.
+ \item Consider a circular cone of height $h$ and base radius $R$.  Use the parallel axis theorem and the moments of inertia in the frame centered at the vertex of the cone to calculate the principal moments of inertia.
+ \item Calculate the principal moments of inertia of a uniform solid sphere with radius $R$.
+ \item A uniform solid sphere of mass $M$ and radius $R$ rotates freely in space with an angular velocity $\omega$ about a fixed diameter.  A particle of mass $m$, initially on the pole, moves with a constant velocity along a great circle of the sphere.  Absent any extern torques, show that by the time the particle reaches the other pole the sphere will have been retarded by an angle
+ \begin{equation*}
+  \alpha = \omega T \left( 1 - \sqrt{\frac{2M}{2M + 5m}} \right)
+ \end{equation*}
+ where $T$ is the total time required for the particle to move from one pole to the other pole.
+\end{enumerate}
+
+\end{document}

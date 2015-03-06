@@ -1,0 +1,46 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{electComp}
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 8}
+\date{Due: Thursday October 27, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Small Oscillations}
+\begin{enumerate}
+ \item Fetter \& Walecka, Problem 4.9, (a).
+ \item A charged particle of mass $m$ and charge $+e$ is restricted to move in the $xy$ plane.  It moves under the influence of two fixed charges of $+e$ each located at $\pm a \hat{x}$ and two other charges of $+3e$ at $\pm a \hat{y}$.  Show that the origin is a point of stable equilibrium and find the frequencies and normal modes of the small oscillations around the origin.
+ \item Consider the following coupled $LC$ circuit.  By analogy to mechanical oscillators, the inductance plays the role of an inertial mass, and the capacitance plays the role of a spring constant.  Show that the correct Kirchhoff equations can be derived from a Lagrangian $L(I,Q)$ where $I_{1,2} = dQ_{1,2}/dt$ is the current flowing in a loop of the circuit (downward through each of the inductances), $L$ is the inductance of the inductor, and $C$ is the capacitance of the capacitor.  Treating the Lagrangian as a small oscillations problem, what are the normal modes and the frequencies of oscillation for the circuit?
+ \begin{center}
+  \begin{tikzpicture}[line width=1pt]
+   \draw (0,0) -- ++(0,1);
+   \draw[decorate,decoration={inductor,amplitude=0.25cm,segment length=0.35cm}] (0,1) -- ++(0,1.5) node[above left]{$L$};
+   \draw (0,2.5) |- ++(1,1);
+   \draw[decorate,decoration=capacitor] (1,3.5) -- ++(1.5,0) node[below left]{$C$};
+   \draw (2.5,3.5) -- ++(2,0);
+   \draw[decorate,decoration=capacitor] (6.0,3.5) -- ++(-1.5,0) node[below right]{$C$};
+   \draw (3.5,3.5) -- ++(0,-1);
+   \draw[decorate,decoration=capacitor] (3.5,2.5) -- ++(0,-1.5) node[above left]{$C$};
+   \draw (6,3.5) -- ++(1,0);
+   \draw (7,3.5) -- ++(0,-1);
+   \draw[decorate,decoration={inductor,amplitude=0.25cm,segment length=0.35cm}] (7,2.5) node[above right]{$L$} -- ++(0,-1.5);
+   \draw (0,0) -| ++(7,1);
+   \draw (3.5,0) -- ++(0,1);
+  \end{tikzpicture}
+ \end{center}
+ \item Fetter \& Walecka, Problem 4.13.
+\end{enumerate}
+
+\end{document}

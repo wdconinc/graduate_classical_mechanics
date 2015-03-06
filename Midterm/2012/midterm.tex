@@ -1,0 +1,58 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Midterm Exam \\ Classical Mechanics \\ Physics 601 (Fall 2012)}
+\date{Due by 9:30am on Thursday October 18, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Instructions}
+\begin{itemize}
+ \item This midterm exam is governed by William \& Mary Honor Code.
+ \item This midterm exam is to be completed \textbf{individually}.
+ \item Please carefully explain each step in your answer.
+\end{itemize}
+
+\paragraph*{Lagrangian Mechanics}
+\begin{enumerate}
+ \item A massless inextensible string passes over a pulley which is a fixed distance above the floor.  A bunch of bananas of mass $m$ is attached to one end $A$ of the string.  A monkey of mass $M$ is initially at the other end $B$. The monkey climbs the string, and his displacement $d(t)$ with respect to the end $B$ is a \emph{given} function of time.  The system is initially at rest, so that the initial conditions are $d(0) = \dot{d}(0) = 0$.  Introduce suitable generalized coordinates and calculate the Lagrangian of the system in terms of these coordinates.  Show that the equation of motion governing the height $z$ of the monkey above the floor is $(m+M)\ddot{z} - m\ddot{d} = (m-M)g$.  Integrate the equation to find the subsequent motion.  In the special case that $m = M$, show that the bananas and the monkey rise through equal distances so that the vertical separation between them is constant.
+ \item A particle of mass $m$ suspended by a massless string of length $\ell$ is stationary in a gravitational field $g$.  It is struck by an impulsive horizontal blow, giving it an initial angular velocity $\omega$.  Introduce a Lagrange multiplier and prove the following statements:
+ \begin{itemize}
+  \item If $\ell\omega^2 < 2g$, the tension $\tau$ does not vanish and the particle does not reach the horizontal.
+  \item If $2g < \ell\omega^2 < 5g$, the particle passes the horizontal and the string becomes slack before the particle comes to rest.
+  \item If $5g < \ell\omega^2$, the string always remains taut and the particle executes periodic circular motion.
+ \end{itemize}
+ Discuss the role of the tension $\tau$ in the string by showing how these results are changed if the string is replaced by a rigid massless rod.
+\end{enumerate}
+
+\paragraph*{Hamiltonian Mechanics}
+\begin{enumerate}[resume]
+ \item Find the radial and angular periods for a particle with energy $E < V_0$ trapped in a two-dimensional potential well given by
+ \begin{equation*}
+  V(r) = \left\{
+  \begin{array}{c l}
+   0, & r < a, \\
+   V_0, & r > a.
+  \end{array}
+  \right.
+ \end{equation*}
+ \item A particle moving in one dimension sees a force $F(t) = \lambda t$ that is linearly increasing with time.  Solve the equations of motion using Hamilton's principal function for the initial conditions $x(0) = 0$ and $p(0) = mv_0$.
+\end{enumerate}
+
+\paragraph*{Non-Linear Dynamics}
+\begin{enumerate}[resume]
+ \item For the Duffing oscillator with potential $V(q) = \frac{1}{2} m \omega_0 q^2 + \frac{1}{4} m \epsilon q^4$ with initial conditions $q(0) = a$ and $\dot{q}(0) = 0$, use the conservation of energy to find the period $\tau(E)$ as a function of energy.  How does $\tau$ behave as a function of $\epsilon$ for fixed $E$?  For small $\epsilon$, expand to rederive the frequency shift $\omega = \omega_0 + \epsilon \frac{3a^2}{8\omega_0}$.
+\end{enumerate}
+
+\end{document}

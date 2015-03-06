@@ -1,0 +1,43 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{amsmath}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 601 (Fall 2012) \\ Homework Assignment 3}
+\date{Due: Thursday September 20, 2012}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Calculus of Variations}
+\begin{itemize}
+ \item Fetter \& Walecka, Problem 3.10, (a) and (c).
+ \item Show that Euler--Lagrange equation for the functional $S = \int_a^b L(q,\dot{q},t) dt$ is equivalent to
+  \begin{equation}
+   \frac{\partial L}{\partial t} = \frac{d}{dt} \left( L - \dot{q} \frac{\partial L}{\partial \dot{q}} \right).
+  \end{equation}
+ When $L$ does not depend explicitly on the time $t$, this will lead to a constant of motion.
+ \item Fermat's principle of optics states that light will follow the path that leads to an extremum in the travel time $T$.  The velocity of light in a medium with refractive index $n$ is given by $v = c/n$.
+ \begin{enumerate}
+  \item Derive Snell's law at the interface of two media with refractive indices $n_1$ and $n_2$ by minimizing the functional $T[y(x)]$ for the piecewise linear trajectory $y(x)$.
+  \item Light in the Earth's atmosphere: Fetter \& Walecka, Problem 3.12.
+ \end{enumerate}
+ \item Show that the geodesics on a circular cylinder are helices.  \textit{Note: This problem was part of the qualifying exam in August 2012.}
+ \item A particle is free to move on the surface of a right circular cone with half vertex angle $\theta_0$.  The position of the particle is given in spherical polar coordinates by the radial distance from the vertex $r$ and the azimuthal angle $\phi$.
+ \begin{enumerate}
+  \item Show that the geodesics for this surface satisfy the equation
+  \begin{equation*}
+   r \frac{d^2 r}{d\phi^2} - 2 \left( \frac{dr}{d\phi} \right)^2 = r^2 \sin^2 \theta_0.
+  \end{equation*}
+  \item Show that the solution to this equation is given by $r = r_0 \sec \left( \left(\phi - \phi_0\right) \sin \theta_0 \right)$.
+ \end{enumerate}
+\end{itemize}
+
+\end{document}

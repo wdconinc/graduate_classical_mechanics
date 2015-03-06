@@ -1,0 +1,43 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{electComp}
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+%opening
+\title{Physics 601 (Fall 2011) \\ Homework Assignment 9}
+\date{Due: Thursday November 6, 2011}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Small Oscillations}
+\begin{enumerate}
+ \item A charged particle of mass $m$ and charge $+e$ is restricted to move in the $xy$ plane.  It moves under the influence of two fixed charges $q_1$ located at $\pm a \hat{x}$ and two other charges $q_2$ at $\pm a \hat{y}$.  Show that the origin is a point of equilibrium.  Under which conditions is the origin a point of \emph{stable} equilibrium?  For a stable equilibrium, find the frequencies and normal modes of the small oscillations around the origin.
+\end{enumerate}
+
+\paragraph*{Continuous Systems and Fields}
+\begin{enumerate}[resume]
+ \item Bead on a string: Fetter \& Walecka, problem 4.17. \emph{Note:} Treat the two halves of the string separately and use boundary and continuity conditions to find the eigenvalue equation for $\omega$.  Obtaining the concise expression in the book requires some trigonometric identities, such as $\tan 2x = 2 \tan x / (1-\tan^2 x)$ and $1 + \tan^2 x = \csc^2 x$.  In part (c) use symmetry properties to rewrite the integral over $(\frac{\ell}{2},\ell)$ as an integral over $(0,\frac{\ell}{2})$.
+ \item Show that if $\psi$ and $\psi^*$ are taken as two independent field variables, the Lagrangian density
+ \begin{equation}
+  \mathcal{L} = \frac{\hbar^2}{2m} \vec\nabla\psi^* \cdot \vec\nabla\psi + V \psi^*\psi + \frac{\hbar}{2i}(\psi^*\dot{\psi} - \dot{\psi}^*\psi)
+ \end{equation}
+ leads to the Schr\"odinger equation
+ \begin{equation}
+  -\frac{\hbar^2}{2m} \nabla^2 \psi + V \psi = i\hbar \frac{\partial \psi}{\partial t},
+ \end{equation}
+ and its complex conjugate.  What are the canonical momentum densities $\pi = \frac{\partial \mathcal{L}}{\partial \dot\psi}$ and $\pi^* = \frac{\partial \mathcal{L}}{\partial \dot\psi^*}$?  Obtain the Hamiltonian density $\mathcal{H}$ corresponding to $\mathcal{L}$.
+ \item We derived the Klein-Gordon equation for a charged scalar meson represented by the complex field $\phi$ from the Lagrangian density $\mathcal{L} = c^2 \partial_\mu \phi \partial^\mu \phi^* - m_0^2 c^2 \phi \phi^*$.  Add the term $j_\lambda A^\lambda$ to the Lagrangian density to represent the interaction with an electromagnetic field $A$, where $j_\lambda = i(\phi \partial_\lambda \phi^* - \phi^* \partial_\lambda \phi)$.  What are the field equations for $\phi$ and $\phi^*$?
+\end{enumerate}
+
+\end{document}
